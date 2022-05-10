@@ -1,0 +1,9 @@
+<figure class="thumb">
+    <div class="wrapper">
+        <picture class="lozad" data-iesrc="'.$mcThumb_extra_small[0].'" data-alt="'.$thmbalt.'">
+            <source srcset="'.$mcThumb_small[0].'" media="(min-width: 320px)">
+            <source srcset="'.$mcThumb_extra_small[0].'">
+            <noscript><img src="'.$mcThumb_small[0].'" alt="'.$thmbalt.'"></noscript>
+        </picture>
+    </div>
+</figure>

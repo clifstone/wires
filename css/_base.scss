@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+
+html,
+body {
+    opacity: 1 !important;
+    height: 100%;
+    >iframe {
+        display: none;
+    }
+}
+
+img,
+svg {
+    width: 100%;
+    height: auto;
+}
+
+figure {
+    margin: 0;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border: 0px none;
+    background: transparent;
+    cursor: pointer;
+}
+
+input,
+textarea {
+    width: 100%;
+}
+
+input {
+    &[type="submit"],
+    &[type="checkbox"] {
+        width: auto;
+    }
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}

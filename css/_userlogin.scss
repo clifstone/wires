@@ -1,0 +1,37 @@
+.logreg {
+    display: flex;
+    grid-gap: 4px;
+}
+
+.headerlogin,
+.headerregister {
+    >a {
+        display: inline-block;
+        border: 1px solid;
+        border-radius: 4px;
+        padding: 8px;
+    }
+}
+
+.useravatar {
+    display: flex;
+    display: flex;
+    align-items: center;
+    >.avatarwrap {
+        width: 36px;
+        height: 36px;
+        overflow: hidden;
+        border: 2px solid white;
+        border-radius: 999px;
+    }
+    >.opts {
+        font-size: 12px;
+        margin: 0 0 0 8px;
+        display: none;
+    }
+    @media #{$des} {
+        >.opts {
+            display: block;
+        }
+    }
+}

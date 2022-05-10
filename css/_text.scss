@@ -1,0 +1,84 @@
+body {
+    font-size: 18px;
+    font-family: sans-serif;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h2 {
+    .row-header & {
+        font-size: 1.2rem;
+    }
+    .hero & {
+        padding: 16px;
+        font-size: clamp(1.4rem, calc(0.7431rem + 0.5351vw), 1.6rem);
+    }
+}
+
+h3 {
+    padding: 4px 0;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    article & {
+        font-size: clamp(1rem, calc(0.7431rem + 0.5351vw), 1.1rem);
+        -webkit-line-clamp: 2;
+    }
+    .mainvideo & {
+        font-size: clamp(1.2rem, calc(0.7431rem + 0.5351vw), 1.4rem);
+        line-height: clamp(1.8rem, calc(0.7431rem + 0.5351vw), 2rem);
+    }
+}
+
+p {
+    margin: 16px 0;
+    .post-content & {
+        line-height: 1.7;
+        margin: 0 0 24px;
+    }
+    .grid-item & {
+        font-size: clamp(0.8rem, calc(0.7431rem + 0.5351vw), 0.9rem);
+        line-height: clamp(1.2rem, calc(0.7431rem + 0.5351vw), 1.4rem);
+        max-height: 2.6rem;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        display: flex;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        white-space: normal;
+        margin: 0;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ul ul,
+ul ul ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+input,
+textarea,
+select,
+button {
+    font-family: inherit;
+}
+
+.breadcrumbs {
+    font-size: 12px;
+    color: gray;
+    padding: 16px
+}
+
+.navtitle {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 8px 0;
+}

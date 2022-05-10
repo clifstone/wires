@@ -1,0 +1,47 @@
+.thumb-wrapper {
+    position: relative;
+    .timestamp {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 4px;
+    }
+}
+
+.thumb {
+    overflow: hidden;
+    position: relative;
+    >.wrapper {
+        @include absoStretch;
+    }
+    img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+    }
+    &:before {
+        content: '';
+        width: 100%;
+        display: block;
+        padding-bottom: var(--thAs);
+    }
+    .grid-item.video & {
+        &:after {
+            content: url(images/playbtnoverlay.svg);
+            width: 25%;
+            max-width: 85px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    .ov &,
+    .bgGrad & {
+        &:after {
+            content: '';
+            @include absoStretch;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+    }
+}

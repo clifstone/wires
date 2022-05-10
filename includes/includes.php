@@ -1,0 +1,22 @@
+<?php
+include 'funcs/loadmore.php';
+include 'shorts/instalist.php';
+include 'shorts/mclist.php';
+include 'shorts/adshort.php';
+include 'shorts/carousel.php';
+include 'shorts/featuredvid.php';
+include 'shorts/layout/divider.php';
+include 'shorts/layout/tweet.php';
+include 'shorts/layout/shortcode.php';
+include 'shorts/newsletterlauncher.php';
+include 'shorts/hero.php';
+include 'site/styles.php';
+include 'site/scripts.php';
+include 'site/favicons.php';
+include 'site/videoembed.php';
+include 'options/theme-options.php';
+include 'options/adtags.php';
+include 'menus/menu-item-options.php';
+include 'widgets/sidebars.php';
+include 'widgets/ad-unit.php';
+include 'widgets/widget_logic.php';
