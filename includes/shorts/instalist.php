@@ -323,7 +323,7 @@ function instalist_func( $atts = array(), $content="null" ) {
                         fireAllTorpedos(mcCatName, mcNumOf, mcTagName); 
                     }
                 });
-            <?php }else if($loadmoreonclick || $loadmoreonscroll){ ?>
+            <?php }else if($loadmoreonclick){ ?>
 
                 var mcloadmore = document.querySelector('#loadmore-<?php echo $mcRand; ?>');
                 cheese = page * mcNumOf;
@@ -339,6 +339,9 @@ function instalist_func( $atts = array(), $content="null" ) {
 
                 if($loadmoreonscroll){ ?>
                     inView("#loadmore-<?php echo $mcRand; ?>").on('enter', function(){
+                        page++;
+                    cheese = page * mcNumOf;
+                    if(cheese >= mcTotalNum){ document.getElementById('mclist-<?php echo $mcRand; ?>').classList.add('nomore'); };
                         fireAllTorpedos(mcCatName, mcNumOf, mcTagName);
                     });
                 <?php }

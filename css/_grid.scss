@@ -571,4 +571,7 @@ $col3-width: 300px;
             }
         }
     }
+    .nomore & {
+        display: none;
+    }
 }
