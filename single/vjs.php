@@ -28,12 +28,12 @@
 
 <div class="vid-header vjs">
     <div class="wrapper">
-            <?php if(count($vjs_sources) === 7){ ?>
-                <div itemscope itemtype="https://schema.org/VideoObject"><meta itemprop="uploadDate" content="<?php echo $vjs_sources[0]; ?>"/><meta itemprop="name" content="<?php echo esc_js($vjs_sources[1]); ?>"/><meta itemprop="description" content="<?php echo esc_js($vjs_sources[2]); ?>"/><meta itemprop="duration" content="<?php echo $vjs_sources[3]; ?>" /><meta itemprop="thumbnailUrl" content="<?php echo $vjs_sources[4]; ?>"/><meta itemprop="contentUrl" content="<?php echo $vjs_sources[5]; ?>"/></div>
-            <?php }
-            if(count($vjs_sources) === 6){ ?>
-                <div itemscope itemtype="https://schema.org/VideoObject"><meta itemprop="uploadDate" content="<?php echo $vjs_sources[0]; ?>"/><meta itemprop="name" content="<?php echo esc_js($vjs_sources[1]); ?>"/><meta itemprop="description" content="<?php echo esc_js($vjs_sources[2]); ?>"/><meta itemprop="thumbnailUrl" content="<?php echo $vjs_sources[3]; ?>"/><meta itemprop="contentUrl" content="<?php echo $vjs_sources[4]; ?>"/></div>
-            <?php } ?>
+        <?php if(count($vjs_sources) === 7){ ?>
+            <div itemscope itemtype="https://schema.org/VideoObject"><meta itemprop="uploadDate" content="<?php echo $vjs_sources[0]; ?>"/><meta itemprop="name" content="<?php echo esc_js($vjs_sources[1]); ?>"/><meta itemprop="description" content="<?php echo esc_js($vjs_sources[2]); ?>"/><meta itemprop="duration" content="<?php echo $vjs_sources[3]; ?>" /><meta itemprop="thumbnailUrl" content="<?php echo $vjs_sources[4]; ?>"/><meta itemprop="contentUrl" content="<?php echo $vjs_sources[5]; ?>"/></div>
+        <?php }
+        if(count($vjs_sources) === 6){ ?>
+            <div itemscope itemtype="https://schema.org/VideoObject"><meta itemprop="uploadDate" content="<?php echo $vjs_sources[0]; ?>"/><meta itemprop="name" content="<?php echo esc_js($vjs_sources[1]); ?>"/><meta itemprop="description" content="<?php echo esc_js($vjs_sources[2]); ?>"/><meta itemprop="thumbnailUrl" content="<?php echo $vjs_sources[3]; ?>"/><meta itemprop="contentUrl" content="<?php echo $vjs_sources[4]; ?>"/></div>
+        <?php } ?>
     </div>
 </div>
 

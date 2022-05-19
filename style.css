@@ -786,6 +786,12 @@ body {
   }
 }
 
+@media (min-width:1024px) {
+  .single .site-main, .search-results .site-main {
+    order: 1;
+  }
+}
+
 .site-sidebar > .wrapper {
   position: -webkit-sticky;
   position: sticky;
@@ -796,6 +802,9 @@ body {
   margin: 0 0 24px;
 }
 @media (min-width:1024px) {
+  .single .site-sidebar, .search-results .site-sidebar {
+    order: 2;
+  }
   .single .site-sidebar .plaid, .search-results .site-sidebar .plaid {
     justify-content: left;
   }

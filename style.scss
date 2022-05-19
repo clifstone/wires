@@ -128,7 +128,10 @@ Theme Name: Wires
 .site-main {
     @media #{$des} {
         //padding: 16px;
-        .single & {}
+        .single &,
+        .search-results & {
+            order: 1
+        }
     }
 }
 
@@ -144,6 +147,7 @@ Theme Name: Wires
     @media #{$des} {
         .single &,
         .search-results & {
+            order: 2;
             .plaid {
                 justify-content: left;
             }
