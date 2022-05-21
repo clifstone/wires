@@ -1,5 +1,6 @@
 <?php
 include 'funcs/loadmore.php';
+include 'funcs/vjsembeds.php';
 include 'shorts/instalist.php';
 include 'shorts/mclist.php';
 include 'shorts/adshort.php';

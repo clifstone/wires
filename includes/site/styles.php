@@ -3,6 +3,7 @@
 function dequeuestuff() {
     global $post;
     wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style( 'global-styles' );
 }
 add_action( 'wp_enqueue_scripts', 'dequeuestuff', 99);
 

@@ -1,5 +1,9 @@
-.grid {
+.grid,
+.gridcols {
     display: grid;
+}
+
+.grid {
     &.sm-1 {
         grid-template-columns: minmax(0, 1fr);
     }

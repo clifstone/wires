@@ -1,0 +1,58 @@
+.has-playlist {
+    .breadcrumbs {
+        padding: 0px;
+        margin: 0 0 16px 0;
+    }
+    .post-header {
+        padding: 0;
+        >.wrapper {
+            padding: 0;
+            border: 0px none;
+        }
+    }
+    h1 {
+        font-size: clamp(1.1rem, 0.4262rem + 3.2787vw, 2rem);
+    }
+}
+
+.mcplaylist {
+    width: 100%;
+    overflow: hidden;
+    .plistcols {
+        grid-gap: 8px;
+        >.gridcol {
+            &:last-child {
+                width: 100%;
+                white-space: nowrap;
+                overflow-x: auto;
+            }
+        }
+    }
+}
+
+.vjsplayer {
+    position: relative;
+    background-color: black;
+    &:before {
+        content: '';
+        display: block;
+        padding-bottom: var(--thAs)
+    }
+    >.wrapper {
+        @include absoStretch;
+    }
+}
+
+.pli-list {
+    display: flex;
+    gap: 8px;
+}
+
+.playlistitem {
+    order: var(--pliorder);
+    transition: order 1s ease-in-out;
+    >.wrapper {
+        width: 144px;
+    }
+    .gridcols {}
+}

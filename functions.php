@@ -16,17 +16,34 @@ function redirect_after_logout() {
 }
 add_action( 'wp_logout', 'redirect_after_logout' );
 
-// custom excerpt length
-// function custom_excerpt_length($length) {
-//     if(wp_is_mobile()){ return 10; }else{ return 16; }
-// }
-//add_filter('excerpt_length', 'custom_excerpt_length');
-
-// custom excerpt ellipses for 2.9+
-// function custom_excerpt_more($more) {
-//     return '...';
-// }
-//add_filter('excerpt_more', 'custom_excerpt_more');
+function disable_emojis() {
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    remove_action( 'admin_print_styles', 'print_emoji_styles' ); 
+    remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+    remove_filter( 'comment_text_rss', 'wp_staticize_emoji' ); 
+    remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+    add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+    add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2 );
+}
+add_action( 'init', 'disable_emojis' );
+   
+function disable_emojis_tinymce( $plugins ) {
+    if ( is_array( $plugins ) ) {
+        return array_diff( $plugins, array( 'wpemoji' ) );
+    } else {
+        return array();
+    }
+}
+   
+function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
+    if( 'dns-prefetch' == $relation_type ) {
+        $emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
+        $urls = array_diff( $urls, array( $emoji_svg_url ) );
+    }
+    return $urls;
+}
 
 
 if (!current_user_can('edit_users')) {
@@ -75,31 +92,6 @@ function getPostViews($postID){
     }
     return $count.' Views';
 }
-
-// function setPostViews($postID) {
-//     $count_key = 'post_views_count';
-//     $count = get_post_meta($postID, $count_key, true);
-//     if($count==''){
-//         $count = 0;
-//         delete_post_meta($postID, $count_key);
-//         add_post_meta($postID, $count_key, '0');
-//     }else{
-//         $count++;
-//         update_post_meta($postID, $count_key, $count);
-//     }
-// }
-
-// add_filter('manage_posts_columns', 'posts_column_views');
-// add_action('manage_posts_custom_column', 'posts_custom_column_views',5,2);
-// function posts_column_views($defaults){
-//     $defaults ['post_views'] = __('Views');
-//     return $defaults;
-// }
-// function posts_custom_column_views($column_name, $id){
-//     if($column_name === 'post_views'){
-//         echo getPostViews(get_the_ID());
-//     }
-// }
 
 function dynamictime() {
   global $post;
@@ -165,6 +157,7 @@ function addsomebodyclasses( $classes ){
         'is-mobile'            => wp_is_mobile(),
         'is-desktop'           => ! wp_is_mobile(),
         'has-blocks'           => function_exists( 'has_blocks' ) && has_blocks(),
+        'has-playlist'         => get_post_meta(get_the_ID(), 'vid_playlist_urls', true)
     );
  
     foreach ( $include as $class => $do_include ){

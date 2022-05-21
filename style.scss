@@ -2,20 +2,16 @@
 Theme Name: Wires
 */
 
-@import "css/_setsvarsmixs.scss";
-@import "css/_base.scss";
-@import "css/_grid.scss";
-@import "css/_mobheader.scss";
+@import "css/setsvarsmixs";
+@import "css/base";
+@import "css/grid";
+@import "css/mobheader";
 .site-wrapper {
     display: grid;
     grid-template-areas: 'aside alert' 'aside header' 'aside plaid' 'aside nav' 'aside main' 'footer footer';
     grid-template-columns: 0fr;
     @media #{$des} {
         grid-template-columns: var(--asidewidth) 1fr;
-        .single & {
-            grid-template-areas: 'aside alert' 'aside header' 'aside nav' 'aside plaid' 'aside main' 'footer footer';
-            grid-template-columns: 0 1fr;
-        }
     }
 }
 
@@ -76,10 +72,6 @@ Theme Name: Wires
     @media #{$des} {
         position: relative;
         transform: translateX(0);
-        .single & {
-            position: fixed;
-            transform: translateX(calc(-1 * var(--asidewidth)));
-        }
     }
 }
 
@@ -93,13 +85,11 @@ Theme Name: Wires
             grid-gap: 16px;
             padding: 8px;
         }
-        .single &,
         .search-results & {
             padding: 16px;
         }
     }
     @media #{$des} {
-        .single &,
         .search-results & {
             display: grid;
             grid-template-columns: 1fr 300px;
@@ -110,11 +100,6 @@ Theme Name: Wires
         }
     }
     @media #{$des2} {
-        .single & {
-            grid-template-columns: 1fr 432px;
-            grid-gap: 48px;
-            padding: 16px 8vw;
-        }
         .search-results & {
             grid-gap: 48px;
         }
@@ -128,7 +113,6 @@ Theme Name: Wires
 .site-main {
     @media #{$des} {
         //padding: 16px;
-        .single &,
         .search-results & {
             order: 1
         }
@@ -145,9 +129,7 @@ Theme Name: Wires
         }
     }
     @media #{$des} {
-        .single &,
         .search-results & {
-            order: 2;
             .plaid {
                 justify-content: left;
             }
@@ -459,148 +441,20 @@ Theme Name: Wires
 }
 
 .grecaptcha-badge {
-    display: none !important;
+    visibility: hidden;
 }
 
-.hero {
-    >.wrapper {
-        display: grid;
-        grid-gap: 8px;
-    }
-    .mainvideo {
-        margin: 0 0 16px 0;
-        .vidholder>.wrapper {
-            margin: 0 -8px;
-            @media #{$des2} {
-                margin: 0;
-            }
-            @media #{$des} {
-                margin: 0 0 0 0;
-            }
-        }
-    }
-    .featuredinfo {
-        padding: 16px;
-        h3 {
-            >span {
-                line-height: 1;
-                font-size: 14px;
-                text-transform: uppercase;
-                color: var(--tertiary);
-            }
-            >a {
-                @include textdeco(inherit, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1), var(--tertiary));
-            }
-        }
-        p {
-            font-size: clamp(1rem, calc(0.7431rem + 0.5351vw), 1.1rem);
-            line-height: clamp(1.6rem, calc(0.7431rem + 0.5351vw), 2rem);
-            max-height: 3rem;
-            overflow: hidden;
-            -webkit-line-clamp: 2;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            text-overflow: ellipsis;
-            white-space: normal;
-            margin: 16px 0;
-        }
-        .featured-vid-link {
-            text-transform: uppercase;
-            display: inline-block;
-            background-color: rgba(0, 0, 0, 0.2);
-            padding: 8px 16px;
-            margin: 12px 0 0 0;
-            @media #{$des} {
-                &:hover {
-                    color: var(--whitetext);
-                    background-color: var(--tertiary);
-                }
-            }
-        }
-    }
-    .plaidslot.mr,
-    .plaidslot.mr>.wrapper {
-        width: 100%;
-        height: 100%;
-        background: #ddd;
-    }
-    .plaidslot.mr>.wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 8px;
-    }
-    .grid-item {
-        padding: 8px;
-        box-shadow: 0 0 12px rgba(black, 0.5);
-    }
-    @media #{$tab} {
-        >.wrapper {
-            grid-template-columns: repeat(2, 1fr);
-            justify-content: center;
-            grid-gap: 16px;
-        }
-        .mainvideo {
-            grid-column: span 2;
-        }
-    }
-    @media #{$des} {
-        .mainvideo {
-            margin: 0;
-        }
-        .grid-item {
-            padding: 0;
-            .item-body {
-                padding: 16px;
-            }
-        }
-    }
-    @media #{$des2} {
-        >.wrapper {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            grid-template-rows: repeat(4, auto);
-            grid-gap: 8px;
-        }
-        .mainvideo {
-            grid-row: span 2;
-            padding: 0 32px 0 0;
-        }
-    }
-    @media #{$des3} {
-        >.wrapper {
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-        .grid-item {
-            &:first-of-type,
-            &:nth-of-type(2) {
-                grid-column-start: 3;
-                grid-row-start: 1;
-            }
-            &:nth-of-type(2) {
-                grid-row-start: 2;
-            }
-        }
-    }
-    .vidholder {
-        width: 100%;
-        padding: 0 0 56.25% 0;
-        position: relative;
-        >.wrapper {
-            @include absoStretch;
-        }
-    }
-}
-
-@import "css/_colors.scss";
-@import "css/_mods.scss";
-@import "css/_menus.scss";
-@import "css/_text.scss";
-@import "css/_thumb.scss";
-@import "css/_grid-item.scss";
-@import "css/_ads.scss";
-@import "css/_userlogin.scss";
-@import "css/_post-content.scss";
-@import "css/_social.scss";
-@import "css/_custom.scss";
+@import "css/colors";
+@import "css/mods";
+@import "css/menus";
+@import "css/text";
+@import "css/thumb";
+@import "css/grid-item";
+@import "css/ads";
+@import "css/userlogin";
+@import "css/hero";
+@import "css/single";
+@import "css/post-content";
+@import "css/vidplaylist";
+@import "css/social";
+@import "css/custom";

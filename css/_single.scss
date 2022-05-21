@@ -1,0 +1,39 @@
+.single {
+    @media #{$tab} {
+        .main-wrap {
+            padding: 16px;
+        }
+    }
+    @media #{$des} {
+        .site-wrapper {
+            grid-template-areas: 'aside alert' 'aside header' 'aside nav' 'aside plaid' 'aside main' 'footer footer';
+            grid-template-columns: 0 1fr;
+        }
+        .site-aside {
+            position: fixed;
+            transform: translateX(calc(-1 * var(--asidewidth)));
+        }
+        .grid-cols {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            grid-gap: 16px;
+        }
+        .site-sidebar {
+            .plaid {
+                justify-content: left;
+            }
+            .plaidslot {
+                margin: 0;
+            }
+        }
+    }
+    @media #{$des2} {
+        .main-wrap {
+            padding: 16px 8vw;
+        }
+        .grid-cols {
+            grid-template-columns: 1fr 432px;
+            grid-gap: 48px;
+        }
+    }
+}
