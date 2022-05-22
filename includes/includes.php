@@ -15,6 +15,7 @@ include 'site/styles.php';
 include 'site/scripts.php';
 include 'site/favicons.php';
 include 'site/videoembed.php';
+include 'site/videoplaylistembed.php';
 include 'options/theme-options.php';
 include 'options/adtags.php';
 include 'menus/menu-item-options.php';
