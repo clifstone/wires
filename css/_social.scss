@@ -32,3 +32,21 @@
         }
     }
 }
+
+.social-share {
+    text-align: center;
+    padding: 16px 0;
+    >.wrapper {
+        position: sticky;
+        top: 50px;
+    }
+}
+
+.shbtn {
+    background: rgba(0, 0, 0, 0);
+    padding: 16px 4px;
+    &.lab {
+        font-size: 10px;
+        color: rgba(0, 0, 0, 0.35);
+    }
+}

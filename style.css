@@ -1876,23 +1876,6 @@ button {
   grid-template-columns: auto minmax(0, 1fr);
   padding: 16px 16px 16px 4px;
 }
-.post-content-wrapper > .social-share {
-  text-align: center;
-  padding: 16px 0;
-}
-.post-content-wrapper > .social-share > .wrapper {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 50px;
-}
-.post-content-wrapper .shbtn {
-  background: rgba(0, 0, 0, 0);
-  padding: 16px 4px;
-}
-.post-content-wrapper .shbtn.lab {
-  font-size: 10px;
-  color: rgba(0, 0, 0, 0.35);
-}
 @media (min-width:1024px) {
   .post-content-wrapper {
     max-width: 64ch;
@@ -2320,7 +2303,7 @@ button {
 
 .has-playlist .breadcrumbs {
   padding: 0px;
-  margin: 0 0 8px 0;
+  margin: 0 0 0.5rem 0;
 }
 .has-playlist .post-header {
   padding: 0;
@@ -2338,12 +2321,28 @@ button {
   overflow: hidden;
 }
 .mcplaylist .plistcols {
-  grid-gap: 8px;
+  grid-gap: 0.5rem;
 }
 .mcplaylist .plistcols > .gridcol:last-child {
   width: 100%;
   white-space: nowrap;
   overflow-x: auto;
+}
+@media (min-width:1366px) {
+  .mcplaylist .plistcols {
+    grid-template-columns: 1fr 400px;
+    position: relative;
+  }
+  .mcplaylist .plistcols > .gridcol:last-child {
+    width: 400px;
+    white-space: normal;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
 }
 
 .vjsplayer {
@@ -2363,18 +2362,45 @@ button {
   right: 0;
 }
 
-.pli-list {
+@media (min-width:1366px) {
+  .pli-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+  }
+}
+
+.pli-list > .wrapper {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
+}
+@media (min-width:1366px) {
+  .pli-list > .wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
 .playlistitem {
   order: var(--pliorder);
   transition: order 1s ease-in-out;
 }
+.playlistitem h4 {
+  font-size: 0.9rem;
+}
 .playlistitem > .wrapper {
   width: 144px;
 }
+@media (min-width:1366px) {
+  .playlistitem > .wrapper {
+    width: 100%;
+  }
+  .playlistitem .gridcols {
+    grid-template-columns: 35% 65%;
+    grid-gap: 0.5rem;
+  }
+}
+
 .fb {
   background: var(--fbblue);
 }
@@ -2407,6 +2433,25 @@ button {
   line-height: 1;
   display: inline-block;
   padding: 8px 10px;
+}
+
+.social-share {
+  text-align: center;
+  padding: 16px 0;
+}
+.social-share > .wrapper {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 50px;
+}
+
+.shbtn {
+  background: rgba(0, 0, 0, 0);
+  padding: 16px 4px;
+}
+.shbtn.lab {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.35);
 }
 
 .mgbox {

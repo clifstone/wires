@@ -6,6 +6,7 @@
             <?php
                 if( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb( '<div class="breadcrumbs">','</div>' ); }
                 get_template_part( 'single/postheader' );
+                
                 get_template_part( 'single/vjsplaylist' );
                 if(is_active_sidebar('headeradslot')){ dynamic_sidebar('headeradslot'); }
             ?>
@@ -18,7 +19,6 @@
                         <div class="the-content">
                             <?php the_content(); ?>
                         </div>
-                        
                     </div>
                 </div>
                 <?php get_template_part( 'single/single-comments' ); ?>

@@ -47,7 +47,7 @@ $theplist = '
             </div>
             <div class="gridcol">
                 <div class="pli-list">
-                    '.$pli.'
+                    <div class="wrapper">'.$pli.'</div>
                 </div>
             </div>
         </div>

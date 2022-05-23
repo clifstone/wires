@@ -1,7 +1,8 @@
+$plicolw:400px;
 .has-playlist {
     .breadcrumbs {
         padding: 0px;
-        margin: 0 0 8px 0;
+        margin: 0 0 0.5rem 0;
     }
     .post-header {
         padding: 0;
@@ -19,12 +20,30 @@
     width: 100%;
     overflow: hidden;
     .plistcols {
-        grid-gap: 8px;
+        grid-gap: 0.5rem;
         >.gridcol {
             &:last-child {
                 width: 100%;
                 white-space: nowrap;
                 overflow-x: auto;
+            }
+        }
+    }
+    @media #{$des2} {
+        .plistcols {
+            grid-template-columns: 1fr $plicolw;
+            position: relative;
+            >.gridcol {
+                &:last-child {
+                    width: $plicolw;
+                    white-space: normal;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    overflow-x: hidden;
+                    overflow-y: hidden;
+                }
             }
         }
     }
@@ -44,15 +63,38 @@
 }
 
 .pli-list {
+    @media #{$des2} {
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 100%;
+    }
+}
+
+.pli-list>.wrapper {
     display: flex;
-    gap: 8px;
+    gap: 0.5rem;
+    @media #{$des2} {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
 
 .playlistitem {
     order: var(--pliorder);
     transition: order 1s ease-in-out;
+    h4 {
+        font-size: 0.9rem;
+    }
     >.wrapper {
         width: 144px;
     }
-    .gridcols {}
+    @media #{$des2} {
+        >.wrapper {
+            width: 100%;
+        }
+        .gridcols {
+            grid-template-columns: 35% 65%;
+            grid-gap: 0.5rem;
+        }
+    }
 }

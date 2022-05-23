@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'icomoon';
-    src: url('fonts/icomoon.eot?7bgxgy');
-    src: url('fonts/icomoon.eot?7bgxgy#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?7bgxgy') format('truetype'), url('fonts/icomoon.woff?7bgxgy') format('woff'), url('fonts/icomoon.svg?7bgxgy#icomoon') format('svg');
+    src: url('fonts/icomoon.eot?y7c6f6');
+    src: url('fonts/icomoon.eot?y7c6f6#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?y7c6f6') format('truetype'), url('fonts/icomoon.woff?y7c6f6') format('woff'), url('fonts/icomoon.svg?y7c6f6#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -216,4 +216,60 @@
 
 .i-pinterest:before {
     content: "\ead1";
+}
+
+.i-pencil:before {
+    content: "\e905";
+}
+
+.i-bell:before {
+    content: "\e951";
+}
+
+.i-bubbles:before {
+    content: "\e96c";
+}
+
+.i-bubbles2:before {
+    content: "\e96d";
+}
+
+.i-bubble2:before {
+    content: "\e96e";
+}
+
+.i-bubbles3:before {
+    content: "\e96f";
+}
+
+.i-bubbles4:before {
+    content: "\e970";
+}
+
+.i-lock:before {
+    content: "\e98f";
+}
+
+.i-unlocked:before {
+    content: "\e990";
+}
+
+.i-cog:before {
+    content: "\e994";
+}
+
+.i-cogs:before {
+    content: "\e995";
+}
+
+.i-sphere:before {
+    content: "\e9c9";
+}
+
+.i-earth:before {
+    content: "\e9ca";
+}
+
+.i-link:before {
+    content: "\e9cb";
 }
