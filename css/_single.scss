@@ -13,7 +13,7 @@
             position: fixed;
             transform: translateX(calc(-1 * var(--asidewidth)));
         }
-        .grid-cols {
+        .gridcols {
             display: grid;
             grid-template-columns: 1fr 300px;
             grid-gap: 16px;
@@ -31,7 +31,7 @@
         .main-wrap {
             padding: 16px 8vw;
         }
-        .grid-cols {
+        .gridcols {
             grid-template-columns: 1fr 432px;
             grid-gap: 48px;
         }

@@ -1,9 +1,9 @@
-<?php 
+<?php
     get_header();
     if(is_active_sidebar('headeradslot')){ dynamic_sidebar('headeradslot'); }
 ?>
-    <div class="main-wrap grid-cols">
-            <div class="grid-col">
+    <div class="main-wrap gridcols">
+            <div class="gridcol">
                 <main class="site-main" role="main">
                     <?php
                         if( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb( '<div class="breadcrumbs">','</div>' ); }
@@ -24,7 +24,7 @@
                     <?php if(is_active_sidebar('abovefooter')){ dynamic_sidebar('abovefooter'); } ?>
                 </main>
             </div>
-            <div class="grid-col">
+            <div class="gridcol">
                 <?php get_sidebar(); ?>
             </div>
     </div>

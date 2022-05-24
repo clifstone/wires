@@ -11,8 +11,8 @@
                 if(is_active_sidebar('headeradslot')){ dynamic_sidebar('headeradslot'); }
             ?>
         </main>
-        <div class="grid-cols">
-            <div class="grid-col">
+        <div class="gridcols">
+            <div class="gridcol">
                 <div class="post-content-wrapper">
                     <?php get_template_part( 'single/sharepost' ); ?>
                     <div class="post-content">
@@ -25,7 +25,7 @@
                 <?php get_template_part( 'single/single-related-cats' ); ?>
                 <?php if(is_active_sidebar('abovefooter')){ dynamic_sidebar('abovefooter'); } ?>
             </div>
-            <div class="grid-col">
+            <div class="gridcol">
                 <?php get_sidebar(); ?>
             </div>
         </div>

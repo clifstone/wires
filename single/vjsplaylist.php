@@ -14,19 +14,27 @@ foreach($plisturls as $plisturl){
     <div class="playlistitem" data-scriptsrc="'.getScrSrc($vjs).'" style="--pliorder: '.$x.'">
         '.getMetas($vjs).'
         <div class="wrapper">
-            <div class="gridcols">
-                <div class="gridcol">
+            <div class="modcols">
+                <div class="modcol">
                     <div class="wrapper">
                         <div class="thumb">
                             <div class="wrapper">
-                                <img src="'.$plithumb.'" alt="'.$thmbalt.'">
+                                <img src="'.$plithumb.'" alt="'.$thmbalt.'" loading="lazy">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="gridcol">
+                <div class="modcol">
                     <div class="wrapper">
                         <h4>'.$plititle.'</h4>
+                    </div>
+                </div>
+                <div class="modcol">
+                    <div class="wrapper">
+                        <div class="indicators">
+                            <span class="indicator watchnow">Watch Now</span>
+                            <span class="indicator nowwatching">Now Watching</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -39,13 +47,13 @@ foreach($plisturls as $plisturl){
 $theplist = '
 <div class="mcplaylist">
     <div class="wrapper">
-        <div class="gridcols plistcols">
-            <div class="gridcol">
+        <div class="modcols plistcols">
+            <div class="modcol">
                 <div class="vjsplayer">
                     <div class="wrapper"></div>
                 </div>
             </div>
-            <div class="gridcol">
+            <div class="modcol">
                 <div class="pli-list">
                     <div class="wrapper">'.$pli.'</div>
                 </div>
