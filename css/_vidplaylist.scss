@@ -83,6 +83,15 @@ $plicolw:400px;
         }
         scrollbar-width: thin;
         scrollbar-color: rgba(0, 0, 0, 0.5) black;
+        &:hover {
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba($tertiary, 1);
+                border-radius: 0;
+                border: 1px solid rgba($tertiary, 0);
+            }
+            scrollbar-width: thin;
+            scrollbar-color: rgba($tertiary, 0.5) black;
+        }
     }
 }
 
@@ -101,7 +110,9 @@ $plicolw:400px;
     //transition: order 1s ease-in-out;
     white-space: normal;
     font-size: clamp(0.8rem, 0.7426rem + 0.3279vw, 0.9rem);
+    border-radius: 0.25rem;
     padding: 0.25rem;
+    cursor: pointer;
     h4 {
         font-weight: 400;
     }
@@ -112,6 +123,7 @@ $plicolw:400px;
         background: white;
         box-shadow: 0 0 2px rgba(black, 0.5);
         border: 1px solid rgba($primary, 0);
+        border-radius: 0.25rem;
         transition: border 0.5s ease-out;
     }
     .modcols {
@@ -131,21 +143,22 @@ $plicolw:400px;
         }
     }
     .indicators {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         line-height: 1;
         text-align: center;
+        text-transform: uppercase;
         width: 100%;
         display: grid;
         background-color: rgba($primary, 0);
         border-top: 1px solid rgba(black, 0.1);
         overflow: hidden;
         padding: 0.25rem 0.5rem;
-        transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out, border 0.5s ease-in-out;
+        transition: transform 0.25s ease-in-out, background-color 0.25s ease-in-out, border 0.25s ease-in-out;
         >span {
             display: block;
             grid-row-start: 1;
             grid-column-start: 1;
-            transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
+            transition: transform 0.25s ease-in-out, color 0.25s ease-in-out;
             &:first-child {
                 transform: translateX(0%);
             }
@@ -177,6 +190,7 @@ $plicolw:400px;
     @media #{$des2} {
         font-size: 1rem;
         box-shadow: 0 0 2px rgba(black, 0.5);
+        transition: background-color 0.25s ease-in-out, border 0.25s ease-in-out;
         >.wrapper {
             width: 100%;
         }
@@ -195,5 +209,27 @@ $plicolw:400px;
         .indicators {
             text-align: right;
         }
+        &:hover {
+            background-color: rgba($tertiary, 1);
+            .indicators {
+                color: white;
+                border-top: 1px solid rgba(black, 0);
+                background-color: rgba($tertiary, 1);
+            }
+        }
+    }
+}
+
+.playlistcontentitem {
+    border-bottom: 4px solid rgba(black, 0.1);
+    padding: 0 0 2rem 0;
+    margin: 0 0 2rem 0;
+    a {
+        color: white;
+        line-height: 1;
+        background-image: none;
+        background-color: rgba($tertiary, 1);
+        border-radius: 0.25rem;
+        padding: 0.5rem 1rem;
     }
 }

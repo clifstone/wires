@@ -19,6 +19,9 @@
                         <div class="the-content">
                             <?php the_content(); ?>
                         </div>
+                        <div class="theplaylist-content">
+                            <?php get_template_part( 'single/playlistcontent' ); ?>
+                        </div>
                     </div>
                 </div>
                 <?php get_template_part( 'single/single-comments' ); ?>

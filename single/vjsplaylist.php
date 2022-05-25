@@ -1,13 +1,10 @@
 <?php
 
-$plisturls = explode(",", get_post_meta($post->ID,'vid_playlist_urls', true) );
+$plisturls = getPlaylistURLS($post->ID);
 $x = 1;
 foreach($plisturls as $plisturl){
     $pID = url_to_postid( basename($plisturl) );
     $vjs = get_post_meta($pID,'vid_embed_metabox', true);
-    $plithumb = wp_get_attachment_image_src( get_post_thumbnail_id($pID), 'small' )[0];
-    $imgalt = get_post_meta( $pID, '_wp_attachment_image_alt', true);
-    ($imgalt) ? ($thmbalt = $imgalt) : ($thmbalt = get_the_excerpt($pID));
     $plititle = get_the_title($pID);
     
     $pli .='
@@ -17,11 +14,11 @@ foreach($plisturls as $plisturl){
             <div class="modcols">
                 <div class="modcol">
                     <div class="wrapper">
-                        <div class="thumb">
+                        <figure class="thumb">
                             <div class="wrapper">
-                                <img src="'.$plithumb.'" alt="'.$thmbalt.'" loading="lazy">
+                                '.getPicture($pID, $tinyPic).'
                             </div>
-                        </div>
+                        </figure>
                     </div>
                 </div>
                 <div class="modcol">
@@ -44,7 +41,7 @@ foreach($plisturls as $plisturl){
     $x++;
 }
 
-$theplist = '
+echo '
 <div class="mcplaylist">
     <div class="wrapper">
         <div class="modcols plistcols">
@@ -61,12 +58,12 @@ $theplist = '
         </div>
     </div>
 </div>
-';
-
-echo $theplist; ?>
+'; ?>
 <script>
     window.addEventListener('DOMContentLoaded', (e) => {
-        let plis = document.querySelectorAll('.playlistitem');
+        let plis = document.querySelectorAll('.playlistitem'),
+            firstpli = '<script async src="'+plis[0].getAttribute('data-scriptsrc')+'"><\/script>',
+            plcont = document.querySelector('.vjsplayer > .wrapper');
 
         const reorderplis = () => {
             for(let i = 0; i < plis.length; i++){
@@ -75,13 +72,22 @@ echo $theplist; ?>
         }
 
         const fireVid = (e) => {
-            console.log(e.currentTarget.getAttribute('data-scriptsrc'));
+            let whichVid = '<script async src="'+e.currentTarget.getAttribute('data-scriptsrc')+'"><\/script>';
+
             reorderplis();
             e.currentTarget.style = '--pliorder: 1';
+            jwplayer().remove();
+            plcont.innerHTML = '';
+            postscribe(plcont, whichVid);
         }
 
         plis.forEach(pli => {
-            pli.addEventListener('click', fireVid, true);
+            pli.addEventListener('click', fireVid);
         });
+
+        inView('.vjsplayer').once("enter", function(){
+            postscribe(plcont, firstpli);
+        });
+
     });
 </script>

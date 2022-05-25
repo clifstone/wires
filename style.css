@@ -2386,6 +2386,15 @@ button {
     border-radius: 0;
     border: 1px solid rgba(0, 0, 0, 0);
   }
+  .pli-list:hover {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 129, 3, 0.5) black;
+  }
+  .pli-list:hover::-webkit-scrollbar-thumb {
+    background-color: #ff8103;
+    border-radius: 0;
+    border: 1px solid rgba(255, 129, 3, 0);
+  }
 }
 
 .pli-list > .wrapper {
@@ -2402,7 +2411,9 @@ button {
 .playlistitem {
   white-space: normal;
   font-size: clamp(0.8rem, 0.7426rem + 0.3279vw, 0.9rem);
+  border-radius: 0.25rem;
   padding: 0.25rem;
+  cursor: pointer;
 }
 .playlistitem h4 {
   font-weight: 400;
@@ -2414,6 +2425,7 @@ button {
   background: white;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(0, 74, 16, 0);
+  border-radius: 0.25rem;
   transition: border 0.5s ease-out;
 }
 .playlistitem .modcols {
@@ -2431,22 +2443,23 @@ button {
   transform: translate(-50%, -50%);
 }
 .playlistitem .indicators {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   line-height: 1;
   text-align: center;
+  text-transform: uppercase;
   width: 100%;
   display: grid;
   background-color: rgba(0, 74, 16, 0);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
   padding: 0.25rem 0.5rem;
-  transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out, border 0.5s ease-in-out;
+  transition: transform 0.25s ease-in-out, background-color 0.25s ease-in-out, border 0.25s ease-in-out;
 }
 .playlistitem .indicators > span {
   display: block;
   grid-row-start: 1;
   grid-column-start: 1;
-  transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
+  transition: transform 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 .playlistitem .indicators > span:first-child {
   transform: translateX(0%);
@@ -2474,6 +2487,7 @@ button {
   .playlistitem {
     font-size: 1rem;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.25s ease-in-out, border 0.25s ease-in-out;
   }
   .playlistitem > .wrapper {
     width: 100%;
@@ -2491,6 +2505,28 @@ button {
   .playlistitem .indicators {
     text-align: right;
   }
+  .playlistitem:hover {
+    background-color: #ff8103;
+  }
+  .playlistitem:hover .indicators {
+    color: white;
+    border-top: 1px solid rgba(0, 0, 0, 0);
+    background-color: #ff8103;
+  }
+}
+
+.playlistcontentitem {
+  border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+  padding: 0 0 2rem 0;
+  margin: 0 0 2rem 0;
+}
+.playlistcontentitem a {
+  color: white;
+  line-height: 1;
+  background-image: none;
+  background-color: #ff8103;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
 }
 
 .fb {
@@ -2534,16 +2570,37 @@ button {
 .social-share > .wrapper {
   position: -webkit-sticky;
   position: sticky;
-  top: 50px;
+  top: 4rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 999px;
+  padding: 1rem 0.25rem 0.25rem;
+  margin: 4rem 0 0 0;
+}
+.social-share .lab {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.35);
+  box-shadow: 0px none;
+  margin: 0 0 0.5rem 0;
 }
 
 .shbtn {
+  line-height: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
   background: rgba(0, 0, 0, 0);
-  padding: 16px 4px;
+  box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.1), 2px 2px 3px rgba(0, 0, 0, 0.2);
+  margin: 0 0 1rem 0;
 }
-.shbtn.lab {
-  font-size: 10px;
-  color: rgba(0, 0, 0, 0.35);
+.shbtn > a {
+  display: block;
+}
+.shbtn:last-child {
+  margin: 0;
 }
 
 .mgbox {

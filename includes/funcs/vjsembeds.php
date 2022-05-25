@@ -14,3 +14,8 @@ function getMetas($vjs){
     $metas = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $vjs);
     return $metas;
 }
+
+function getPlaylistURLS($pID){
+    $plistURLS = explode(",", get_post_meta($pID,'vid_playlist_urls', true) );
+    return $plistURLS;
+}

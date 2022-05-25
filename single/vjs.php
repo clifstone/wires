@@ -12,7 +12,7 @@
     document.onreadystatechange = () => {
         if (document.readyState == "complete") {
             let vidheaderdiv = document.querySelector('.vid-header > .wrapper'),
-                blip = '<script defer src="<?php echo getScrSrc($vjs); ?>"><\/script>';
+                blip = '<script async src="<?php echo getScrSrc($vjs); ?>"><\/script>';
 
             inView('.vid-header').once("enter", function(){
                 postscribe(vidheaderdiv, blip);

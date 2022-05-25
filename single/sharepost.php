@@ -1,6 +1,6 @@
 <div class="social-share">
     <div class="wrapper">
-        <div class="shbtn lab">
+        <div class="lab">
             <i class="i-share2"></i>
         </div>
         <div class="shbtn fb">

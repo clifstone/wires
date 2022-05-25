@@ -38,15 +38,36 @@
     padding: 16px 0;
     >.wrapper {
         position: sticky;
-        top: 50px;
+        top: 4rem;
+        border: 1px solid rgba(black, 0.1);
+        box-shadow: -1px -1px 1px rgba(black, 0.1), 1px 1px 1px rgba(black, 0.1);
+        border-radius: 999px;
+        padding: 1rem 0.25rem 0.25rem;
+        margin: 4rem 0 0 0;
+    }
+    .lab {
+        font-size: 10px;
+        color: rgba(0, 0, 0, 0.35);
+        box-shadow: 0px none;
+        margin: 0 0 0.5rem 0;
     }
 }
 
 .shbtn {
+    line-height: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
     background: rgba(0, 0, 0, 0);
-    padding: 16px 4px;
-    &.lab {
-        font-size: 10px;
-        color: rgba(0, 0, 0, 0.35);
+    box-shadow: -1px -1px 2px rgba(black, 0.1), 2px 2px 3px rgba(black, 0.2);
+    margin: 0 0 1rem 0;
+    >a {
+        display: block;
+    }
+    &:last-child {
+        margin: 0
     }
 }
