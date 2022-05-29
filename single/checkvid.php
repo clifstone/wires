@@ -11,7 +11,7 @@
     }else if($ytCode){
         get_template_part( 'single/yt', 'single' );
     }else if(has_post_thumbnail() && !$vidCode && !$ytCode){
-        get_template_part( 'single/featuredthumb', 'single' );
+        get_template_part( 'single/featuredthumb', 'single', array( 'pID' => $post->ID ) );
     }else{
         return;
     }

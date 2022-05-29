@@ -11,6 +11,21 @@ function getPicture($pID, $whichOne){
     $imgalt = get_post_meta( $pID, '_wp_attachment_image_alt', true);
     ($imgalt) ? ($thmbalt = $imgalt) : ($thmbalt = get_the_excerpt($pID));
 
+    if($whichOne === $single){
+        $theImage = '
+        <img
+        src="'.$mcThumb_tiny[0].'"
+        srcset="
+        '.$mcThumb_extra_small[0].' 240w,
+        '.$mcThumb_small[0].' 375w,
+        '.$mcThumb_medium[0].' 768w,
+        '.$mcThumb_large[0].' 1366w",
+        '.$mcThumb_exlarge[0].' 1920w"
+        />
+        ';
+        return $theImage;
+    }
+
     if($whichOne === $fullPic){
         $thePicture = '
         <picture>
@@ -22,6 +37,7 @@ function getPicture($pID, $whichOne){
             <img width="100%" height="auto" src="'.$mcThumb_tiny[0].'" alt="'.$thumbalt.'" loading="lazy">
         </picture>
         ';
+        return $thePicture;
     }
     if($whichOne === $smallPic){
         $thePicture = '
@@ -32,6 +48,7 @@ function getPicture($pID, $whichOne){
             <img width="100%" height="auto" src="'.$mcThumb_tiny[0].'" alt="'.$thumbalt.'" loading="lazy">
         </picture>
         ';
+        return $thePicture;
     }
     if($whichOne === $tinyPic){
         $thePicture = '
@@ -41,7 +58,6 @@ function getPicture($pID, $whichOne){
             <img width="100%" height="auto" src="'.$mcThumb_tiny[0].'" alt="'.$thumbalt.'" loading="lazy">
         </picture>
         ';
+        return $thePicture;
     }
-
-    return $thePicture;
 }

@@ -1,4 +1,9 @@
 <?php
+    function trythis(){
+        echo '<link rel="preload" as="image" href="important.png">';
+    }
+    add_action( 'wp_head', 'trythis', 99);
+
     get_header();
     if(is_active_sidebar('headeradslot')){ dynamic_sidebar('headeradslot'); }
 ?>
@@ -28,5 +33,5 @@
                 <?php get_sidebar(); ?>
             </div>
     </div>
-
+<meta>
 <?php get_footer(); ?>
