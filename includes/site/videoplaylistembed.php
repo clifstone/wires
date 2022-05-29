@@ -40,16 +40,17 @@ function makePlaylist(){
                     input.setAttribute('readonly', 'true');
                     newlistArr.push( input.value.toString() );
                     newlist = newlistArr.join(', ');
+                    input.classList.contains('invalid') ? input.classList.remove('invalid') : null;
                 }else{
                     input.value = '';
                     input.setAttribute('placeholder', 'please enter a valid URL');
-                    input.setAttribute('class', 'invalid');
+                    input.classList.add('invalid');
                 }
             });
             theplistfield.setAttribute('value', newlist);
         }
         const createInput = (val) => {
-            let rO = () => { if(val.length > 0){ return "readonly" } }
+            let rO = () => { if(val.length > 0){ return "readonly" }else{ return "" } }
             let theInput = '<div class="plist-input-wrap"><h5>Playlist URL</h5><div class="wrapper"><input type="text" class="plist-input" '+rO()+' onchange="getInputVals()" placeholder="Enter a post URL" value="'+val+'"><button class="plist-editbtn plbtn" onclick="editInput(this)"><i class="i-pencil"></i></button><button class="plist-delete plbtn" onclick="deleteInput(this)"><i class="i-minus"></i></button><button class="plist-addbtn plbtn" onclick="createBlankInput()"><i class="i-plus"></i></button></div></div>';
             inputsWrap.insertAdjacentHTML('beforeend', theInput);
         }
@@ -110,6 +111,21 @@ function makePlaylist(){
             padding:0.5rem !important;
             margin:0 !important;
             border-radius: 0.5rem 0 0 0.5rem !important;
+        }
+        .plist-input:focus-visible,
+        .plist-input:focus{
+            outline: 2px solid transparent !important;
+            border-color: rgba(0,102,153,1) !important;
+            box-shadow: inset 0 0 0 1px rgba(0,102,153,1) !important;
+        }
+        .plist-input.invalid{
+            border:1px solid red;
+        }
+        .plist-input.invalid:focus-visible,
+        .plist-input.invalid:focus{
+            outline: 2px solid transparent !important;
+            border-color: red !important;
+            box-shadow: inset 0 0 0 1px red !important;
         }
         .plbtn{
             color:white;

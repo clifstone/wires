@@ -8,7 +8,7 @@
 
 <?php add_action('wp_footer', function() use($vjs){ ?>
 
-<script>
+<script type="module">
     document.onreadystatechange = () => {
         if (document.readyState == "complete") {
             let vidheaderdiv = document.querySelector('.vid-header > .wrapper'),

@@ -374,3 +374,23 @@
     display: table;
     clear: both;
 }
+
+.wp-block-table {
+    margin: 0 0 2rem 0;
+    table {
+        width: 100%;
+        border-spacing: 0;
+        tr {
+            td {
+                padding: 0.25rem;
+            }
+        }
+    }
+    &.is-style-stripes {
+        tr {
+            &:nth-child(2n+1) {
+                background-color: rgba(black, 0.1);
+            }
+        }
+    }
+}

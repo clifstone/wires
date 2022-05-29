@@ -59,35 +59,36 @@ echo '
     </div>
 </div>
 '; ?>
-<script>
-    window.addEventListener('DOMContentLoaded', (e) => {
-        let plis = document.querySelectorAll('.playlistitem'),
-            firstpli = '<script async src="'+plis[0].getAttribute('data-scriptsrc')+'"><\/script>',
-            plcont = document.querySelector('.vjsplayer > .wrapper');
+<?php add_action('wp_footer', function() use($vjs){ ?>
 
-        const reorderplis = () => {
-            for(let i = 0; i < plis.length; i++){
-                plis[i].style = '--pliorder: ' + (i + 2);
+    <script type="module">
+        document.onreadystatechange = () => {
+            if (document.readyState == "complete") {
+
+                let vidheaderdiv = document.querySelector('.vjsplayer > .wrapper'),
+                    plitems = document.querySelectorAll('.playlistitem'),
+                    firstvid = '<script async src="<?php echo getScrSrc($vjs); ?>"><\/script>';
+
+                const fireVid = (scrsrc) => {
+                    jwplayer().remove();
+                    vidheaderdiv.innerHTML = '';
+                    postscribe(vidheaderdiv, '<script async src="'+scrsrc+'"><\/script>');
+                }
+
+                plitems.forEach(plitem => {
+                    plitem.addEventListener('click', (e) =>{
+                        let vidsrc = e.currentTarget.getAttribute('data-scriptsrc');
+                        console.log(vidsrc);
+                        fireVid(vidsrc);
+                    });
+                });
+
+                inView('.vjsplayer').once("enter", function(){
+                    postscribe(vidheaderdiv, firstvid);
+                });
+
             }
         }
+    </script>
 
-        const fireVid = (e) => {
-            let whichVid = '<script async src="'+e.currentTarget.getAttribute('data-scriptsrc')+'"><\/script>';
-
-            reorderplis();
-            e.currentTarget.style = '--pliorder: 1';
-            jwplayer().remove();
-            plcont.innerHTML = '';
-            postscribe(plcont, whichVid);
-        }
-
-        plis.forEach(pli => {
-            pli.addEventListener('click', fireVid);
-        });
-
-        inView('.vjsplayer').once("enter", function(){
-            postscribe(plcont, firstpli);
-        });
-
-    });
-</script>
+<?php }, 1001); ?>

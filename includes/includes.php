@@ -17,6 +17,7 @@ include 'site/scripts.php';
 include 'site/favicons.php';
 include 'site/videoembed.php';
 include 'site/videoplaylistembed.php';
+include 'site/videositemap.php';
 include 'site/excerpts.php';
 include 'options/theme-options.php';
 include 'options/adtags.php';
