@@ -2,6 +2,6 @@
 
 <figure class="featured-thumb thumb">
     <div class="wrapper">
-        <?php echo getPicture($pID, $fullPic); ?>
+        <?php echo theThumb($args = array( 'pID' => $pID, 'whichOne' => 'single' )); ?>
     </div>
 </figure>

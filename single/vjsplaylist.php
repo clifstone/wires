@@ -16,7 +16,7 @@ foreach($plisturls as $plisturl){
                     <div class="wrapper">
                         <figure class="thumb">
                             <div class="wrapper">
-                                '.getPicture($pID, $tinyPic).'
+                                '.theThumb(array( 'pID' => $pID, 'whichOne' => 'tiny' )).'
                             </div>
                         </figure>
                     </div>
@@ -46,7 +46,12 @@ echo '
     <div class="wrapper">
         <div class="modcols plistcols">
             <div class="modcol">
-                <div class="vjsplayer">
+                <div class="vjsplayer articleplaylist">
+                    <figure class="featured-thumb thumb">
+                        <div class="wrapper">
+                            '.theThumb(array( 'pID' => $post->ID, 'whichOne' => 'single' )).'
+                        </div>
+                    </figure>
                     <div class="wrapper"></div>
                 </div>
             </div>
@@ -62,33 +67,24 @@ echo '
 <?php add_action('wp_footer', function() use($vjs){ ?>
 
     <script type="module">
-        document.onreadystatechange = () => {
-            if (document.readyState == "complete") {
-
-                let vidheaderdiv = document.querySelector('.vjsplayer > .wrapper'),
-                    plitems = document.querySelectorAll('.playlistitem'),
-                    firstvid = '<script async src="<?php echo getScrSrc($vjs); ?>"><\/script>';
-
-                const fireVid = (scrsrc) => {
-                    jwplayer().remove();
-                    vidheaderdiv.innerHTML = '';
-                    postscribe(vidheaderdiv, '<script async src="'+scrsrc+'"><\/script>');
-                }
-
-                plitems.forEach(plitem => {
-                    plitem.addEventListener('click', (e) =>{
-                        let vidsrc = e.currentTarget.getAttribute('data-scriptsrc');
-                        console.log(vidsrc);
-                        fireVid(vidsrc);
-                    });
-                });
-
-                inView('.vjsplayer').once("enter", function(){
-                    postscribe(vidheaderdiv, firstvid);
-                });
-
+        window.addEventListener('load', () =>{
+            let vidheaderdiv = document.querySelector('.vjsplayer > .wrapper'),
+                plitems = document.querySelectorAll('.playlistitem'),
+                firstvid = '<script async src="<?php echo getScrSrc($vjs); ?>"><\/script>';
+            const fireVid = (scrsrc) => {
+                jwplayer().remove();
+                vidheaderdiv.innerHTML = '';
+                postscribe(vidheaderdiv, '<script async src="'+scrsrc+'"><\/script>');
             }
-        }
+            plitems.forEach(plitem => {
+                plitem.addEventListener('click', (e) =>{
+                    let vidsrc = e.currentTarget.getAttribute('data-scriptsrc');
+                    console.log(vidsrc);
+                    fireVid(vidsrc);
+                });
+            });
+            postscribe(vidheaderdiv, firstvid);
+        });
     </script>
 
 <?php }, 1001); ?>

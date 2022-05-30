@@ -14,7 +14,7 @@ foreach($plciurls as $plciurl){
                 <div class="modcol">
                     <figure class="thumb">
                         <div class="wrapper">
-                            '.getPicture($pID, $smallPic).'
+                            '.theThumb(array( 'pID' => $pID, 'whichOne' => 'tiny' )).'
                         </div>
                     </figure>
                 </div>

@@ -9,16 +9,12 @@
 <?php add_action('wp_footer', function() use($vjs){ ?>
 
 <script type="module">
-    document.onreadystatechange = () => {
-        if (document.readyState == "complete") {
-            let vidheaderdiv = document.querySelector('.vid-header > .wrapper'),
+    window.addEventListener('load', () =>{
+        let vidheaderdiv = document.querySelector('.vid-header > .wrapper'),
                 blip = '<script async src="<?php echo getScrSrc($vjs); ?>"><\/script>';
 
-            inView('.vid-header').once("enter", function(){
-                postscribe(vidheaderdiv, blip);
-            });        
-        }
-    }
+        postscribe(vidheaderdiv, blip);
+    });
 </script>
 
 <?php }, 1001); ?>

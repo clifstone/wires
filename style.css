@@ -1851,6 +1851,16 @@ button {
   }
 }
 
+.articlehero,
+.articleplaylist {
+  display: grid;
+}
+.articlehero > *,
+.articleplaylist > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
 .vid-header {
   position: relative;
 }
@@ -2362,20 +2372,7 @@ button {
 }
 
 .vjsplayer {
-  position: relative;
   background-color: black;
-}
-.vjsplayer:before {
-  content: "";
-  display: block;
-  padding-bottom: var(--thAs);
-}
-.vjsplayer > .wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
 }
 
 .pli-list {
