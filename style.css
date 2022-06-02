@@ -1734,7 +1734,7 @@ button {
 .hero .featuredinfo p {
   font-size: clamp(1rem, 0.7431rem + 0.5351vw, 1.1rem);
   line-height: clamp(1.6rem, 0.7431rem + 0.5351vw, 2rem);
-  max-height: 3rem;
+  max-height: 3.1rem;
   overflow: hidden;
   -webkit-line-clamp: 2;
   display: flex;
@@ -1770,7 +1770,6 @@ button {
 }
 .hero .grid-item {
   padding: 8px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
 }
 .hero .vidholder {
   width: 100%;

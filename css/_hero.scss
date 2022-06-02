@@ -31,7 +31,7 @@
         p {
             font-size: clamp(1rem, calc(0.7431rem + 0.5351vw), 1.1rem);
             line-height: clamp(1.6rem, calc(0.7431rem + 0.5351vw), 2rem);
-            max-height: 3rem;
+            max-height: 3.1rem;
             overflow: hidden;
             -webkit-line-clamp: 2;
             display: -webkit-box;
@@ -70,7 +70,7 @@
     }
     .grid-item {
         padding: 8px;
-        box-shadow: 0 0 12px rgba(black, 0.5);
+        //box-shadow: 0 0 12px rgba(black, 0.5);
     }
     .vidholder {
         width: 100%;
