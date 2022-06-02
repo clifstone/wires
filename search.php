@@ -69,12 +69,12 @@ echo '
             '<div class="mclist">
                 <div class="searchinfo">
                     <div class="wrapper">
-                        <h1><span>You searched for: <span><strong>'.$search_query[$query_split[0]] = $query_split[1].'</strong></h1>
+                        <h1><span>You searched for: <span><strong>'.get_search_query().'</strong></h1>
                     </div>
                 </div>
                 <div class="wrapper">
                     <div class="grid-wrapper">
-                        <div class="grid sm-1 thL-t thL-d">
+                        <div class="grid sm-1 md-2 lg-1 lg2-2 lg3-3">
                             '.$search_item.'
                         </div>
                     </div>
