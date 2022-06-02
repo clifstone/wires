@@ -85,12 +85,12 @@ Theme Name: Wires
             grid-gap: 16px;
             padding: 8px;
         }
-        .search-results & {
+        .search & {
             padding: 16px;
         }
     }
     @media #{$des} {
-        .search-results & {
+        .search & {
             display: grid;
             grid-template-columns: 1fr 300px;
             grid-gap: 16px;
@@ -100,7 +100,7 @@ Theme Name: Wires
         }
     }
     @media #{$des2} {
-        .search-results & {
+        .search & {
             grid-gap: 48px;
         }
         .archive & {
@@ -113,7 +113,7 @@ Theme Name: Wires
 .site-main {
     @media #{$des} {
         //padding: 16px;
-        .search-results & {
+        .search & {
             order: 1
         }
     }
@@ -129,7 +129,7 @@ Theme Name: Wires
         }
     }
     @media #{$des} {
-        .search-results & {
+        .search & {
             .plaid {
                 justify-content: left;
             }
@@ -226,7 +226,7 @@ Theme Name: Wires
     padding: 8px;
     >form {
         width: 100%;
-        .search-results & {
+        .search & {
             display: flex;
         }
         .searchoverlay & {
@@ -246,7 +246,7 @@ Theme Name: Wires
     padding: 8px;
     margin: 0 0 16px 0;
     .mob-header &,
-    .search-results & {
+    .search & {
         margin: 0 0 0 0;
     }
     .searchoverlay & {
@@ -261,7 +261,7 @@ Theme Name: Wires
         margin: 0 0 0 4px;
     }
     .mob-header &,
-    .search-results & {
+    .search & {
         >span {
             display: none;
         }
@@ -457,4 +457,6 @@ Theme Name: Wires
 @import "css/post-content";
 @import "css/vidplaylist";
 @import "css/social";
+@import "css/search";
+@import "css/pagination";
 @import "css/custom";

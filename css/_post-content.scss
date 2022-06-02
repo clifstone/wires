@@ -18,14 +18,14 @@
 .post-content-wrapper {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
-    padding: 16px 16px 16px 4px;
+    padding: 1rem 1rem 1rem 0;
     @media #{$des} {
         max-width: 64ch;
-        padding: 48px 0;
+        padding: 3rem 0;
         grid-gap: 24px;
     }
     @media #{$des2} {
-        margin: 0 0 0 64px;
+        margin: 0 0 0 4rem;
     }
 }
 
@@ -45,8 +45,7 @@
 }
 
 .post-title {
-    line-height: 1.2;
-    margin: 0 0 8px 0;
+    margin: 0.5rem 0 0.75rem;
 }
 
 .post-content {

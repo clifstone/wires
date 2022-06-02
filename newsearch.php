@@ -50,7 +50,7 @@ if(have_posts()){
         $x++;
     }
 }else{
-    $search_item = '<article class="grid-item"><div class="wrapper">Uh oh... Nothing here... Try a different search</div></article>';
+    echo '<p>Uh oh... Nothing here... Try a different search</p>';
 }
 wp_reset_postdata();
 
@@ -80,14 +80,12 @@ echo '
                     </div>
                 </div>
             </div>
-            <nav class="pagination">
-                <div class="wrapper">';
+            <nav class="pagination"><div class="wrapper">';
 
-                    numberedPagination();
+                numberedPagination();
 
-                echo '
-                </div>
-            </nav>
+            echo '
+            </div></nav>
         </main>
     </div>
     <div class="gridcol">';

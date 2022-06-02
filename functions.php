@@ -99,7 +99,8 @@ function dynamictime() {
   $time = get_post_time('G', true, $post);
   $mytime = time() - $time;
   if($mytime > 0 && $mytime < 7*24*60*60)
-    $mytimestamp = '<div class="timestamp"><span>NEW</span>'.sprintf(__('%s ago'), human_time_diff($time)).'</div>';
+    //$mytimestamp = '<div class="timestamp"><span>NEW</span>'.sprintf(__('%s ago'), human_time_diff($time)).'</div>';
+    $mytimestamp = '<div class="timestamp"><span>NEW</span></div>';
   else
     $mytimestamp = '';
   return $mytimestamp;
@@ -249,70 +250,6 @@ function attachment_image_link_remove_filter( $content ) {
 }
 add_filter( 'the_content', 'attachment_image_link_remove_filter' );
 
-// function get_the_search_form( $form ) {
-//     $bname = get_bloginfo();
-//     $mcRand = rand( 0 , 999999 );
-//     $form = '
-//     <form action="'.home_url().'" id="searchoverlay-'.$mcRand.'" method="get">
-//         <label for="searchpagesearch" style="display:none">Search '.$bname.'</label>
-//         <input type="text" name="Search Input" aria-label="Search Input" id="searchpageinput-'.$mcRand.'" class="searchinput" value="Search '.$bname.'" />
-//         <button id="searchsubmit-'.$mcRand.'" class="searchsubmit" name="Submit to search button" aria-label="Submit to search button" type="submit">Search <i class="i-search"></i></button>
-//     </form>
-//     <script>
-//         var searchinput = document.querySelector("#searchpageinput-'.$mcRand.'");
-//         function searchblurfoc(){
-//             if(searchinput.value === ""){
-//                 searchinput.value = "Search '.$bname.'";
-//             }else{
-//                 searchinput.value = "";
-//             }
-//         }
-//         searchinput.addEventListener("onblur", searchblurfoc);
-//         searchinput.addEventListener("onfocus", searchblurfoc);
-//     </script>';
- 
-//     return $form;
-// }
-// add_filter( 'get_search_form', 'get_the_search_form' );
-
-add_action( 'graphql_register_types', function() {
-    register_graphql_field( 'Theme', 'MobileLogoOption', [
-        'type' => 'String',
-        'description' => __( 'Logo Option', 'wp-graphql' ),
-        'resolve' => function($post) {
-         $mobLogo = get_option('logo_url');
-         return $mobLogo;
-        }
-     ] );
-
-     register_graphql_field( 'Theme', 'LogoOption', [
-        'type' => 'String',
-        'description' => __( 'Logo Option', 'wp-graphql' ),
-        'resolve' => function($post) {
-         $mcLogo = get_option('aside_logo_url');
-         return $mcLogo;
-        }
-     ] );
-
-    register_graphql_field( 'Post', 'ytembed', [
-        'type' => 'String',
-        'description' => __( 'youtube embed', 'wp-graphql' ),
-        'resolve' => function( $post ) {
-          $ytembed = get_post_meta( $post->ID, 'yt_metabox', true );
-          return $ytembed;
-        }
-     ] );
-
-     register_graphql_field( 'Post', 'ytembed', [
-        'type' => 'String',
-        'description' => __( 'youtube embed', 'wp-graphql' ),
-        'resolve' => function( $post ) {
-          $ytembed = get_post_meta( $post->ID, 'yt_metabox', true );
-          return $ytembed;
-        }
-     ] );
-
-  } );
 
   function add_lazyload($content) {
 
@@ -386,6 +323,24 @@ function wptips_is_amp() {
     endif;
   }
   add_action('wp_head', 'wptips_is_amp');
+
+function numberedPagination() {
+
+    global $wp_query;
+    $big = 9999999;
+      echo paginate_links( array(
+        'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+        'format' => '?paged=%#%',
+        'current' => max( 1, get_query_var('paged') ),
+        'total' => $wp_query->max_num_pages,
+        'show_all' => False,
+        'prev_next' => True,
+        'prev_text' => __('Previous Page'),
+        'next_text' => __('Next Page'),
+        'add_args' => ''
+       ) );
+}
+
 
 include "includes/includes.php";
 

@@ -9,7 +9,7 @@
                 }
             }
 
-            if(is_archive()){
+            if(is_archive() || is_search()){
                 if(is_active_sidebar('archives_rail')){
                     dynamic_sidebar('archives_rail');
                 }

@@ -22,7 +22,7 @@
                         <div class="the-content">
                             <?php the_content(); ?>
                         </div>
-                        
+                        <?php wp_link_pages('before=<nav class="pagination"><div class="wrapper"><span class="label">Pages</span>&after=</div></nav>'); ?>
                     </div>
                 </div>
                 <?php get_template_part( 'single/single-comments' ); ?>
