@@ -48,30 +48,10 @@ function load_posts_by_ajax_callback() {
                 $link = get_the_permalink();
                 $format = get_post_format() ? 'video' : 'standard';
 
-                $mcThumb_exlarge = wp_get_attachment_image_url( get_post_thumbnail_id(), 'ex-large' );
-                $mcThumb_large = wp_get_attachment_image_url( get_post_thumbnail_id(), 'large' );
-                $mcThumb_medium = wp_get_attachment_image_url( get_post_thumbnail_id(), 'medium' );
-                $mcThumb_small = wp_get_attachment_image_url( get_post_thumbnail_id(), 'small' );
-                $mcThumb_extra_small = wp_get_attachment_image_url( get_post_thumbnail_id(), 'extra-small' );
-                $mcThumb_tiny = wp_get_attachment_image_url( get_post_thumbnail_id(), 'tiny' );
-
-                $imgalt = get_post_meta( get_post_thumbnail_id($post_item['ID']), '_wp_attachment_image_alt', true);
-
-                $thmbalt;
-                if($imgalt){
-                    $thmbalt = $imgalt;
-                }else{
-                    $thmbalt = get_the_excerpt($post_item['ID']);
-                }
-
                 $thumb = '
                 <figure class="thumb">
                     <div class="wrapper">
-                        <picture>
-                            <source srcset="'.$mcThumb_small.'">
-                            <img alt="'.$thmbalt.'">
-                            <noscript><img src="'.$mcThumb_small.'" alt="'.$thmbalt.'"></noscript>
-                        </picture>
+                        '.theThumb($args = array( 'pID' => $post->ID, 'whichOne' => 'tiny' )).'
                     </div>
                 </figure>
                 ';
