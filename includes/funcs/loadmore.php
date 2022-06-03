@@ -7,8 +7,11 @@ function load_posts_by_ajax_callback() {
     $tag_name = $_POST['tag_name'];
     $numof = $_POST['numof'];
     $hasexcerpt = $_POST['hasexcerpt'];
+    $excludecategory = $_POST['excludecat'];
     $totalnumcat = get_term_by('slug', $category_name, 'category')->count;
     $howmany = $paged * $numof;
+
+    $exclude_categories = ($excludecategory) ? ( mcExclude($excludecategory) ) : ('');
 
         if($category_name){
             $queryArgs = array(
@@ -19,6 +22,7 @@ function load_posts_by_ajax_callback() {
                 'paged' => $paged,
                 'orderby' => 'post_date',
                 'order' => 'DESC',
+                'post__not_in' => array($exclude_categories)
             );
         }else{
             $queryArgs = array(
@@ -28,13 +32,12 @@ function load_posts_by_ajax_callback() {
                 'paged' => $paged,
                 'orderby' => 'post_date',
                 'order' => 'DESC',
+                'post__not_in' => array($exclude_categories)
             );
         }
-        $mcListQuery = new WP_Query($queryArgs);
-
+        
         $cat = get_term_by( 'slug', $category_name, 'category');
-
-        //$output = '';
+        $mcListQuery = new WP_Query($queryArgs);
         
         if($mcListQuery->have_posts()){
             

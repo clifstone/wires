@@ -2694,6 +2694,13 @@ button {
   background-image: none;
 }
 
+.loading-animation {
+  text-align: center;
+}
+.loading-animation > * {
+  width: 5rem;
+}
+
 .mgbox {
   max-width: 100% !important;
 }

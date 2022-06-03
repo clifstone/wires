@@ -1,4 +1,20 @@
 <?php
+function mcExclude($excludecategory){
+    $get_excludes = array(
+        'post_status' => 'publish',
+        'category_name' => $excludecategory
+    );
+    $excludequery = new WP_Query( $get_excludes );
+    $excludearr = [];
+    if(have_posts()){
+        while($excludequery->have_posts()){
+            $excludequery->the_post();
+            array_push($excludearr, get_the_ID());
+        }
+    }
+    wp_reset_postdata();
+    return $excludearr;
+}
 function instalist_func( $atts = array(), $content="null" ) {
 
     extract(shortcode_atts(array(
@@ -26,7 +42,7 @@ function instalist_func( $atts = array(), $content="null" ) {
         'usehthree' => 'true',
         'usehfour' => '',
         'ovlist' => '',
-        'exclude' => ''
+        'excludecategory' => ''
     ), $atts));
 
     $output;
@@ -59,15 +75,6 @@ function instalist_func( $atts = array(), $content="null" ) {
         $rowheaderslug = '<h2><span>'.$slugname.'</span></h2>';
     }
 
-    if($loadmoreonclick){
-        $listtype = 'loadmoreonclick';
-        $mcloadmore = '<div id="loadmore-'.$mcRand.'" class="load-more-posts lmbtn" data-id="'.$mcRand.'" data-catname="'.$category_name.'" data-tagname="'.$tag_name.'" data-numof="'.$numof.'" data-totalnum="'.$totalnum.'" data-excerpt="'.$hasexcerpt.'"><span>Show More posts</span><i><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M12,15.7L5.6,9.4l0.7-0.7l5.6,5.6l5.6-5.6l0.7,0.7L12,15.7z"></path></g></svg></i></div>';
-    }
-    if($loadmoreonscroll){
-        $listtype = 'loadmoreonscroll';
-        $mcloadmore = '<div id="loadmore-'.$mcRand.'" class=" load-more-posts" data-id="'.$mcRand.'" data-catname="'.$category_name.'" data-tagname="'.$tag_name.'" data-numof="'.$numof.'"></div>' . $viewalllink;
-    }
-
     if($noheader){
         $rowheader = '';
     }else{
@@ -80,43 +87,51 @@ function instalist_func( $atts = array(), $content="null" ) {
         ';
     }
 
+    $exclude_categories = ($excludecategory) ? ( mcExclude($excludecategory) ) : ('');
+    $exclude_single = (is_single()) ? (get_the_ID()) : ('');
+
     $args;
 
     if($category_name){
         $args = array(
+            'post_type' => 'post',
             'posts_per_page' => $numof,
             'post_status' => 'publish',
             'category_name' => $category_name,
-            'post__not_in' => array('')
+            'post__not_in' => array($exclude_categories)
         );
-        //$recent_posts = wp_get_recent_posts($args);
         $totalnum = get_term_by('slug', $category_name, 'category')->count;
     }else if($tag_name){
         $args = array(
+            'post_type' => 'post',
             'posts_per_page' => $numof,
             'post_status' => 'publish',
             'tag' => $tag_name,
-            'post__not_in' => array('')
+            'post__not_in' => array($exclude_single, $exclude_categories)
         );
-        //$recent_posts = wp_get_recent_posts($args);
         $totalnum = get_term_by('slug', $tag_name, 'post_tag')->count;
     }else{
         $args = array(
+            'post_type' => 'post',
             'posts_per_page' => $numof,
             'post_status' => 'publish',
-            'post__not_in' => array('')
+            'post__not_in' => array($exclude_single, $exclude_categories)
         );
-        //$recent_posts = wp_get_recent_posts($args);
         $totalnum = wp_count_posts()->publish;
     }
 
+    $datas = 'data-id="'.$mcRand.'" data-catname="'.$category_name.'" data-tagname="'.$tag_name.'" data-numof="'.$numof.'" data-totalnum="'.$totalnum.'" data-excerpt="'.$hasexcerpt.'" data-exclude="'.$excludecategory.'"';
+
     if($loadmoreonclick){
         $listtype = 'loadmoreonclick';
-        $mcloadmore = '<div id="loadmore-'.$mcRand.'" class="load-more-posts lmbtn" data-id="'.$mcRand.'" data-catname="'.$category_name.'" data-tagname="'.$tag_name.'" data-numof="'.$numof.'" data-totalnum="'.$totalnum.'" data-excerpt="'.$hasexcerpt.'"><span>Show More posts</span><i><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M12,15.7L5.6,9.4l0.7-0.7l5.6,5.6l5.6-5.6l0.7,0.7L12,15.7z"></path></g></svg></i></div>';
+        $mcloadmore = '<div id="loadmore-'.$mcRand.'" class="load-more-posts lmbtn" '.$datas.'><span>Show More posts</span><i><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M12,15.7L5.6,9.4l0.7-0.7l5.6,5.6l5.6-5.6l0.7,0.7L12,15.7z"></path></g></svg></i></div>';
     }
     if($loadmoreonscroll){
         $listtype = 'loadmoreonscroll';
-        $mcloadmore = '<div id="loadmore-'.$mcRand.'" class=" load-more-posts" data-id="'.$mcRand.'" data-catname="'.$category_name.'" data-tagname="'.$tag_name.'" data-numof="'.$numof.'"></div>' . $viewalllink;
+        $mcloadmore = '<div id="loadmore-'.$mcRand.'" class="load-more-posts lmblock" '.$datas.'><div class="loading-animation">'.getLoader('dots').'</div></div>' . $viewalllink;
+    }
+    if($totalnum <= $numof){
+        $nofooter = true;
     }
 
     if($nofooter){
@@ -131,6 +146,7 @@ function instalist_func( $atts = array(), $content="null" ) {
         ';
     }
     
+
     $articleItem;
     
     $instalistquery = new WP_Query( $args );
@@ -173,7 +189,7 @@ function instalist_func( $atts = array(), $content="null" ) {
             
             $x++;
         }
-    }else{}
+    }
     wp_reset_postdata();
 
     $mclist = '

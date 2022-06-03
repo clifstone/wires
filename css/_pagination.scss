@@ -51,3 +51,10 @@
         }
     }
 }
+
+.loading-animation {
+    text-align: center;
+    >* {
+        width: 5rem;
+    }
+}
