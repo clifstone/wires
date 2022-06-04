@@ -7,6 +7,9 @@ add_action('wp_enqueue_scripts', 'deregisterstuff');
 
 function headerscripts(){
     $template_directory = get_template_directory_uri();
+    echo '<link rel="preload" href="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" as="script">';
+    echo '<link rel="preconnect" href="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" as="script">';
+    echo '<link rel="dns-prefetch" href="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" as="script">';
     echo '<link rel="preload" href="'.$template_directory.'/js/lozad.js" as="script">';
     echo '<link rel="preload" href="'.$template_directory.'/js/inview.js" as="script">';
     echo '<link rel="preload" href="'.$template_directory.'/js/postscribe.js" as="script">';

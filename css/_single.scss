@@ -17,6 +17,8 @@
             display: grid;
             grid-template-columns: 1fr 300px;
             grid-gap: 16px;
+            max-width: 1024px;
+            margin: auto;
         }
         .site-sidebar {
             .plaid {
@@ -29,7 +31,7 @@
     }
     @media #{$des2} {
         .gridcols {
-            grid-template-columns: 1fr 432px;
+            grid-template-columns: 1fr 320px;
             grid-gap: 48px;
         }
     }
@@ -51,6 +53,12 @@
 
 .articlehero {
     margin: 0 -8px;
+    @media #{$tab} {
+        margin: 0 -24px;
+    }
+    @media #{$des} {
+        margin: 0;
+    }
 }
 
 .taglist {
