@@ -1,12 +1,11 @@
 <div class="related related-categories">
     <?php
-        
-        $thecats = wp_get_post_categories(get_queried_object_id());
+        extract( $args );
 
-        foreach($thecats as $category){
-            $mcCategory = get_term( $category );
-            $mcSlug = $mcCategory->slug;
-            echo do_shortcode('[instalist category_name='.$mcSlug.' numofmobile=4 numofdesktop=4 gridclass="ws sm-1 md-2 lg2-4" loadmoreonclick="true" mw="true"]');
-        }
+        $post_categories = get_post_primary_category($pID, 'category'); 
+        $primary_category = $post_categories['primary_category']->slug;
+
+        echo do_shortcode('[instalist category_name='.$primary_category.' numofmobile=4 numofdesktop=4 gridclass="ws sm-1 md-2 lg2-4" loadmoreonclick="true" mw="true"]');
+        echo do_shortcode('[instalist numofmobile=4 numofdesktop=4 gridclass="ws sm-1 md-2 lg2-4" listlabel="Most Recent" loadmoreonclick="true" mw="true"]');
     ?>
 </div><!-- RELATED CATEGORIES -->

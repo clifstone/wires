@@ -8,7 +8,7 @@
             <main class="site-main" role="main">
                 <?php if( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb( '<div class="breadcrumbs">','</div>' ); } ?>
                     <div class="articlehero">
-                        <figure class="featured-thumb thumb">
+                        <figure class="featured-thumb thumb" style="background-image:url(<?php echo get_stylesheet_directory_uri(); ?>/images/featimageplh.gif);">
                             <div class="wrapper">
                                 <?php echo theThumb(array( 'pID' => $post->ID, 'whichOne' => 'single' )); ?>
                             </div>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <?php get_template_part( 'single/single-comments' ); ?>
-                <?php get_template_part( 'single/single-related-cats' ); ?>
+                <?php get_template_part( 'single/single-related-cats', '', $args = array('pID' => $post->ID) ); ?>
                 <?php if(is_active_sidebar('abovefooter')){ dynamic_sidebar('abovefooter'); } ?>
             </main>
         </div>
