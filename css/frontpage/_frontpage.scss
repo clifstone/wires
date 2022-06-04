@@ -1,0 +1,24 @@
+.site-wrapper {
+    display: grid;
+    grid-template-areas: 'aside alert' 'aside header' 'aside plaid' 'aside nav' 'aside main' 'footer footer';
+    grid-template-columns: 0fr;
+    @media #{$des} {
+        grid-template-columns: var(--asidewidth) 1fr;
+    }
+}
+
+.header-alert.above {
+    grid-area: alert;
+}
+
+.headerplaidslot {
+    grid-area: plaid;
+}
+
+.site-aside {
+    grid-area: aside;
+}
+
+.main-wrap {
+    grid-area: main;
+}

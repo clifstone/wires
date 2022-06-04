@@ -1,0 +1,19 @@
+label {
+    font-size: 0.75rem;
+}
+
+input,
+textarea {
+    border: 1px solid;
+    padding: 0.5rem 1rem;
+}
+
+input,
+button {
+    border-radius: 0.5rem;
+}
+
+textarea {
+    border-radius: 0.5rem 0.5rem 0 0.5rem;
+    min-height: 12ch;
+}

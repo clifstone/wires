@@ -1,0 +1,582 @@
+.grid,
+.gridcols,
+.modcols {
+    display: grid;
+}
+
+.grid {
+    &.sm-1 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    &.sm-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    &.sm-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    &.sm-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    @media #{$tab} {
+        &.md-1 {
+            grid-template-columns: minmax(0, 1fr);
+        }
+        &.md-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        &.md-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        &.md-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        &.md-5 {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+        &.md-6 {
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+        }
+        &.md-7 {
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+        }
+        &.md-8 {
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+        }
+        &.md-9 {
+            grid-template-columns: repeat(9, minmax(0, 1fr));
+        }
+        &.md-10 {
+            grid-template-columns: repeat(10, minmax(0, 1fr));
+        }
+        &.md-11 {
+            grid-template-columns: repeat(11, minmax(0, 1fr));
+        }
+        &.md-12 {
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+        }
+    }
+    @media #{$des} {
+        &.lg-1 {
+            grid-template-columns: minmax(0, 1fr);
+        }
+        &.lg-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        &.lg-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        &.lg-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        &.lg-5 {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+        &.lg-6 {
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+        }
+        &.lg-7 {
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+        }
+        &.lg-8 {
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+        }
+        &.lg-9 {
+            grid-template-columns: repeat(9, minmax(0, 1fr));
+        }
+        &.lg-10 {
+            grid-template-columns: repeat(10, minmax(0, 1fr));
+        }
+        &.lg-11 {
+            grid-template-columns: repeat(11, minmax(0, 1fr));
+        }
+        &.lg-12 {
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+        }
+    }
+    @media #{$des2} {
+        &.lg2-1 {
+            grid-template-columns: minmax(0, 1fr);
+        }
+        &.lg2-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        &.lg2-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        &.lg2-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        &.lg2-5 {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+        &.lg2-6 {
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+        }
+        &.lg2-7 {
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+        }
+        &.lg2-8 {
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+        }
+        &.lg2-9 {
+            grid-template-columns: repeat(9, minmax(0, 1fr));
+        }
+        &.lg2-10 {
+            grid-template-columns: repeat(10, minmax(0, 1fr));
+        }
+        &.lg2-11 {
+            grid-template-columns: repeat(11, minmax(0, 1fr));
+        }
+        &.lg2-12 {
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+        }
+    }
+    @media #{$des3} {
+        &.lg3-1 {
+            grid-template-columns: minmax(0, 1fr);
+        }
+        &.lg3-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        &.lg3-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        &.lg3-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        &.lg3-5 {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+        &.lg3-6 {
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+        }
+        &.lg3-7 {
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+        }
+        &.lg3-8 {
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+        }
+        &.lg3-9 {
+            grid-template-columns: repeat(9, minmax(0, 1fr));
+        }
+        &.lg3-10 {
+            grid-template-columns: repeat(10, minmax(0, 1fr));
+        }
+        &.lg3-11 {
+            grid-template-columns: repeat(11, minmax(0, 1fr));
+        }
+        &.lg3-12 {
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+        }
+    }
+}
+
+.mcgrid {
+    >* {
+        display: grid;
+    }
+    &.sm-1 {
+        >* {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+    &.sm-2 {
+        >* {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+    &.sm-3 {
+        >* {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+    &.sm-4 {
+        >* {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+    @media #{$tab} {
+        &.md-1 {
+            >* {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+        &.md-2 {
+            >* {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        &.md-3 {
+            >* {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        &.md-4 {
+            >* {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+        &.md-5 {
+            >* {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+            }
+        }
+        &.md-6 {
+            >* {
+                grid-template-columns: repeat(6, minmax(0, 1fr));
+            }
+        }
+        &.md-7 {
+            >* {
+                grid-template-columns: repeat(7, minmax(0, 1fr));
+            }
+        }
+        &.md-8 {
+            >* {
+                grid-template-columns: repeat(8, minmax(0, 1fr));
+            }
+        }
+        &.md-9 {
+            >* {
+                grid-template-columns: repeat(9, minmax(0, 1fr));
+            }
+        }
+        &.md-10 {
+            >* {
+                grid-template-columns: repeat(10, minmax(0, 1fr));
+            }
+        }
+        &.md-11 {
+            >* {
+                grid-template-columns: repeat(11, minmax(0, 1fr));
+            }
+        }
+        &.md-12 {
+            >* {
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+            }
+        }
+    }
+    @media #{$des} {
+        &.lg-1 {
+            >* {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+        &.lg-2 {
+            >* {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        &.lg-3 {
+            >* {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        &.lg-4 {
+            >* {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+        &.lg-5 {
+            >* {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+            }
+        }
+        &.lg-6 {
+            >* {
+                grid-template-columns: repeat(6, minmax(0, 1fr));
+            }
+        }
+        &.lg-7 {
+            >* {
+                grid-template-columns: repeat(7, minmax(0, 1fr));
+            }
+        }
+        &.lg-8 {
+            >* {
+                grid-template-columns: repeat(8, minmax(0, 1fr));
+            }
+        }
+        &.lg-9 {
+            >* {
+                grid-template-columns: repeat(9, minmax(0, 1fr));
+            }
+        }
+        &.lg-10 {
+            >* {
+                grid-template-columns: repeat(10, minmax(0, 1fr));
+            }
+        }
+        &.lg-11 {
+            >* {
+                grid-template-columns: repeat(11, minmax(0, 1fr));
+            }
+        }
+        &.lg-12 {
+            >* {
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+            }
+        }
+    }
+    @media #{$des2} {
+        &.lg2-1 {
+            >* {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+        &.lg2-2 {
+            >* {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        &.lg2-3 {
+            >* {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        &.lg2-4 {
+            >* {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+        &.lg2-5 {
+            >* {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+            }
+        }
+        &.lg2-6 {
+            >* {
+                grid-template-columns: repeat(6, minmax(0, 1fr));
+            }
+        }
+        &.lg2-7 {
+            >* {
+                grid-template-columns: repeat(7, minmax(0, 1fr));
+            }
+        }
+        &.lg2-8 {
+            >* {
+                grid-template-columns: repeat(8, minmax(0, 1fr));
+            }
+        }
+        &.lg2-9 {
+            >* {
+                grid-template-columns: repeat(9, minmax(0, 1fr));
+            }
+        }
+        &.lg2-10 {
+            >* {
+                grid-template-columns: repeat(10, minmax(0, 1fr));
+            }
+        }
+        &.lg2-11 {
+            >* {
+                grid-template-columns: repeat(11, minmax(0, 1fr));
+            }
+        }
+        &.lg2-12 {
+            >* {
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+            }
+        }
+    }
+    @media #{$des3} {
+        &.lg3-1 {
+            >* {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+        &.lg3-2 {
+            >* {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        &.lg3-3 {
+            >* {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        &.lg3-4 {
+            >* {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+        &.lg3-5 {
+            >* {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+            }
+        }
+        &.lg3-6 {
+            >* {
+                grid-template-columns: repeat(6, minmax(0, 1fr));
+            }
+        }
+        &.lg3-7 {
+            >* {
+                grid-template-columns: repeat(7, minmax(0, 1fr));
+            }
+        }
+        &.lg3-8 {
+            >* {
+                grid-template-columns: repeat(8, minmax(0, 1fr));
+            }
+        }
+        &.lg3-9 {
+            >* {
+                grid-template-columns: repeat(9, minmax(0, 1fr));
+            }
+        }
+        &.lg3-10 {
+            >* {
+                grid-template-columns: repeat(10, minmax(0, 1fr));
+            }
+        }
+        &.lg3-11 {
+            >* {
+                grid-template-columns: repeat(11, minmax(0, 1fr));
+            }
+        }
+        &.lg3-12 {
+            >* {
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+            }
+        }
+    }
+}
+
+:root {
+    --cols-gap: 16px;
+    --stickytop: 64px;
+    .search-results {
+        --cols-gap: 24px;
+    }
+}
+
+$col1-width: minmax(0, 1fr);
+$col2-width: 180px;
+$col3-width: 300px;
+.cols {
+    &.three-col {
+        >.wp-block-group__inner-container {
+            //padding: 8px;
+            @media #{$tab} {
+                display: grid;
+                grid-template-columns: $col1-width $col3-width;
+                //padding: 16px;
+                grid-gap: var(--cols-gap);
+                >*:nth-child(2) {
+                    grid-column: span 2;
+                    grid-row-start: 3;
+                }
+                >*:last-child() {
+                    grid-column: span 2;
+                    grid-column-start: 2;
+                }
+            }
+            @media #{$des2} {
+                grid-template-columns: $col1-width $col2-width $col3-width;
+                grid-gap: var(--cols-gap);
+                >*:nth-child(2) {
+                    grid-column: span 1;
+                    grid-column-start: 2;
+                    grid-row-start: 1;
+                }
+                >*:last-child() {
+                    grid-column: span 1;
+                    grid-column-start: 3;
+                }
+            }
+            @media #{$des3} {
+                $col2-width: 250px;
+                grid-gap: 48px;
+                grid-template-columns: minmax(0, 1fr) 348px 348px;
+            }
+        }
+    }
+    .plaidslot {
+        margin: 0 auto 16px;
+    }
+    &.two-col {
+        >.wp-block-group__inner-container {
+            @media #{$tab} {
+                display: grid;
+                grid-template-columns: $col1-width $col3-width;
+                //padding: 16px;
+                grid-gap: var(--cols-gap);
+                .grid-item {
+                    display: block;
+                }
+            }
+            @media #{$des2} {
+                grid-gap: 48px;
+            }
+        }
+    }
+}
+
+.make-sticky {
+    @media #{$tab} {
+        >* {
+            position: sticky;
+            top: var(--stickytop);
+        }
+    }
+}
+
+.mclist {
+    margin: 0 0 32px;
+    .grid {
+        grid-gap: var(--cols-gap);
+    }
+}
+
+.row-header {
+    padding: 8px 8px 16px;
+    >.wrapper {
+        display: flex;
+        align-items: baseline;
+    }
+    a {
+        color: inherit;
+        text-decoration: none;
+        background-image: linear-gradient(transparent 18px, rgba(0, 0, 0, 0.2) 0);
+        padding: 0 0 0 0;
+        @media #{$des} {
+            &:hover {
+                color: var(--primary);
+                background-image: linear-gradient(transparent 18px, var(--tertiary) 0);
+            }
+        }
+    }
+}
+
+.row-footer {
+    font-size: 1rem;
+    margin: 16px 0 0;
+    padding: 0 16px;
+    border-radius: 999px;
+    >.wrapper {
+        border-bottom: 4px solid rgba(0, 0, 0, 0.35);
+    }
+    .lmbtn {
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        >span {
+            display: inline-block;
+            padding: 8px;
+        }
+        >i {
+            display: flex;
+            align-items: center;
+            width: 25px;
+            >svg {
+                fill: var(--blacktext);
+            }
+        }
+    }
+    .nomore & {
+        display: none;
+    }
+}

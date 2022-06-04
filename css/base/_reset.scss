@@ -1,0 +1,60 @@
+* {
+    font-family: inherit;
+    color: inherit;
+    box-sizing: border-box;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+
+html,
+body {
+    font-family: sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    >iframe {
+        display: none;
+    }
+}
+
+img,
+svg {
+    width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    background: transparent;
+}
+
+input,
+textarea {
+    width: 100%;
+}
+
+input {
+    &[type="submit"],
+    &[type="checkbox"] {
+        width: auto;
+    }
+}

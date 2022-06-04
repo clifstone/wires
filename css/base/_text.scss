@@ -1,0 +1,85 @@
+@use '../abstracts/' as *;
+//
+html,
+body {
+    font-family: $basefontfam;
+    font-size: $basefontsize;
+    line-height: $baselineheight;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: always;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $headingfontfam;
+    line-height: $headinglineheight;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: $blackfontweight;
+}
+
+h4,
+h5,
+h6 {
+    font-weight: $boldfontweight;
+}
+
+h1 {
+    font-size: $defh1;
+}
+
+h2 {
+    font-size: $defh2
+}
+
+h3 {
+    font-size: $defh3;
+}
+
+h4 {
+    font-size: $defh4
+}
+
+h5 {
+    font-size: $defh5
+}
+
+h6 {
+    font-size: $defh6
+}
+
+label {
+    font-size: $smfontsize;
+}
+
+input,
+textarea {
+    font-size: $basefontsize;
+}
+
+h3 {
+    margin: 0 0 1rem 0;
+}
+
+p {
+    margin: 0 0 1rem 0;
+    &:last-child {
+        margin: 0 0 0 0;
+    }
+}
+
+.has-text-align-center {
+    text-align: center;
+}
+
+.has-text-align-right {
+    text-align: right;
+}
