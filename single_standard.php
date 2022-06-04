@@ -8,9 +8,9 @@
             <main class="site-main" role="main">
                 <?php if( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb( '<div class="breadcrumbs">','</div>' ); } ?>
                     <div class="articlehero">
-                        <figure class="featured-thumb thumb" style="background-image:url(<?php echo get_stylesheet_directory_uri(); ?>/images/featimageplh.gif);">
+                        <figure class="featured-thumb thumb" style="background-image:url(<?php echo get_stylesheet_directory_uri(); ?>/images/gzlogofull.gif);">
                             <div class="wrapper">
-                                <?php echo theThumb(array( 'pID' => $post->ID, 'whichOne' => 'single' )); ?>
+                                
                             </div>
                         </figure>
                         <?php get_template_part( 'single/checkvid' ); ?>

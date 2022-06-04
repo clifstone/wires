@@ -11,9 +11,9 @@
 <script type="module">
     window.addEventListener('load', () =>{
         let vidheaderdiv = document.querySelector('.vid-header > .wrapper'),
-                blip = '<script async src="<?php echo getScrSrc($vjs); ?>"><\/script>';
+            blip = '<script async src="<?php echo getScrSrc($vjs); ?>"><\/script>';
 
-        postscribe(vidheaderdiv, blip);
+        setTimeout(()=>{ postscribe(vidheaderdiv, blip); },2000);
     });
 </script>
 

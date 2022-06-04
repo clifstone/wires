@@ -3,6 +3,7 @@ include 'funcs/thumbs.php';
 include 'funcs/loadmore.php';
 include 'funcs/vjsembeds.php';
 include 'funcs/getloader.php';
+include 'funcs/instalistscript.php';
 include 'shorts/instalist.php';
 include 'shorts/mclist.php';
 include 'shorts/adshort.php';
