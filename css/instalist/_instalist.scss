@@ -1,3 +1,13 @@
+@use '../abstracts/' as *;
+//
+:root {
+    --cols-gap: 1rem;
+    --stickytop: 64px;
+    .search-results {
+        --cols-gap: 24px;
+    }
+}
+
 .grid,
 .gridcols,
 .modcols {
@@ -5,6 +15,7 @@
 }
 
 .grid {
+    --cols-gap: 2rem;
     &.sm-1 {
         grid-template-columns: minmax(0, 1fr);
     }
@@ -18,6 +29,7 @@
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
     @media #{$tab} {
+        --cols-gap: 1rem;
         &.md-1 {
             grid-template-columns: minmax(0, 1fr);
         }
@@ -445,14 +457,6 @@
     }
 }
 
-:root {
-    --cols-gap: 16px;
-    --stickytop: 64px;
-    .search-results {
-        --cols-gap: 24px;
-    }
-}
-
 $col1-width: minmax(0, 1fr);
 $col2-width: 180px;
 $col3-width: 300px;
@@ -540,14 +544,8 @@ $col3-width: 300px;
     a {
         color: inherit;
         text-decoration: none;
-        background-image: linear-gradient(transparent 18px, rgba(0, 0, 0, 0.2) 0);
+        background-image: linear-gradient(transparent 38px, rgba(0, 0, 0, 0.2) 0);
         padding: 0 0 0 0;
-        @media #{$des} {
-            &:hover {
-                color: var(--primary);
-                background-image: linear-gradient(transparent 18px, var(--tertiary) 0);
-            }
-        }
     }
 }
 

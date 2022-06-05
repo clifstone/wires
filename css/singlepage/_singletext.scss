@@ -1,0 +1,288 @@
+@use '../abstracts/' as *;
+//
+.post-content {
+    ul,
+    ol {
+        padding: 0 0 0 16px;
+        margin: 0 0 24px 0;
+        li {
+            margin: 0 0 12px 0;
+            ul,
+            ol {
+                margin: 0 0 0 0;
+            }
+        }
+    }
+    ul {
+        list-style: disc inside;
+        >li {
+            >ul {
+                list-style: circle inside;
+                >li {
+                    ul {
+                        list-style: square inside;
+                    }
+                }
+            }
+        }
+    }
+    a {
+        @include textdeco(inherit, rgba(0, 0, 0, 0.2), inherit, $accent);
+    }
+    iframe {
+        width: 100%;
+        height: 360px;
+        margin: 0 0 24px 0;
+    }
+    h2,
+    h3,
+    h4 {
+        margin: 8px 0 16px;
+        >a {
+            display: inline-block;
+            background-image: none;
+        }
+    }
+    .wp-block-quote,
+    .wp-block-pullquote {
+        text-align: center;
+        font-weight: 900;
+        font-style: italic;
+        margin: 0 0 2rem 0;
+        @media #{$tab} {
+            padding: 0 1rem;
+        }
+        p {
+            margin: 16px 0 0 0;
+            position: relative;
+            &:first-child {
+                margin: 0;
+                &:before {
+                    position: absolute;
+                    top: -0.5rem;
+                    left: 0;
+                    color: rgba(black, 0.1);
+                    font-family: 'icomoon';
+                    speak: never;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    line-height: 1;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    font-size: 3rem;
+                    font-weight: normal;
+                    z-index: -1;
+                    content: '\e977';
+                }
+            }
+            &:last-of-type {
+                &:after {
+                    position: absolute;
+                    bottom: -0.5rem;
+                    right: 0;
+                    color: rgba(black, 0.1);
+                    font-family: 'icomoon';
+                    speak: never;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    line-height: 1;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    font-size: 3rem;
+                    font-weight: normal;
+                    z-index: -1;
+                    content: '\e978';
+                }
+            }
+        }
+        cite {
+            font-size: 0.8rem;
+            text-align: right;
+            display: block;
+            margin: 1rem 0 0 0;
+            font-weight: normal;
+        }
+    }
+    img {
+        &.alignleft,
+        &.alignright {
+            width: 50% !important;
+            @media #{$tab} {
+                width: 33.33333% !important;
+            }
+        }
+        &.alignleft {
+            float: left;
+            padding: 0 16px 0 0;
+        }
+        &.alignright {
+            float: right;
+            padding: 0 0 0 16px;
+        }
+    }
+}
+
+.infobox,
+.box.info {
+    padding: 16px;
+    background: #eeeeee;
+    border: 1px solid #dddddd;
+    h2,
+    h3,
+    h4 {
+        margin: 0 0 8px;
+    }
+    p {
+        margin: 0 0 8px 0;
+        &:last-child {
+            margin: 0 0 0 0;
+        }
+    }
+}
+
+.divider {
+    width: 100%;
+    display: inline-block;
+    padding: 4px;
+    margin: 32px 0;
+    >.wrapper {
+        padding: 2px;
+        >.dividerimg {
+            height: 4px;
+            background-image: url(images/divider.png);
+            background-repeat: repeat-x;
+        }
+    }
+}
+
+.wp-block-separator {
+    margin: 48px 0;
+}
+
+.wp-block-group {
+    margin: 0 0 32px 0;
+    @include clearfix;
+}
+
+.wp-caption {
+    width: 100% !important;
+    &.alignleft,
+    &.alignright {
+        width: 50% !important;
+        @media #{$tab} {
+            width: 33.33333% !important;
+        }
+    }
+    &.alignleft {
+        float: left;
+        padding: 0 16px 0 0;
+    }
+    &.alignright {
+        float: right;
+        padding: 0 0 0 16px;
+    }
+    >p {
+        font-size: 14px;
+        line-height: 1.2;
+        margin: 0 0 24px;
+    }
+}
+
+.wp-block-image {
+    margin: 0 0 32px 0;
+    figcaption {
+        font-size: 14px;
+    }
+    @media #{$tab} {
+        >.alignleft {
+            width: 50%;
+            float: left;
+            margin: 0 32px 0 0;
+        }
+        >.alignright {
+            width: 50%;
+            float: right;
+            margin: 0 0 0 32px;
+            text-align: right;
+        }
+    }
+}
+
+.wp-block-media-text {
+    margin: 0 0 32px 0;
+    @media #{$tab} {
+        display: grid;
+        grid-gap: 16px;
+    }
+}
+
+.has-text-align-center {
+    text-align: center;
+}
+
+.one_half,
+.one_third,
+.two_third,
+.three_fourth,
+.one_fourth,
+.one_fifth,
+.two_fifth,
+.three_fifth,
+.four_fifth,
+.one_sixth,
+.five_sixth {
+    @media #{$tab} {
+        float: left;
+        padding: 0 16px 0 0;
+        &.last {
+            padding: 0;
+        }
+        .wp-caption {
+            &.alignleft,
+            &.alignright {
+                width: 100% !important;
+            }
+        }
+    }
+}
+
+.one_third {
+    @media #{$tab} {
+        width: 33.33333%;
+    }
+}
+
+.two_third {
+    @media #{$tab} {
+        width: 66.66667%;
+    }
+}
+
+.clear {
+    display: table;
+    clear: both;
+}
+
+.wp-block-table {
+    margin: 0 0 2rem 0;
+    table {
+        width: 100%;
+        border-spacing: 0;
+        tr {
+            td {
+                padding: 0.25rem;
+            }
+        }
+    }
+    &.is-style-stripes {
+        tr {
+            &:nth-child(2n+1) {
+                background-color: rgba(black, 0.1);
+            }
+        }
+    }
+}

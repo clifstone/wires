@@ -1,9 +1,10 @@
 @use '../abstracts/' as *;
 //
 .hero {
+    margin: 0 0 3rem 0;
     >.wrapper {
         display: grid;
-        grid-gap: 8px;
+        grid-gap: 3rem;
     }
     .mainvideo {
         margin: 0 0 16px 0;
@@ -24,10 +25,10 @@
                 line-height: 1;
                 font-size: 14px;
                 text-transform: uppercase;
-                color: var(--tertiary);
+                color: $accent;
             }
             >a {
-                @include textdeco(inherit, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1), var(--tertiary));
+                @include textdeco(inherit, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1), $accent);
             }
         }
         p {
@@ -52,8 +53,8 @@
             margin: 12px 0 0 0;
             @media #{$des} {
                 &:hover {
-                    color: var(--whitetext);
-                    background-color: var(--tertiary);
+                    color: $white;
+                    background-color: $accent;
                 }
             }
         }
@@ -71,7 +72,7 @@
         padding: 8px;
     }
     .grid-item {
-        padding: 8px;
+        //padding: 8px;
         //box-shadow: 0 0 12px rgba(black, 0.5);
     }
     .vidholder {
@@ -79,14 +80,14 @@
         padding: 0 0 56.25% 0;
         position: relative;
         >.wrapper {
-            @include absoStretch;
+            @include mcStretch(absolute);
         }
     }
     @media #{$tab} {
         >.wrapper {
             grid-template-columns: repeat(2, 1fr);
             justify-content: center;
-            grid-gap: 16px;
+            grid-gap: 1rem;
         }
         .mainvideo {
             grid-column: span 2;
@@ -99,7 +100,7 @@
         .grid-item {
             padding: 0;
             .item-body {
-                padding: 16px;
+                padding: 1rem;
             }
         }
     }
@@ -107,11 +108,10 @@
         >.wrapper {
             grid-template-columns: repeat(3, minmax(0, 1fr));
             grid-template-rows: repeat(4, auto);
-            grid-gap: 8px;
         }
         .mainvideo {
             grid-row: span 2;
-            padding: 0 32px 0 0;
+            padding: 0 2rem 0 0;
         }
     }
     @media #{$des3} {

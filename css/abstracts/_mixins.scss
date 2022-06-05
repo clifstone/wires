@@ -19,11 +19,9 @@
     text-decoration: none;
     background-image: linear-gradient(transparent 22px, $underline 0);
     padding: 0 0 4px 0;
-    @media #{$des} {
-        &:hover {
-            color: $hovercolor;
-            background-image: linear-gradient(transparent 22px, $hoverunderline 0);
-        }
+    @media (hover: hover) {
+        color: $hovercolor;
+        background-image: linear-gradient(transparent 22px, $hoverunderline 0);
     }
 }
 
@@ -33,4 +31,21 @@
         display: table;
         clear: both;
     }
+}
+
+@mixin iconsbase {
+    color: rgba(0, 0, 0, 0.15);
+    font-size: 48px;
+    font-family: "icomoon";
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: normal;
+    position: absolute;
+    z-index: -1;
 }

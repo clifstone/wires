@@ -1,18 +1,14 @@
+@use '../abstracts/' as *;
+//
 .thumb-wrapper {
     position: relative;
-    .timestamp {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        margin: 4px;
-    }
 }
 
 .thumb {
     overflow: hidden;
     position: relative;
     >.wrapper {
-        @include absoStretch;
+        @include mcStretch(absolute);
     }
     img {
         width: 100% !important;
@@ -40,7 +36,7 @@
     .bgGrad & {
         &:after {
             content: '';
-            @include absoStretch;
+            @include mcStretch(absolute);
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
         }
     }

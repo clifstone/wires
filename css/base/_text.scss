@@ -34,14 +34,23 @@ h6 {
 
 h1 {
     font-size: $defh1;
+    .single & {
+        font-size: clamp(1rem, 1.4262rem + 3.2787vw, 1.5rem);
+    }
 }
 
 h2 {
-    font-size: $defh2
+    font-size: $defh2;
+    .row-header & {
+        font-size: 1.25rem;
+    }
 }
 
 h3 {
     font-size: $defh3;
+    .grid-item & {
+        font-size: 1rem;
+    }
 }
 
 h4 {
@@ -63,10 +72,6 @@ label {
 input,
 textarea {
     font-size: $basefontsize;
-}
-
-h3 {
-    margin: 0 0 1rem 0;
 }
 
 p {

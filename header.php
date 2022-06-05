@@ -13,6 +13,7 @@
     <title><?php echo wp_title( '|', true, 'right' ); ?></title>
     <?php wp_head(); ?>
     <noscript><style>body { opacity:1 }</style></noscript>
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
 </head>
 
 <body <?php body_class(); ?> itemscope="itemscope" itemtype="https://schema.org/WebPage" style="opacity:0">
@@ -22,5 +23,5 @@
             if(is_active_sidebar('headeradslot') && !is_single()){ dynamic_sidebar('headeradslot'); }
             get_template_part( 'parts/mobheader' );
             get_template_part( 'parts/categorynav' );
-            get_template_part( 'parts/siteaside' );
+            get_template_part( 'parts/sidebarmenu' );
         ?>

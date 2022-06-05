@@ -1,0 +1,98 @@
+@use '../abstracts/' as *;
+//
+input,
+textarea {
+    &:focus-visible {
+        outline: 2px solid $accent;
+    }
+    &.is-invalid {
+        &:focus-visible {
+            outline: 2px solid $errorcolor;
+        }
+    }
+}
+
+.mob-header {
+    background-color: $black;
+    color: $white;
+}
+
+.menbtn {
+    .line {
+        fill: none;
+        stroke: $white;
+        stroke-width: $white;
+    }
+    .show-menu & {
+        background-color: $accent;
+    }
+}
+
+a {
+    .mob-header & {
+        color: $white;
+    }
+}
+
+.category-nav {
+    background-color: $accent;
+    color: $white;
+    @media #{$des} {
+        .menu-item-has-children {
+            &:hover {
+                background-color: $lightblack;
+                color: $white;
+            }
+        }
+    }
+    .sub-menu {
+        a {
+            background-color: $lightblack;
+            color: $white;
+        }
+    }
+}
+
+.searchform {
+    >form button[type=submit] {
+        background-color: $accent;
+        color: $white;
+    }
+    input {
+        color: $white;
+        background-color: $darkgray;
+    }
+}
+
+.headerlogin,
+.headerregister {
+    >a {
+        background-color: $medgray;
+        color: $white;
+    }
+}
+
+.headerplaidslot {
+    background-color: $lightblack;
+}
+
+.sidebarmenu {
+    background-color: $black;
+    color: $white;
+}
+
+.site-footer {
+    background: $medblack;
+}
+
+.grid-item {
+    .timestamp {
+        color: $white;
+        background-color: $accent;
+    }
+}
+
+.wp-block-quote,
+.wp-block-pullquote {
+    color: $accent;
+}

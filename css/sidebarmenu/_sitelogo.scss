@@ -1,0 +1,11 @@
+@use '../abstracts/' as *;
+//
+.sidebarmenu {
+    .site-logo {
+        >a {
+            >img {
+                min-height: $sidebarlogoheight;
+            }
+        }
+    }
+}

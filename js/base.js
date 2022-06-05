@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe();
 
     function upOrDown() {
+        console.log('der');
         st = $win.pageYOffset;
         if (st > lastScrollTop && st > 90) {
             $docbody.classList.add('scrD');
@@ -107,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     $searchoverlayclose.addEventListener('click', togglesearch);
 
-    $win.addEventListener('scroll', debounce(upOrDown, 100));
+    $docbody.addEventListener('scroll', throttle(upOrDown, 250));
     //$win.addEventListener('resize', debounce(resizer, 250));
 
     //resizer();

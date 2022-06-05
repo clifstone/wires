@@ -1,8 +1,10 @@
+@use '../abstracts/' as *;
+//
 .pagination {
     line-height: 1;
     text-align: center;
     font-weight: bold;
-    margin: 0 0 2rem 0;
+    margin: 2rem 0;
     >.wrapper {
         padding: 1rem;
         display: flex;
@@ -28,18 +30,18 @@
         }
         &.current {
             color: white;
-            background-color: var(--tertiary);
+            background-color: $accent;
         }
         @media #{$des2} {
             &.current {
                 &:hover {
                     color: white;
-                    background-color: var(--tertiary);
+                    background-color: $accent;
                 }
             }
             &:hover {
                 color: white;
-                background-color: var(--secondary);
+                background-color: $darkgray;
             }
         }
     }

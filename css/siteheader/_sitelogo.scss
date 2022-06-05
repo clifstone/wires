@@ -1,2 +1,14 @@
 @use '../abstracts/' as *;
 //
+.mob-header {
+    .site-logo {
+        display: flex;
+        max-width: var(--moblogowidth);
+        >a {
+            display: inline-flex;
+            >img {
+                min-height: $siteheaderheight;
+            }
+        }
+    }
+}

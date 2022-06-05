@@ -1,9 +1,39 @@
+@use '../abstracts/' as *;
+//
 .grid-item {
     >a {
         display: block;
     }
+    .thumb-wrapper {
+        .timestamp {
+            line-height: 1;
+            font-size: 0.6rem;
+            font-weight: bold;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+            margin: 4px;
+        }
+    }
     .item-body {
         padding: 8px;
+        header {
+            margin: 0 0 0.5rem 0;
+        }
+        >p {
+            font-size: clamp(0.8rem, 0.7431rem + 0.5351vw, 0.9rem);
+            line-height: clamp(1.2rem, 0.7431rem + 0.5351vw, 1.4rem);
+            max-height: 2.6rem;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+            display: flex;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            white-space: normal;
+            margin: 0;
+        }
     }
     footer {
         font-size: 10px;
