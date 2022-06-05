@@ -1,0 +1,82 @@
+@use '../abstracts/' as *;
+//
+@mixin showmen {
+    opacity: 0.025;
+    pointer-events: none;
+}
+
+body {
+    &.show-menu {
+        overflow: hidden;
+        background-color: black;
+    }
+}
+
+.show-menu {
+    .site-wrapper {
+        >* {
+            &:not(.mob-header):not(.sidebarmenu) {
+                @include showmen();
+            }
+        }
+    }
+    .mob-header {
+        >* {
+            &:not(.menbtn) {
+                @include showmen();
+            }
+        }
+    }
+}
+
+.site-wrapper {
+    display: grid;
+    grid-template-areas: 'aside alert' 'aside header' 'aside plaid' 'aside nav' 'aside main' 'footer footer';
+    grid-template-columns: 0fr;
+    @media #{$des} {
+        grid-template-columns: var(--asidewidth) 1fr;
+    }
+}
+
+.mob-header {
+    grid-area: header;
+}
+
+.category-nav {
+    grid-area: nav;
+}
+
+.header-alert.above {
+    grid-area: alert;
+}
+
+.headerplaidslot {
+    grid-area: plaid;
+}
+
+.sidebarmenu {
+    grid-area: aside;
+}
+
+.main-wrap {
+    min-height: 100vh;
+    grid-area: main;
+}
+
+.site-main {
+    padding: 2rem 0;
+    @media #{$tab} {
+        padding: 2rem 1rem;
+    }
+    @media #{$des2} {
+        padding: 2rem 3rem;
+    }
+    @media #{$des3} {
+        padding: 4rem;
+    }
+}
+
+.site-footer {
+    min-height: 3.125rem;
+    grid-area: footer;
+}

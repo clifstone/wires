@@ -1,2 +1,36 @@
 @use '../abstracts/' as *;
 //
+.mob-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.15s ease-out;
+    .goingdown & {
+        transform: translateY(-$siteheaderheight);
+    }
+}
+
+.category-nav {
+    position: sticky;
+    top: $siteheaderheight;
+    transition: transform 0.15s ease-out;
+    .goingdown & {
+        transform: translateY(-$siteheaderheight);
+    }
+    .goingup & {
+        transform: translateY(0);
+    }
+    @media #{$des} {
+        top: 0;
+        .goingdown & {
+            transform: translateY(0);
+        }
+        .single.goingdown & {
+            top: 0;
+        }
+        .single.goingup & {
+            top: $siteheaderheight;
+            transform: translateY(0);
+        }
+    }
+}

@@ -4,19 +4,13 @@
         white-space: nowrap;
         li {
             a {
-                padding: 8px 16px;
+                padding: 0.5rem 1rem;
                 display: block;
             }
         }
     }
     .menu-item {
         position: relative;
-        // &.menu-item-has-children {
-        //     display: flex;
-        //     &:after {
-        //         content: '\25BC';
-        //     }
-        // }
         &:hover {
             >.sub-menu {
                 display: grid;

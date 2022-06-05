@@ -1,0 +1,42 @@
+@use '../abstracts/' as *;
+//
+.archive {
+    .main-wrap {
+        padding: 0 0 4rem;
+    }
+    .page-header {
+        padding: 1rem;
+        margin: 0 0 1rem;
+        >h1 {
+            margin: 0 0 1rem 0;
+        }
+    }
+    .site-sidebar {
+        >.wrapper {
+            position: sticky;
+            top: $siteheaderheight;
+        }
+    }
+    @media #{$tab} {
+        .main-wrap {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            grid-gap: 2rem;
+            padding: 0 1rem 4rem;
+        }
+        .site-main {
+            padding: 2rem 0 0;
+        }
+        .site-sidebar {
+            >.wrapper {
+                padding: 4rem 0 0;
+            }
+        }
+    }
+    @media #{$des2} {
+        .main-wrap {
+            padding: 1rem 3rem;
+            grid-gap: 3rem;
+        }
+    }
+}

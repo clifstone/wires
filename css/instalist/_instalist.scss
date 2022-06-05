@@ -529,14 +529,14 @@ $col3-width: 300px;
 }
 
 .mclist {
-    margin: 0 0 32px;
+    margin: 0 0 2rem;
     .grid {
         grid-gap: var(--cols-gap);
     }
 }
 
 .row-header {
-    padding: 8px 8px 16px;
+    padding: 0.5rem 0.5rem 1rem;
     >.wrapper {
         display: flex;
         align-items: baseline;
@@ -551,11 +551,11 @@ $col3-width: 300px;
 
 .row-footer {
     font-size: 1rem;
-    margin: 16px 0 0;
-    padding: 0 16px;
+    margin: 1rem 0 0;
+    padding: 0 1rem;
     border-radius: 999px;
     >.wrapper {
-        border-bottom: 4px solid rgba(0, 0, 0, 0.35);
+        border-bottom: 0.25rem solid rgba(0, 0, 0, 0.35);
     }
     .lmbtn {
         display: flex;
@@ -563,7 +563,7 @@ $col3-width: 300px;
         cursor: pointer;
         >span {
             display: inline-block;
-            padding: 8px;
+            padding: 0.5rem;
         }
         >i {
             display: flex;

@@ -40,8 +40,8 @@ if(have_posts()){
                         <header>
                             <h3><span aria-label="'.$title.'" title="'.$title.'">'.$title.'</span></h3>
                         </header>
-                        '.$excerpt.'
-                        '.$itemfooter.'
+                        <p>'.$excerpt.'</p>
+                        <footer>'.$itemfooter.'</footer>
                     </div>
                 </div>
             </a>
@@ -54,25 +54,25 @@ if(have_posts()){
 }
 wp_reset_postdata();
 
-
 get_header();
-if(is_active_sidebar('headeradslot')){ dynamic_sidebar('headeradslot'); }
+
+echo '<div class="searchpageform">'; get_template_part( 'parts/searchform' ); echo '</div>';
 
 echo '
 <div class="main-wrap gridcols">
     <div class="gridcol">
         <main class="site-main" role="main">';
 
-            get_template_part( 'parts/searchform' );
+            
 
             echo 
             '<div class="mclist">
-                <div class="searchinfo">
-                    <div class="wrapper">
-                        <h1><span>You searched for: <span><strong>'.get_search_query().'</strong></h1>
-                    </div>
-                </div>
                 <div class="wrapper">
+                    <header class="row-header">
+                        <div class="wrapper">
+                            <h1><span>You searched for: <span><strong>'.get_search_query().'</strong></h1>
+                        </div>
+                    </header>
                     <div class="grid-wrapper">
                         <div class="grid sm-1 md-2 lg-1 lg2-2 lg3-3">
                             '.$search_item.'

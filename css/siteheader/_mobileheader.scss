@@ -7,9 +7,26 @@
     max-height: $siteheaderheight;
     >.searchform {
         flex: auto;
+        background-color: transparent;
+        >form {
+            display: none;
+        }
+    }
+    .searchinput {
+        width: 18rem;
+    }
+    @media #{$tab} {
+        .searchform {
+            >form {
+                display: flex;
+            }
+        }
     }
     @media #{$des} {
         display: none;
+        .searchinput {
+            width: 25rem;
+        }
     }
 }
 

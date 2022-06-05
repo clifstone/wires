@@ -39,23 +39,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const observer = lozad(); // lazy loads elements with default selector as '.lozad'
     observer.observe();
-
-    function upOrDown() {
-        console.log('der');
-        st = $win.pageYOffset;
-        if (st > lastScrollTop && st > 90) {
-            $docbody.classList.add('scrD');
-            $docbody.classList.remove('scrU');
+    let thresh = 90;
+    const upordown = () => {
+        scrtop = $docbody.scrollTop;
+        if (scrtop > lastScrollTop && scrtop > thresh) {
+            $docbody.classList.add('goingdown');
+            $docbody.classList.remove('goingup');
+        } else if (scrtop < lastScrollTop && scrtop > thresh) {
+            $docbody.classList.remove('goingdown');
+            $docbody.classList.add('goingup');
+        } else if (scrtop <= thresh) {
+            $docbody.classList.remove('goingdown');
+            $docbody.classList.remove('goingup');
         }
-        if (st < lastScrollTop && st > 90) {
-            $docbody.classList.add('scrU');
-            $docbody.classList.remove('scrD');
-        }
-        if (st <= 90) {
-            $docbody.classList.remove('scrD');
-            $docbody.classList.remove('scrU');
-        }
-        lastScrollTop = st;
+        lastScrollTop = scrtop;
     }
 
     function resizer() {
@@ -108,7 +105,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     $searchoverlayclose.addEventListener('click', togglesearch);
 
-    $docbody.addEventListener('scroll', throttle(upOrDown, 250));
+    $docbody.addEventListener('scroll', throttle(upordown, 100));
+    $docbody.addEventListener('scroll', debounce(upordown, 250));
     //$win.addEventListener('resize', debounce(resizer, 250));
 
     //resizer();

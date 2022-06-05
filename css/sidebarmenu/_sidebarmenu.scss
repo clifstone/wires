@@ -1,7 +1,6 @@
 @use '../abstracts/' as *;
 //
 .sidebarmenu {
-    grid-area: aside;
     position: fixed;
     width: var(--asidewidth);
     top: 0;

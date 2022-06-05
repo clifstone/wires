@@ -34,6 +34,9 @@ h6 {
 
 h1 {
     font-size: $defh1;
+    .search & {
+        font-size: 1rem;
+    }
     .single & {
         font-size: clamp(1rem, 1.4262rem + 3.2787vw, 1.5rem);
     }

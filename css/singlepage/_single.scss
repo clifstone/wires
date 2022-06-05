@@ -3,12 +3,18 @@
 .single {
     .main-wrap {
         padding: 0 0 8rem 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        @media #{$des} {
+            padding: 1rem;
+        }
         @media #{$des2} {
             max-width: 60rem;
             margin: auto;
         }
         @media #{$des3} {
-            max-width: 70rem;
+            max-width: 80rem;
         }
     }
     .site-main {
@@ -17,6 +23,7 @@
         margin: 0 0 3rem;
         @media #{$des} {
             grid-template-columns: 1fr 320px;
+            grid-gap: 2rem;
             .articlehero {
                 grid-column: span 2;
             }
