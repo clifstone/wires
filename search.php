@@ -20,7 +20,7 @@ if(have_posts()){
         $pID = get_the_ID();
         $link = get_the_permalink();
         $format = get_post_format() ? 'video' : 'standard';
-        $thumb = theThumb($args = array( 'pID' => $pID, 'whichOne' => 'tiny' ));
+        $thumb = theThumb($args = array( 'pID' => $pID, 'size' => 'tiny' ));
         $timestamp = dynamicTime();
         $title = get_the_title();
         $excerpt = get_the_excerpt();

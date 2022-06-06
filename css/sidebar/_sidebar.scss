@@ -1,2 +1,9 @@
 @use '../abstracts/' as *;
 //
+.site-sidebar {
+    >.wrapper {
+        >* {
+            margin: 0 0 1rem 0;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 <?php
 
-function load_posts_by_ajax_callback() {
+function instalist_loadmore_function() {
 
     $paged = $_POST['page'];
     $category_name = $_POST['category_name'];
@@ -14,7 +14,7 @@ function load_posts_by_ajax_callback() {
     $exclude_categories = ($excludecategory) ? ( mcExclude($excludecategory) ) : ('');
 
         if($category_name){
-            $queryArgs = array(
+            $args = array(
                 'category_name' => $category_name,
                 'post_type' => 'post',
                 'post_status' => 'publish',
@@ -25,7 +25,7 @@ function load_posts_by_ajax_callback() {
                 'post__not_in' => array($exclude_categories)
             );
         }else{
-            $queryArgs = array(
+            $args = array(
                 'post_type' => 'post',
                 'post_status' => 'publish',
                 'posts_per_page' => $numof,
@@ -36,8 +36,8 @@ function load_posts_by_ajax_callback() {
             );
         }
         
-        $cat = get_term_by( 'slug', $category_name, 'category');
-        $mcListQuery = new WP_Query($queryArgs);
+        //$cat = get_term_by( 'slug', $category_name, 'category');
+        $mcListQuery = new WP_Query($args);
         
         if($mcListQuery->have_posts()){
             
@@ -54,7 +54,7 @@ function load_posts_by_ajax_callback() {
                 $thumb = '
                 <figure class="thumb">
                     <div class="wrapper">
-                        '.theThumb($args = array( 'pID' => $post->ID, 'whichOne' => 'tiny' )).'
+                        '.theThumb($args = array( 'pID' => $post->ID, 'size' => 'tiny' )).'
                     </div>
                 </figure>
                 ';
@@ -111,5 +111,5 @@ function load_posts_by_ajax_callback() {
     wp_die();
 }
 
-add_action('wp_ajax_load_posts_by_ajax', 'load_posts_by_ajax_callback');
-add_action('wp_ajax_nopriv_load_posts_by_ajax', 'load_posts_by_ajax_callback');
+add_action('wp_ajax_load_posts_by_ajax', 'instalist_loadmore_function');
+add_action('wp_ajax_nopriv_load_posts_by_ajax', 'instalist_loadmore_function');

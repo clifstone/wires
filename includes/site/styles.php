@@ -9,7 +9,7 @@ add_action( 'wp_enqueue_scripts', 'dequeuestuff', 99);
 
 function loadstyles() {
     $template_directory = get_template_directory_uri();
-    $stylever = '1.1.4';
+    $stylever = '1.1.5';
     
     echo '<link rel="preload" href="'.$template_directory.'/style.css?v='.$stylever.'" as="style"  onload="this.rel=\'stylesheet\'" >';
     echo '<link rel="preload" href="'.$template_directory.'/fonts/baseicons/style.min.css?v='.$stylever.'" as="style"  onload="this.rel=\'stylesheet\'" >';

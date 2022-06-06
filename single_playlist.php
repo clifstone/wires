@@ -1,5 +1,5 @@
 <?php 
-    add_action( 'wp_head', function(){ echo theThumb(array( 'pID' => $post->ID, 'whichOne' => 'preload' )); }, 99);
+    add_action( 'wp_head', function(){ echo theThumb(array( 'pID' => $post->ID, 'size' => 'preload' )); }, 99);
     get_header();
 ?>
     <div class="main-wrap">

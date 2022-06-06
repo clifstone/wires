@@ -49,7 +49,6 @@ function instalist_func( $atts = array(), $content="null" ) {
     $mcRand = rand( 0 , 999999 );
     $numof;
     $mcpages;
-    $x = 0;
 
     (wp_is_mobile()) ? ($numof = $numofmobile) : ($numof = $numofdesktop);
     ($mw) ? ($mw = 'mw') : ($mw = '');
@@ -90,7 +89,14 @@ function instalist_func( $atts = array(), $content="null" ) {
     $exclude_categories = ($excludecategory) ? ( mcExclude($excludecategory) ) : ('');
     $exclude_single = (is_single()) ? (get_the_ID()) : ('');
 
-    $args;
+    $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => $numof,
+        'post_status' => 'publish',
+        'category_name' => $category_name,
+        'tag' => $tag_name,
+        'post__not_in' => array($exclude_single, $exclude_categories)
+    );
 
     if($category_name){
         $args = array(
@@ -98,7 +104,7 @@ function instalist_func( $atts = array(), $content="null" ) {
             'posts_per_page' => $numof,
             'post_status' => 'publish',
             'category_name' => $category_name,
-            'post__not_in' => array($exclude_categories)
+            'post__not_in' => array($exclude_single, $exclude_categories)
         );
         $totalnum = get_term_by('slug', $category_name, 'category')->count;
     }else if($tag_name){
@@ -146,51 +152,7 @@ function instalist_func( $atts = array(), $content="null" ) {
         ';
     }
     
-
-    $articleItem;
-    
-    $instalistquery = new WP_Query( $args );
-    
-    if(have_posts()){
-        while($instalistquery->have_posts()){
-            $instalistquery->the_post();
-
-            $title = get_the_title();
-            $link = get_the_permalink();
-            $thumb = theThumb($args = array( 'pID' => $post->ID, 'whichOne' => 'tiny' ));
-            $timestamp = dynamicTime();
-            $format = get_post_format($post->ID) ? 'video' : 'standard';
-            ($hasexcerpt) ? ($excerpt = '<p>'.get_the_excerpt($post->ID).'</p>') : ($excerpt = '');
-            ($format === 'video') ? ($itemfooter = '<footer><span>Watch Video</span></footer>') : ($itemfooter = '<footer><span>Read Article</span></footer>');
-
-            $articleItem .='
-            <article class="grid-item '.$format.'" style="--order: '.$x.'">
-                <a href="'.$link.'">
-                    <div class="wrapper">
-                        <div class="thumb-wrapper" data-num="'.$x.'">
-                            <figure class="thumb">
-                                <div class="wrapper">
-                                    '.$thumb.'
-                                </div>
-                            </figure>
-                            '.$timestamp.'
-                        </div>
-                        <div class="item-body">
-                            <header>
-                                <h3><span aria-label="'.$title.'" title="'.$title.'">'.$title.'</span></h3>
-                            </header>
-                            '.$excerpt.'
-                            '.$itemfooter.'
-                        </div>
-                    </div>
-                </a>
-            </article>
-            ';
-            
-            $x++;
-        }
-    }
-    wp_reset_postdata();
+    $articleItem = getarticleitem($args);
 
     $mclist = '
     <div id="mclist-'.$mcRand.'" class=" mclist '.$colorscheme.' '.$rowclass.' '.$listtype.'">

@@ -3,7 +3,7 @@ function instalistscript(){
     if(function_exists('instalist_func')){ ?>
     <script>
         
-        window.addEventListener('load', ()=>{
+        window.addEventListener('load', () => {
             const lmbtns = document.querySelectorAll('.lmbtn');
             const lmblock = document.querySelector('.lmblock');
 

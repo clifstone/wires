@@ -1475,6 +1475,10 @@ body.show-menu {
   min-height: 64px;
 }
 
+.site-sidebar > .wrapper > * {
+  margin: 0 0 1rem 0;
+}
+
 .plaid {
   display: flex;
   justify-content: center;

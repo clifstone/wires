@@ -10,13 +10,3 @@
         <div class="close-btn"><i class="i-cross"></i></div>
     </div>
 </div>
-
-<!-- <script>
-    $killFloat = document.querySelector('.vid-header > .close-btn');
-
-    function killFloat() {
-        $vidHeader.classList.add('no-float');
-    }
-
-    $killFloat.addEventListener('click', killFloat);
-</script> -->

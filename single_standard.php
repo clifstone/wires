@@ -1,5 +1,5 @@
 <?php
-    add_action( 'wp_head', function(){ echo theThumb(array( 'pID' => $post->ID, 'whichOne' => 'preload' )); }, 99);
+    add_action( 'wp_head', function(){ echo theThumb(array( 'pID' => $post->ID, 'size' => 'preload' )); }, 99);
     get_header();
     if(is_active_sidebar('headeradslot')){ dynamic_sidebar('headeradslot'); }
 ?>
@@ -10,7 +10,7 @@
                 <div class="articlehero">
                     <figure class="featured-thumb thumb">
                         <div class="wrapper">
-                            <?php echo theThumb($args = array( 'pID' => $pID, 'whichOne' => 'single' )); ?>
+                            <?php echo theThumb($args = array( 'pID' => $post->ID, 'size' => 'single' )); ?>
                         </div>
                     </figure>
                     <?php get_template_part( 'single/checkvid' ); ?>

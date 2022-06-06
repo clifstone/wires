@@ -16,7 +16,7 @@ foreach($plisturls as $plisturl){
                     <div class="wrapper">
                         <figure class="thumb">
                             <div class="wrapper">
-                                '.theThumb(array( 'pID' => $pID, 'whichOne' => 'tiny' )).'
+                                '.theThumb(array( 'pID' => $pID, 'size' => 'tiny' )).'
                             </div>
                         </figure>
                     </div>
