@@ -1759,19 +1759,6 @@ body.show-menu {
   text-transform: uppercase;
   color: #ef3e25;
 }
-.hero .featuredinfo h3 > a {
-  color: inherit;
-  font-weight: var(--weightbold);
-  text-decoration: none;
-  background-image: linear-gradient(transparent 22px, rgba(0, 0, 0, 0.2) 0);
-  padding: 0 0 4px 0;
-}
-@media (hover: hover) {
-  .hero .featuredinfo h3 > a {
-    color: rgb(0, 0, 0);
-    background-image: linear-gradient(transparent 22px, #ef3e25 0);
-  }
-}
 .hero .featuredinfo p {
   font-size: clamp(1rem, 0.7431rem + 0.5351vw, 1.1rem);
   line-height: clamp(1.6rem, 0.7431rem + 0.5351vw, 2rem);
