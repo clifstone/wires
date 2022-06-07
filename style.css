@@ -1372,13 +1372,16 @@ body.show-menu {
 .category-nav .menu {
   display: flex;
   white-space: nowrap;
+  height: 2.5rem;
+  align-items: center;
 }
 .category-nav .menu .menu-item {
   position: relative;
 }
 .category-nav .menu .menu-item a {
-  padding: 1rem;
+  line-height: 0;
   display: block;
+  padding: 1.25rem;
 }
 .category-nav .menu .menu-item:hover > .sub-menu {
   display: grid;
@@ -1821,12 +1824,6 @@ body.show-menu {
 @media (min-width:1024px) {
   .hero .mainvideo {
     margin: 0;
-  }
-  .hero .grid-item {
-    padding: 0;
-  }
-  .hero .grid-item .item-body {
-    padding: 1rem;
   }
 }
 @media (min-width:1366px) {
@@ -2319,6 +2316,11 @@ body.show-menu {
   display: none;
 }
 
+.grid-item > a,
+.grid-item > a > .wrapper {
+  height: 100%;
+  position: relative;
+}
 .grid-item > a {
   display: block;
 }
@@ -2331,10 +2333,12 @@ body.show-menu {
   right: 0;
   padding: 0.25rem;
   border-radius: 0.25rem;
-  margin: 4px;
+  margin: 0.25rem;
 }
 .grid-item .item-body {
-  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
 }
 .grid-item .item-body header {
   margin: 0 0 0.5rem 0;
@@ -2352,9 +2356,8 @@ body.show-menu {
   margin: 0;
 }
 .grid-item footer {
-  font-size: 10px;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  padding: 8px 0;
 }
 .thL .grid-item > a > .wrapper {
   display: grid;

@@ -1,6 +1,11 @@
 @use '../abstracts/' as *;
 //
 .grid-item {
+    >a,
+    >a>.wrapper {
+        height: 100%;
+        position: relative;
+    }
     >a {
         display: block;
     }
@@ -14,11 +19,13 @@
             right: 0;
             padding: 0.25rem;
             border-radius: 0.25rem;
-            margin: 4px;
+            margin: 0.25rem;
         }
     }
     .item-body {
-        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
         header {
             margin: 0 0 0.5rem 0;
         }
@@ -36,9 +43,8 @@
         }
     }
     footer {
-        font-size: 10px;
+        font-size: $smfontsize;
         text-transform: uppercase;
-        padding: 8px 0;
     }
     .thL & {
         >a>.wrapper {

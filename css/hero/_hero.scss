@@ -68,10 +68,6 @@
         justify-content: center;
         padding: 8px;
     }
-    .grid-item {
-        //padding: 8px;
-        //box-shadow: 0 0 12px rgba(black, 0.5);
-    }
     .vidholder {
         width: 100%;
         padding: 0 0 56.25% 0;
@@ -93,12 +89,6 @@
     @media #{$des} {
         .mainvideo {
             margin: 0;
-        }
-        .grid-item {
-            padding: 0;
-            .item-body {
-                padding: 1rem;
-            }
         }
     }
     @media #{$des2} {
