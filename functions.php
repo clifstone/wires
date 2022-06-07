@@ -264,27 +264,27 @@ add_filter( 'the_content', 'attachment_image_link_remove_filter' );
         $images[] = $node;
     }
 
-    foreach ($images as $node) {
-        $fallback = $node->cloneNode(true);
+    // foreach ($images as $node) {
+    //     $fallback = $node->cloneNode(true);
 
-        $oldsrc = $node->getAttribute('src');
-        $node->setAttribute('data-src', $oldsrc );
-        $newsrc = get_template_directory_uri() . '/images/placeholder.gif';
-        $node->setAttribute('src', $newsrc);
+    //     $oldsrc = $node->getAttribute('src');
+    //     $node->setAttribute('data-src', $oldsrc );
+    //     $newsrc = get_template_directory_uri() . '/images/placeholder.gif';
+    //     $node->setAttribute('src', $newsrc);
 
-        $oldsrcset = $node->getAttribute('srcset');
-        $node->setAttribute('data-srcset', $oldsrcset );
-        $newsrcset = '';
-        $node->setAttribute('srcset', $newsrcset);
+    //     $oldsrcset = $node->getAttribute('srcset');
+    //     $node->setAttribute('data-srcset', $oldsrcset );
+    //     $newsrcset = '';
+    //     $node->setAttribute('srcset', $newsrcset);
 
-        $classes = $node->getAttribute('class');
-        $newclasses = $classes . ' lozad';
-        $node->setAttribute('class', $newclasses);
+    //     $classes = $node->getAttribute('class');
+    //     $newclasses = $classes . ' lozad';
+    //     $node->setAttribute('class', $newclasses);
 
-        $noscript = $dom->createElement('noscript', '');
-        $node->parentNode->insertBefore($noscript, $node); 
-        $noscript->appendChild($fallback); 
-    }
+    //     $noscript = $dom->createElement('noscript', '');
+    //     $node->parentNode->insertBefore($noscript, $node); 
+    //     $noscript->appendChild($fallback); 
+    // }
 
 
     // Convert Videos

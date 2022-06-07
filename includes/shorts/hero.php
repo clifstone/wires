@@ -80,11 +80,6 @@ function hero_func( $atts = array(), $content="null" ){
             $link = get_the_permalink();
             $format = get_post_format() ? 'video' : 'standard';
 
-            $mcThumb_small = wp_get_attachment_image_src( get_post_thumbnail_id(), 'small' );
-            $mcThumb_extra_small = wp_get_attachment_image_src( get_post_thumbnail_id(), 'extra-small' );
-            $mcThumb_tiny = wp_get_attachment_image_src( get_post_thumbnail_id(), 'tiny' );
-            $imgalt = get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true);
-
             $thmbalt;
             if($imgalt){
                 $thmbalt = $imgalt;
@@ -101,10 +96,7 @@ function hero_func( $atts = array(), $content="null" ){
             $thumb = '
             <figure class="thumb">
                 <div class="wrapper">
-                    <picture>
-                        <source media="(min-width: 320px)" srcset="'.$mcThumb_small[0].'">
-                        <img src="'.$mcThumb_tiny[0].'" alt="'.$thmbalt[0].'" loading="lazy">
-                    </picture>
+                    '.theThumb($args = array( 'pID' => $post->ID, 'size' => 'tiny' )).'
                 </div>
             </figure>
             ';

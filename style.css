@@ -1738,10 +1738,10 @@ body.show-menu {
   grid-gap: 3rem;
 }
 .hero .mainvideo {
-  margin: 0 0 16px 0;
+  margin: 0 0 2rem 0;
 }
 .hero .mainvideo .vidholder > .wrapper {
-  margin: 0 -8px;
+  margin: 0 -0.5rem;
 }
 @media (min-width:1366px) {
   .hero .mainvideo .vidholder > .wrapper {
@@ -1773,19 +1773,6 @@ body.show-menu {
   text-overflow: ellipsis;
   white-space: normal;
   margin: 16px 0;
-}
-.hero .featuredinfo .featured-vid-link {
-  text-transform: uppercase;
-  display: inline-block;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 8px 16px;
-  margin: 12px 0 0 0;
-}
-@media (min-width:1024px) {
-  .hero .featuredinfo .featured-vid-link:hover {
-    color: #FFFFFF;
-    background-color: #ef3e25;
-  }
 }
 .hero .plaidslot.mr,
 .hero .plaidslot.mr > .wrapper {
@@ -1833,7 +1820,7 @@ body.show-menu {
   }
   .hero .mainvideo {
     grid-row: span 2;
-    padding: 0 2rem 0 0;
+    padding: 0 0 0 0;
   }
 }
 @media (min-width:1920px) {
@@ -1847,6 +1834,229 @@ body.show-menu {
   .hero .grid-item:nth-of-type(2) {
     grid-row-start: 2;
   }
+}
+
+.featured-vid-link {
+  font-size: 1rem;
+  text-align: left;
+  background: #202020;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(9, 9, 9, 0.5);
+}
+
+.featured-vid-link:hover {
+  border: 1px solid #ef3e25;
+}
+
+.has-playlist .breadcrumbs {
+  padding: 0px;
+  margin: 0 0 0.5rem 0;
+}
+.has-playlist .post-header {
+  padding: 0;
+}
+.has-playlist .post-header > .wrapper {
+  padding: 0;
+  border: 0px none;
+}
+.has-playlist h1 {
+  font-size: clamp(1.1rem, 0.4262rem + 3.2787vw, 2rem);
+}
+
+.mcplaylist {
+  width: 100%;
+}
+.mcplaylist .plistcols > .modcol:last-child {
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+@media (min-width:1366px) {
+  .mcplaylist .plistcols {
+    grid-template-columns: 1fr 400px;
+    grid-gap: 0.25rem;
+    position: relative;
+  }
+  .mcplaylist .plistcols > .modcol:last-child {
+    width: 400px;
+    white-space: normal;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow-x: visible;
+    overflow-y: hidden;
+  }
+}
+
+.vjsplayer {
+  background-color: black;
+}
+
+.pli-list {
+  padding: 0 0 1rem;
+}
+@media (min-width:1366px) {
+  .pli-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.5) black;
+  }
+  .pli-list::-webkit-scrollbar {
+    width: 8px;
+  }
+  .pli-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  .pli-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0;
+    border: 1px solid rgba(0, 0, 0, 0);
+  }
+  .pli-list:hover {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(239, 62, 37, 0.5) black;
+  }
+  .pli-list:hover::-webkit-scrollbar-thumb {
+    background-color: #ef3e25;
+    border-radius: 0;
+    border: 1px solid rgba(239, 62, 37, 0);
+  }
+}
+
+.pli-list > .wrapper {
+  display: flex;
+  gap: 0.15rem;
+}
+@media (min-width:1366px) {
+  .pli-list > .wrapper {
+    flex-direction: column;
+    padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+  }
+}
+
+.playlistitem {
+  white-space: normal;
+  font-size: clamp(0.8rem, 0.7426rem + 0.3279vw, 0.9rem);
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+.playlistitem h4 {
+  font-weight: 400;
+}
+.playlistitem > .wrapper {
+  width: clamp(150px, 40vw, 300px);
+  height: 100%;
+  padding: 0.25rem;
+  background: white;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 0.25rem;
+  transition: border 0.5s ease-out;
+}
+.playlistitem .modcols {
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 0.25rem;
+  height: 100%;
+}
+.playlistitem .thumb:after {
+  content: url(images/playbtnoverlay.svg);
+  width: 25%;
+  max-width: 85px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.playlistitem .indicators {
+  font-size: 0.7rem;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  display: grid;
+  background-color: rgba(0, 0, 0, 0);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 0.25rem 0.5rem;
+  transition: transform 0.25s ease-in-out, background-color 0.25s ease-in-out, border 0.25s ease-in-out;
+}
+.playlistitem .indicators > span {
+  display: block;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  transition: transform 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+.playlistitem .indicators > span:first-child {
+  transform: translateX(0%);
+}
+.playlistitem .indicators > span:last-child {
+  opacity: 0;
+  transform: translateX(-120%);
+}
+.playlistitem.selected > .wrapper {
+  border: 1px solid #ef3e25;
+}
+.playlistitem.selected .indicators {
+  background-color: black;
+  border-top: 1px solid rgba(0, 0, 0, 0);
+}
+.playlistitem.selected .indicators > span:first-child {
+  transform: translateX(120%);
+}
+.playlistitem.selected .indicators > span:last-child {
+  opacity: 1;
+  color: white;
+  transform: translateX(0%);
+}
+@media (min-width:1366px) {
+  .playlistitem {
+    font-size: 1rem;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.25s ease-in-out, border 0.25s ease-in-out;
+  }
+  .playlistitem > .wrapper {
+    width: 100%;
+  }
+  .playlistitem .modcols {
+    grid-template-columns: 142px 1fr;
+    grid-gap: 0 0.5rem;
+  }
+  .playlistitem .modcol:first-child {
+    grid-row: span 2;
+  }
+  .playlistitem .modcol:last-child {
+    align-self: self-end;
+  }
+  .playlistitem .indicators {
+    text-align: right;
+  }
+  .playlistitem:hover {
+    background-color: #ef3e25;
+  }
+  .playlistitem:hover .indicators {
+    color: white;
+    border-top: 1px solid rgba(0, 0, 0, 0);
+    background-color: #ef3e25;
+  }
+}
+
+.playlistcontentitem {
+  border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+  padding: 0 0 2rem 0;
+  margin: 0 0 2rem 0;
+}
+.playlistcontentitem a {
+  color: white;
+  line-height: 1;
+  background-image: none;
+  background-color: #ef3e25;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
 }
 
 :root {
