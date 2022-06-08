@@ -18,14 +18,12 @@
             }
         }
     }
-    .featuredinfo {
+    .item-body {
         padding: 16px;
         h3 {
             >span {
                 line-height: 1;
                 font-size: 14px;
-                text-transform: uppercase;
-                color: $accent;
             }
         }
         p {

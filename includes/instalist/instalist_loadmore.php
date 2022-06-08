@@ -13,9 +13,11 @@ function instalist_loadmore_function() {
 
     $exclude_categories = ($excludecategory) ? ( mcExclude($excludecategory) ) : ('');
 
-        if($category_name){
+        if($category_name || $tag_name){
             $args = array(
+                'loopname' => 'instalist',
                 'category_name' => $category_name,
+                'tag_name' => $tag_name,
                 'post_type' => 'post',
                 'post_status' => 'publish',
                 'posts_per_page' => $numof,
@@ -26,6 +28,7 @@ function instalist_loadmore_function() {
             );
         }else{
             $args = array(
+                'loopname' => 'instalist',
                 'post_type' => 'post',
                 'post_status' => 'publish',
                 'posts_per_page' => $numof,
@@ -36,77 +39,7 @@ function instalist_loadmore_function() {
             );
         }
         
-        //$cat = get_term_by( 'slug', $category_name, 'category');
-        $mcListQuery = new WP_Query($args);
-        
-        if($mcListQuery->have_posts()){
-            
-            $x = 0;
-            $thumb;
-
-            while($mcListQuery->have_posts()){
-                
-                $mcListQuery->the_post();
-                $title = get_the_title();
-                $link = get_the_permalink();
-                $format = get_post_format() ? 'video' : 'standard';
-
-                $thumb = '
-                <figure class="thumb">
-                    <div class="wrapper">
-                        '.theThumb($args = array( 'pID' => $post->ID, 'size' => 'tiny' )).'
-                    </div>
-                </figure>
-                ';
-
-                if($hasexcerpt){
-                    $excerpt = '<p>'.get_the_excerpt().'</p>';
-                }else{
-                    $excerpt = '';
-                }
-
-                if($format === 'video'){
-                    $itemfooter = '<footer><span>Watch Video</span></footer>';
-                }else{
-                    $itemfooter = '<footer><span>Read Article</span></footer>';
-                };
-
-                $date = $post_item['post_date'];
-                $time = get_post_time('U', true, get_post($post_item['ID']));
-                $mytime = time() - $time;
-                if($mytime > 0 && $mytime < 7*24*60*60){
-                    $mytimestamp = '<div class="timestamp"><span>NEW</span></div>';
-                }else{
-                    $mytimestamp = '';
-                }
-
-                echo '
-                <article class="grid-item '.$format.'" style="--order: '.$x.'">
-                    <a href="'.$link.'">
-                        <div class="wrapper">
-                            <div class="thumb-wrapper" data-num="'.$x.'">
-                                '.$thumb.'
-                                '.$mytimestamp.'
-                            </div>
-                            <div class="item-body">
-                                <header>
-                                    <h3><span aria-label="'.$title.'" title="'.$title.'">'.$title.'</span></h3>
-                                </header>
-                                '.$excerpt.'
-                                '.$itemfooter.'
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                ';
-                
-                $x++;
-            }
-            
-        }else{
-
-        }
-        wp_reset_postdata();
+        echo useloop($args);
  
     wp_die();
 }

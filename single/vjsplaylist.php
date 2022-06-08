@@ -79,7 +79,6 @@ echo '
             plitems.forEach(plitem => {
                 plitem.addEventListener('click', (e) =>{
                     let vidsrc = e.currentTarget.getAttribute('data-scriptsrc');
-                    console.log(vidsrc);
                     fireVid(vidsrc);
                 });
             });

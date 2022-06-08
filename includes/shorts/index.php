@@ -3,7 +3,6 @@
 include 'adshort.php';
 include 'carousel.php';
 include 'featuredvid.php';
-include 'hero.php';
 include 'mclist.php';
 include 'newsletterlauncher.php';
 include 'layout/box.php';

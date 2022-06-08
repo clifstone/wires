@@ -1753,16 +1753,14 @@ body.show-menu {
     margin: 0 0 0 0;
   }
 }
-.hero .featuredinfo {
+.hero .item-body {
   padding: 16px;
 }
-.hero .featuredinfo h3 > span {
+.hero .item-body h3 > span {
   line-height: 1;
   font-size: 14px;
-  text-transform: uppercase;
-  color: #ef3e25;
 }
-.hero .featuredinfo p {
+.hero .item-body p {
   font-size: clamp(1rem, 0.7431rem + 0.5351vw, 1.1rem);
   line-height: clamp(1.6rem, 0.7431rem + 0.5351vw, 2rem);
   max-height: 3.1rem;

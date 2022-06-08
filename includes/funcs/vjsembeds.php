@@ -19,3 +19,13 @@ function getPlaylistURLS($pID){
     $plistURLS = explode(",", get_post_meta($pID,'vid_playlist_urls', true) );
     return $plistURLS;
 }
+
+function getPlayerID($vjs){
+    $videoIDs = preg_match( '~/players/([[a-zA-Z\d]+)-([[a-zA-Z\d]+)~', $vjs, $theIDs );
+    return $theIDs[2];
+}
+
+function getVideoID($vjs){
+    $videoIDs = preg_match( '~/players/([[a-zA-Z\d]+)-([[a-zA-Z\d]+)~', $vjs, $theIDs );
+    return $theIDs[1];
+}

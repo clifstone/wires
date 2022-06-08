@@ -27,7 +27,7 @@ function instalist_func( $atts = array(), $content="null" ) {
         'tag_name' => '',
         'rowclass' => '',
         'gridclass' => '',
-        'hasexcerpt' => 'true',
+        'hasexcerpt' => true,
         'colorscheme' => '',
         'hasads' => '',
         'mw' => null,
@@ -89,43 +89,29 @@ function instalist_func( $atts = array(), $content="null" ) {
     $exclude_categories = ($excludecategory) ? ( mcExclude($excludecategory) ) : ('');
     $exclude_single = (is_single()) ? (get_the_ID()) : ('');
 
-    $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => $numof,
-        'post_status' => 'publish',
-        'category_name' => $category_name,
-        'tag' => $tag_name,
-        'post__not_in' => array($exclude_single, $exclude_categories)
-    );
-
-    if($category_name){
+    if($category_name || $tag_name){
         $args = array(
+            'loopname' => 'instalist',
             'post_type' => 'post',
             'posts_per_page' => $numof,
             'post_status' => 'publish',
             'category_name' => $category_name,
-            'post__not_in' => array($exclude_single, $exclude_categories)
-        );
-        $totalnum = get_term_by('slug', $category_name, 'category')->count;
-    }else if($tag_name){
-        $args = array(
-            'post_type' => 'post',
-            'posts_per_page' => $numof,
-            'post_status' => 'publish',
             'tag' => $tag_name,
+            'hasexcerpt' => $hasexcerpt,
             'post__not_in' => array($exclude_single, $exclude_categories)
         );
-        $totalnum = get_term_by('slug', $tag_name, 'post_tag')->count;
+        ($category_name) ? ($totalnum = get_term_by('slug', $category_name, 'category')->count) : ($totalnum = get_term_by('slug', $tag_name, 'post_tag')->count);
     }else{
         $args = array(
+            'loopname' => 'instalist',
             'post_type' => 'post',
             'posts_per_page' => $numof,
             'post_status' => 'publish',
+            'hasexcerpt' => $hasexcerpt,
             'post__not_in' => array($exclude_single, $exclude_categories)
         );
         $totalnum = wp_count_posts()->publish;
     }
-
     $datas = 'data-id="'.$mcRand.'" data-catname="'.$category_name.'" data-tagname="'.$tag_name.'" data-numof="'.$numof.'" data-totalnum="'.$totalnum.'" data-excerpt="'.$hasexcerpt.'" data-exclude="'.$excludecategory.'"';
 
     if($loadmoreonclick){
@@ -152,7 +138,7 @@ function instalist_func( $atts = array(), $content="null" ) {
         ';
     }
     
-    $articleItem = getarticleitem($args);
+    $articleItem = useloop($args);
 
     $mclist = '
     <div id="mclist-'.$mcRand.'" class=" mclist '.$colorscheme.' '.$rowclass.' '.$listtype.'">
