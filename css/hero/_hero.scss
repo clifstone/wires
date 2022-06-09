@@ -19,13 +19,7 @@
         }
     }
     .item-body {
-        padding: 16px;
-        h3 {
-            >span {
-                line-height: 1;
-                font-size: 14px;
-            }
-        }
+        padding: 1rem;
         p {
             font-size: clamp(1rem, calc(0.7431rem + 0.5351vw), 1.1rem);
             line-height: clamp(1.6rem, calc(0.7431rem + 0.5351vw), 2rem);
@@ -38,7 +32,7 @@
             -webkit-box-orient: vertical;
             text-overflow: ellipsis;
             white-space: normal;
-            margin: 16px 0;
+            margin: 1rem 0;
         }
     }
     .plaidslot.mr,

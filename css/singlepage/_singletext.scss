@@ -1,12 +1,18 @@
 @use '../abstracts/' as *;
 //
-.post-content {
+.post-header {
+    h1 {
+        font-size: clamp(1rem, 0.2632rem + 4.2105vw, 1.25rem);
+    }
+}
+
+.the-content {
     ul,
     ol {
-        padding: 0 0 0 16px;
-        margin: 0 0 24px 0;
+        padding: 0 0 0 1rem;
+        margin: 0 0 1.5rem 0;
         li {
-            margin: 0 0 12px 0;
+            margin: 0 0 0.75rem 0;
             ul,
             ol {
                 margin: 0 0 0 0;
@@ -32,12 +38,12 @@
     iframe {
         width: 100%;
         height: 360px;
-        margin: 0 0 24px 0;
+        margin: 0 0 1.5rem 0;
     }
     h2,
     h3,
     h4 {
-        margin: 8px 0 16px;
+        margin: 0.5rem 0 1rem;
         >a {
             display: inline-block;
             background-image: none;
@@ -53,7 +59,7 @@
             padding: 0 1rem;
         }
         p {
-            margin: 16px 0 0 0;
+            margin: 1rem 0 0 0;
             position: relative;
             &:first-child {
                 margin: 0;
@@ -117,27 +123,27 @@
         }
         &.alignleft {
             float: left;
-            padding: 0 16px 0 0;
+            padding: 0 1rem 0 0;
         }
         &.alignright {
             float: right;
-            padding: 0 0 0 16px;
+            padding: 0 0 0 1rem;
         }
     }
 }
 
 .infobox,
 .box.info {
-    padding: 16px;
+    padding: 1rem;
     background: #eeeeee;
     border: 1px solid #dddddd;
     h2,
     h3,
     h4 {
-        margin: 0 0 8px;
+        margin: 0 0 0.5rem;
     }
     p {
-        margin: 0 0 8px 0;
+        margin: 0 0 0.5rem 0;
         &:last-child {
             margin: 0 0 0 0;
         }
@@ -147,12 +153,12 @@
 .divider {
     width: 100%;
     display: inline-block;
-    padding: 4px;
-    margin: 32px 0;
+    padding: 0.25rem;
+    margin: 2rem 0;
     >.wrapper {
-        padding: 2px;
+        padding: 0.125rem;
         >.dividerimg {
-            height: 4px;
+            height: 0.25rem;
             background-image: url(images/divider.png);
             background-repeat: repeat-x;
         }
@@ -160,11 +166,11 @@
 }
 
 .wp-block-separator {
-    margin: 48px 0;
+    margin: 40.5rem 0;
 }
 
 .wp-block-group {
-    margin: 0 0 32px 0;
+    margin: 0 0 2rem 0;
     @include clearfix;
 }
 
@@ -179,44 +185,44 @@
     }
     &.alignleft {
         float: left;
-        padding: 0 16px 0 0;
+        padding: 0 1rem 0 0;
     }
     &.alignright {
         float: right;
-        padding: 0 0 0 16px;
+        padding: 0 0 0 1rem;
     }
     >p {
-        font-size: 14px;
+        font-size: 0.625rem;
         line-height: 1.2;
-        margin: 0 0 24px;
+        margin: 0 0 1.5rem;
     }
 }
 
 .wp-block-image {
-    margin: 0 0 32px 0;
+    margin: 0 0 2rem 0;
     figcaption {
-        font-size: 14px;
+        font-size: 0.625rem;
     }
     @media #{$tab} {
         >.alignleft {
             width: 50%;
             float: left;
-            margin: 0 32px 0 0;
+            margin: 0 2rem 0 0;
         }
         >.alignright {
             width: 50%;
             float: right;
-            margin: 0 0 0 32px;
+            margin: 0 0 0 2rem;
             text-align: right;
         }
     }
 }
 
 .wp-block-media-text {
-    margin: 0 0 32px 0;
+    margin: 0 0 2rem 0;
     @media #{$tab} {
         display: grid;
-        grid-gap: 16px;
+        grid-gap: 1rem;
     }
 }
 
@@ -237,7 +243,7 @@
 .five_sixth {
     @media #{$tab} {
         float: left;
-        padding: 0 16px 0 0;
+        padding: 0 1rem 0 0;
         &.last {
             padding: 0;
         }

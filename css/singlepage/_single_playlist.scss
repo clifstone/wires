@@ -1,0 +1,20 @@
+@use '../abstracts/' as *;
+//
+.single_playlist {
+    .site-main,
+    .secondary {
+        padding: 0;
+        max-width: 69rem;
+        margin: auto;
+    }
+    .headerplaidslot {
+        background-color: transparent;
+        background-image: none;
+    }
+    @media #{$des3} {
+        .site-main,
+        .secondary {
+            max-width: 88rem;
+        }
+    }
+}

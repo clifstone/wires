@@ -2,33 +2,37 @@
 function hero_func( $atts = array(), $content="null" ){
     extract(shortcode_atts(array(
         'herolabel' => '',
-        'categoryslug' => '',
+        'category_name' => 'featured',
         'featuredvid' => '',
         'addclass' => '',
         'adslot1' => '',
         'adslot2' => '',
         'hasexcerpt' => false,
         'playerid' => '',
-        'numOf' => 6
+        'howmany' => 6
     ), $atts));
 
-    $args = array(
+    $exclude = get_page_by_path( $featuredvid, OBJECT, 'post' )->ID;
+
+    $heroargs = array(
         'loopname' => 'heroloop',
-        'category_name' => $categoryslug,
+        'listtype' => 'articlecard',
+        'category_name' => $category_name,
         'post_type' => 'post',
-        'posts_per_page' => $numOf,
+        'posts_per_page' => $howmany,
+        'post_status' => 'publish',
         'adslot1' => $adslot1,
         'adslot2' => $adslot2,
         'featuredvid' => $featuredvid,
         'playerid' => $playerid,
-        'post__not_in' => array(get_page_by_path( $featuredvid, OBJECT, 'post' )->ID)
+        'exclude' => $exclude
     );
 
     $herostructure = '
-    <section class="hero '.$categoryslug.' has-featured-vid">
-        <div class="row-header">'.$herotitle.'</div>
+    <section class="hero '.$category_name.' has-featured-vid">
+        <div class="row-header">'.$herolabel.'</div>
             <div class="wrapper">
-                '.useloop($args).'
+                '.useloop($heroargs).'
             </div>
     </section>
     ';

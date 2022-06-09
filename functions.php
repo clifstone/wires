@@ -158,7 +158,8 @@ function addsomebodyclasses( $classes ){
         'is-mobile'            => wp_is_mobile(),
         'is-desktop'           => ! wp_is_mobile(),
         'has-blocks'           => function_exists( 'has_blocks' ) && has_blocks(),
-        'has-playlist'         => get_post_meta(get_the_ID(), 'vid_playlist_urls', true)
+        'single_standard'      => ( !get_post_meta(get_the_ID(), 'vid_playlist_urls', true) && is_single() ),
+        'single_playlist'      => get_post_meta(get_the_ID(), 'vid_playlist_urls', true),
     );
  
     foreach ( $include as $class => $do_include ){

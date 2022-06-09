@@ -42,17 +42,17 @@ foreach($plisturls as $plisturl){
 }
 
 echo '
-<div class="mcplaylist">
+<div class="heroplaylist">
     <div class="wrapper">
         <div class="modcols plistcols">
             <div class="modcol">
-                <div class="vjsplayer articleplaylist">
+                <div class="articleplaylist">
                     <figure class="featured-thumb thumb">
                         <div class="wrapper">
-                            '.theThumb(array( 'pID' => $post->ID, 'whichOne' => 'single' )).'
+                            '.theThumb(array( 'pID' => $post->ID, 'size' => 'single' )).'
                         </div>
                     </figure>
-                    <div class="wrapper"></div>
+                    <figure class="vjsplayer"></figure>
                 </div>
             </div>
             <div class="modcol">
@@ -68,7 +68,7 @@ echo '
 
     <script type="module">
         window.addEventListener('load', () =>{
-            let vidheaderdiv = document.querySelector('.vjsplayer > .wrapper'),
+            let vidheaderdiv = document.querySelector('.vjsplayer'),
                 plitems = document.querySelectorAll('.playlistitem'),
                 firstvid = '<script async src="<?php echo getScrSrc($vjs); ?>"><\/script>';
             const fireVid = (scrsrc) => {

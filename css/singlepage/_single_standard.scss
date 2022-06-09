@@ -1,6 +1,6 @@
 @use '../abstracts/' as *;
 //
-.single {
+.single_standard {
     .main-wrap {
         padding: 0 0 8rem 0;
         display: flex;
@@ -27,10 +27,6 @@
             .articlehero {
                 grid-column: span 2;
             }
-            .site-sidebar {
-                position: sticky;
-                top: 4rem;
-            }
         }
         @media #{$des2} {
             grid-gap: 3rem;
@@ -38,6 +34,18 @@
     }
     .mob-header {
         display: flex;
+    }
+    @media #{$des} {
+        .site-sidebar {
+            position: sticky;
+            top: $siteheaderheight;
+        }
+        &.goingup {
+            .site-sidebar {
+                position: sticky;
+                top: ($siteheaderheight + $catnavheight) + 1rem;
+            }
+        }
     }
 }
 

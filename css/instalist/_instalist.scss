@@ -537,6 +537,9 @@ $col3-width: 300px;
 
 .row-header {
     padding: 0.5rem 0.5rem 1rem;
+    .hero & {
+        padding: 0;
+    }
     >.wrapper {
         display: flex;
         align-items: baseline;

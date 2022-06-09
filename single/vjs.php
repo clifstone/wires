@@ -1,6 +1,6 @@
 <?php $vjs = get_post_meta($post->ID,'vid_embed_metabox', true); ?>
 
-<div class="vid-header vjs">
+<div class="vid-header vjsplayer">
     <div class="wrapper">
         <?php echo getMetas($vjs); ?>
     </div>

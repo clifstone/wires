@@ -27,14 +27,20 @@
         .searchinput {
             width: 25rem;
         }
+        .single & {
+            display: flex;
+        }
     }
 }
 
 .headerbtns {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 1rem;
     padding: 0 0.5rem;
+    @media #{$ph} {
+        display: flex;
+    }
     >.searchbtn {
         @media #{$tab} {
             display: none;

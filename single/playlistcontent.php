@@ -7,26 +7,7 @@ foreach($plciurls as $plciurl){
     $plcititle = get_the_title($pID);
     $plciexcerpt = get_the_excerpt($pID);
     $plcilink = get_the_permalink($pID);
-    $plcicontentitem .= '
-    <div class="playlistcontentitem">
-        <div class="wrapper">
-            <div class="modcols">
-                <div class="modcol">
-                    <figure class="thumb">
-                        <div class="wrapper">
-                            '.theThumb(array( 'pID' => $pID, 'whichOne' => 'tiny' )).'
-                        </div>
-                    </figure>
-                </div>
-                <div class="modcol">
-                    <h3>'.$plcititle.'</h3>
-                    <p>'.$plciexcerpt.'</p>
-                    <a href="'.$plcilink.'"><span>View full post</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    ';
+    $articleItem .= getListItem( $args = array( 'listitem' => 'articlecard', 'pID' => $pID, 'counter' => $x, 'hasexcerpt' => true ) );;
 }
 
 echo '
@@ -35,7 +16,11 @@ echo '
         <div class="plciheader">
             <h2><span>Playlist Videos</span></h2>
         </div>
-        '.$plcicontentitem.'
+        <div class="grid-wrapper">
+            <div class="grid sm-1 md-2 md-2 lg2-5">
+                '.$articleItem.'
+            </div>
+        </div>
     </div>
 </div>
 ';
