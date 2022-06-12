@@ -251,80 +251,6 @@ function attachment_image_link_remove_filter( $content ) {
 }
 add_filter( 'the_content', 'attachment_image_link_remove_filter' );
 
-
-  function add_lazyload($content) {
-
-    $content = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
-    $dom = new DOMDocument();
-    @$dom->loadHTML($content);
-
-    // Convert Images
-    $images = [];
-
-    foreach ($dom->getElementsByTagName('img') as $node) {  
-        $images[] = $node;
-    }
-
-    // foreach ($images as $node) {
-    //     $fallback = $node->cloneNode(true);
-
-    //     $oldsrc = $node->getAttribute('src');
-    //     $node->setAttribute('data-src', $oldsrc );
-    //     $newsrc = get_template_directory_uri() . '/images/placeholder.gif';
-    //     $node->setAttribute('src', $newsrc);
-
-    //     $oldsrcset = $node->getAttribute('srcset');
-    //     $node->setAttribute('data-srcset', $oldsrcset );
-    //     $newsrcset = '';
-    //     $node->setAttribute('srcset', $newsrcset);
-
-    //     $classes = $node->getAttribute('class');
-    //     $newclasses = $classes . ' lozad';
-    //     $node->setAttribute('class', $newclasses);
-
-    //     $noscript = $dom->createElement('noscript', '');
-    //     $node->parentNode->insertBefore($noscript, $node); 
-    //     $noscript->appendChild($fallback); 
-    // }
-
-
-    // Convert Videos
-    $videos = [];
-
-    foreach ($dom->getElementsByTagName('iframe') as $node) {
-        $videos[] = $node;
-    }
-
-    foreach ($videos as $node) {  
-        $fallback = $node->cloneNode(true);
-
-        $oldsrc = $node->getAttribute('src');
-        $node->setAttribute('data-src', $oldsrc );
-        $newsrc = '';
-        $node->setAttribute('src', $newsrc);
-
-        $classes = $node->getAttribute('class');
-        $newclasses = $classes . ' lozad';
-        $node->setAttribute('class', $newclasses);
-
-        $noscript = $dom->createElement('noscript', '');
-        $node->parentNode->insertBefore($noscript, $node); 
-        $noscript->appendChild($fallback); 
-    }
-
-    $newHtml = preg_replace('/^<!DOCTYPE.+?>/', '', str_replace( array('<html>', '</html>', '<body>', '</body>'), array('', '', '', ''), $dom->saveHTML()));
-    return $newHtml;
-}
-
-function wptips_is_amp() {
-    if ( function_exists( 'amp_is_request' ) ):
-      return amp_is_request();
-    else :
-        add_filter('the_content', 'add_lazyload');
-    endif;
-  }
-  add_action('wp_head', 'wptips_is_amp');
-
 function numberedPagination() {
 
     global $wp_query;
@@ -344,38 +270,21 @@ function numberedPagination() {
 
 include "includes/includes.php";
 
-
-// function movemeta(){
-//     $args = array(
-//         'numberposts' => -1
-//       );
-//     $mcposts = get_posts( $args );
+function formatvideoposts(){
+    $args = array(
+        'numberposts' => -1
+      );
+    $mcposts = get_posts( $args );
     
-//     foreach( $mcposts as $post ){
-//         
-//         $test = get_post_meta($post->ID,'tie_video_url', true);
-//         
-//         update_post_meta($post->ID,'yt_metabox', $test);
-//     }
-    
-// }
-// add_action('init','movemeta');
-
-// function formatvideoposts(){
-//     $args = array(
-//         'numberposts' => -1
-//       );
-//     $mcposts = get_posts( $args );
-    
-//     foreach( $mcposts as $post ){
+    foreach( $mcposts as $post ){
         
-//         $yt = get_post_meta($post->ID,'yt_metabox', true);
-//         $jwp = get_post_meta($post->ID,'vid_embed_metabox', true);
+        $yt = get_post_meta($post->ID,'yt_metabox', true);
+        $jwp = get_post_meta($post->ID,'vid_embed_metabox', true);
     
-//         if($yt || $jwp){
-//             set_post_format($post->ID, 'video' );
-//         }
-//     }
+        if($yt || $jwp){
+            set_post_format($post->ID, 'video' );
+        }
+    }
     
-// }
-// add_action('init','formatvideoposts');
+}
+add_action('init','formatvideoposts');
