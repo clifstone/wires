@@ -7,6 +7,5 @@
 <div class="vid-header yt" style="background:url(<?php echo $mcThumb_medium[0]; ?>) no-repeat 50% 50% / cover">
     <div class="wrapper">
         <iframe width="288" height="162" src="https://www.youtube.com/embed/<?php echo $m[1]; ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="close-btn"><i class="i-cross"></i></div>
     </div>
 </div>

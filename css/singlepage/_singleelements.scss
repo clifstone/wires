@@ -33,9 +33,21 @@ $sharebuttonsize: 2rem;
 .articleplaylist {
     display: grid;
     .featured-thumb,
-    .vjsplayer {
+    .vjsplayer,
+    .yt {
         grid-column-start: 1;
         grid-row-start: 1;
+    }
+}
+
+.yt {
+    position: relative;
+    >.wrapper {
+        @include mcStretch(absolute);
+        >iframe {
+            width: 100%;
+            height: 100%;
+        }
     }
 }
 
