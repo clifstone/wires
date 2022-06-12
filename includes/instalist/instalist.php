@@ -1,20 +1,4 @@
 <?php
-function mcExclude($exclude){
-    $get_excludes = array(
-        'post_status' => 'publish',
-        'category_name' => $exclude
-    );
-    $excludequery = new WP_Query( $get_excludes );
-    $excludearr = [];
-    if(have_posts()){
-        while($excludequery->have_posts()){
-            $excludequery->the_post();
-            array_push($excludearr, get_the_ID());
-        }
-    }
-    wp_reset_postdata();
-    return $excludearr;
-}
 function instalist_func( $atts = array(), $content="null" ) {
 
     extract(shortcode_atts(array(
@@ -86,8 +70,9 @@ function instalist_func( $atts = array(), $content="null" ) {
         ';
     }
 
-    $exclude_categories = ($exclude) ? ( mcExclude($exclude) ) : ('');
+    
     $exclude_single = (is_single()) ? (get_the_ID()) : ('');
+    $exclude_categories = ($exclude) ? ( getExcludes($exclude)) : ('');
 
     if($category_name || $tag_name){
         $args = array(
@@ -98,7 +83,9 @@ function instalist_func( $atts = array(), $content="null" ) {
             'category_name' => $category_name,
             'tag' => $tag_name,
             'hasexcerpt' => $hasexcerpt,
-            'exclude' => array($exclude_single, $exclude_categories)
+            'exclude' => $exclude,
+            'post__not_in' => $exclude_categories
+
         );
         ($category_name) ? ($totalnum = get_term_by('slug', $category_name, 'category')->count) : ($totalnum = get_term_by('slug', $tag_name, 'post_tag')->count);
     }else{
@@ -108,7 +95,8 @@ function instalist_func( $atts = array(), $content="null" ) {
             'posts_per_page' => $numof,
             'post_status' => 'publish',
             'hasexcerpt' => $hasexcerpt,
-            'exclude' => array($exclude_single, $exclude_categories)
+            'exclude' => $exclude,
+            'post__not_in' => $exclude_categories
         );
         $totalnum = wp_count_posts()->publish;
     }

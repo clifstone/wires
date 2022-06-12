@@ -50,7 +50,6 @@ function getListItem($args){
             ($herolabel) ? $herotitle = '<h2><span>'.$herolabel.'</span></h2>' : $herotitle = '';
             if(!$playerid){ $playerid = getPlayerID($vjs); }
             $playerscript = '<script src="https://cdn.jwplayer.com/players/'.getVideoID($vjs).'-'.$playerid.'.js"></script>';
-            
             $listelem = '
             <div class="mainvideo">
                 <div class="mainvideolabel">

@@ -23,8 +23,7 @@ function instalist_loadmore_function() {
                 'posts_per_page' => $numof,
                 'paged' => $paged,
                 'orderby' => 'post_date',
-                'order' => 'DESC',
-                'post__not_in' => array($exclude_categories)
+                'order' => 'DESC'
             );
         }else{
             $args = array(
@@ -34,8 +33,7 @@ function instalist_loadmore_function() {
                 'posts_per_page' => $numof,
                 'paged' => $paged,
                 'orderby' => 'post_date',
-                'order' => 'DESC',
-                'post__not_in' => array($exclude_categories)
+                'order' => 'DESC'
             );
         }
         

@@ -107,6 +107,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     $docbody.addEventListener('scroll', throttle(upordown, 100));
     $docbody.addEventListener('scroll', debounce(upordown, 250));
+
+
+    // const toggledark = () => {
+
+    //     let csmeta = $doc.querySelector('meta[name=color-scheme]'),
+    //         csmetacont = csmeta.getAttribute('content');
+
+    //     csmetacont === 'dark' ? csmeta.setAttribute('content', 'light') : csmeta.setAttribute('content', 'dark');
+
+    // }
+    // $doc.querySelector('.derp').addEventListener('click', toggledark, true);
     //$win.addEventListener('resize', debounce(resizer, 250));
 
     //resizer();

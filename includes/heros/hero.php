@@ -28,9 +28,12 @@ function hero_func( $atts = array(), $content="null" ){
         'exclude' => $exclude
     );
 
+    ($featuredvid) ? ($helperclass = 'has-featured-vid') : ($helperclass = '');
+    ($category_name) ? ($datacatname = 'data-catname="'.$category_name.'"') : ($datacatname = '');
+
     $herostructure = '
-    <section class="hero '.$category_name.' has-featured-vid">
-        <div class="row-header">'.$herolabel.'</div>
+    <section class="hero '.$helperclass.'" '.$datacatname.'>
+        <div class="row-header"><h2>'.$herolabel.'</h2></div>
             <div class="wrapper">
                 '.useloop($heroargs).'
             </div>
