@@ -1,0 +1,14 @@
+@use '../abstracts/' as *;
+//
+.page-template-nosidebar_blank--hidden_nav {
+    @media #{$des} {
+        .site-wrapper {
+            grid-template-areas: 'aside alert' 'aside header' 'aside plaid' 'aside nav' 'aside main' 'footer footer';
+            grid-template-columns: 0 1fr;
+        }
+        .sidebarmenu {
+            position: fixed;
+            transform: translateX(calc(-1 * var(--asidewidth)));
+        }
+    }
+}

@@ -18,6 +18,8 @@
     @media #{$tab} {
         .searchform {
             >form {
+                max-width: 18rem;
+                margin: auto;
                 display: flex;
             }
         }
@@ -27,7 +29,9 @@
         .searchinput {
             width: 25rem;
         }
-        .single & {
+        .single &,
+        .page-template-nosidebar_blank--hidden_nav &,
+        .page-template-blank--hidden_nav & {
             display: flex;
         }
     }

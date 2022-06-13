@@ -5,7 +5,7 @@ $vidID = $theIDs[1];
 $playerID = $theIDs[2];
 ?>
 
-<div class="vid-header vjs">
+<div class="vid-header vjsplayer">
     <div class="wrapper">
         <?php echo getMetas($vjs); ?>
         <amp-jwplayer data-player-id="<?php echo $playerID; ?>" data-media-id="<?php echo $vidID; ?>" layout="responsive" width="16" height="9"></amp-jwplayer>

@@ -1,0 +1,39 @@
+@use '../abstracts/' as *;
+//
+.page-template-blank--hidden_nav {
+    @media #{$des} {
+        .site-wrapper {
+            grid-template-areas: 'aside alert' 'aside header' 'aside plaid' 'aside nav' 'aside main' 'footer footer';
+            grid-template-columns: 0 1fr;
+        }
+        .sidebarmenu {
+            position: fixed;
+            transform: translateX(calc(-1 * var(--asidewidth)));
+        }
+    }
+    .pageheader {
+        padding: 0 1rem;
+        h1 {
+            margin: 0 0 1rem 0;
+        }
+    }
+    .site-main {
+        display: grid;
+        @media #{$tab} {
+            grid-template-columns: 1fr 320px;
+            grid-gap: 3rem;
+        }
+    }
+    .site-sidebar {
+        @media #{$tab} {
+            position: sticky;
+            top: $siteheaderheight + $catnavheight;
+            .goingdown & {
+                top: $siteheaderheight;
+            }
+            .goingup & {
+                top: $siteheaderheight + $catnavheight;
+            }
+        }
+    }
+}
