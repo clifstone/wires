@@ -16,6 +16,7 @@ function hero_func( $atts = array(), $content="null" ){
 
     $heroargs = array(
         'loopname' => 'heroloop',
+        'herovideo' => 'herovid',
         'listtype' => 'articlecard',
         'category_name' => $category_name,
         'post_type' => 'post',
@@ -33,8 +34,8 @@ function hero_func( $atts = array(), $content="null" ){
 
     $herostructure = '
     <section class="hero '.$helperclass.'" '.$datacatname.'>
-        <div class="row-header"><h2>'.$herolabel.'</h2></div>
-            <div class="wrapper">
+        <div class="row-header"><div class="wrapper"><h2><span>'.$herolabel.'</span></h2></div></div>
+            <div class="grid">
                 '.useloop($heroargs).'
             </div>
     </section>

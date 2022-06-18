@@ -14,6 +14,14 @@ function instalistscript(){
                 let mcList = document.querySelector('#mclist-'+id+''),
                     mcElem = document.querySelector('#mcgrid-'+id+'');
 
+                let lmbtn = document.querySelector('#mclist-'+id+' .lmbtn'),
+                    theloader = '<?php echo getLoader('dots'); ?>';
+
+                try {
+                    mcList.classList.add('instalist-loading');
+                    lmbtn.insertAdjacentHTML('beforeend', theloader);
+                } catch (error) {}
+
                 data = {
                     'action': 'load_posts_by_ajax',
                     'page': page,
@@ -33,9 +41,15 @@ function instalistscript(){
                         let response = this.responseText;
                         mcList.classList.add('loaded');
                         mcElem.insertAdjacentHTML('beforeend', response);
+                       try {
+                         document.querySelector('.loader').remove();
+                         mcList.classList.remove('instalist-loading');
+                       } catch (error) {}
                     };
                 }
-                request.send('action=' + '' + data.action + '' + '&nonce=' + '' + '<?php echo wp_create_nonce( 'load_posts_by_ajax_' ) ?>' + '' + '&category_name=' + '' + data.category_name + '' + '&tag_name=' + '' + data.tag_name + '' + '&numof=' + '' + data.numof + '' + '&page=' + '' + data.page + '' + '&hasexcerpt=' + '' + <?php echo $hasexcerpt; ?> + '' + '&excludecat=' + '' + data.exclude + '');
+
+                request.send('action='+data.action+'&category_name='+data.category_name+'&tag_name='+data.tag_name+'&numof='+data.numof+'&page='+data.page+'&hasexcerpt='+data.hasexcerpt+'&excludecat='+data.exclude+'');
+
             }
 
             const instalist = (e) => {

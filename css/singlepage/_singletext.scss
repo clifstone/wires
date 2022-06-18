@@ -33,7 +33,10 @@
         }
     }
     a {
-        @include textdeco(inherit, rgba(0, 0, 0, 0.2), inherit, $accent);
+        @include textdeco(inherit, rgba(0, 0, 0, 0.2), inherit, rgba(0, 0, 0, 0.1));
+        &:hover {
+            @include textdeco(inherit, rgba(0, 0, 0, 0.2), inherit, $accent);
+        }
     }
     iframe {
         width: 100%;
@@ -199,7 +202,7 @@
 }
 
 .wp-block-image {
-    margin: 0 0 2rem 0;
+    margin: 2rem 0;
     figcaption {
         font-size: 0.625rem;
     }

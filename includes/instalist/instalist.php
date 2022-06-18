@@ -100,6 +100,7 @@ function instalist_func( $atts = array(), $content="null" ) {
         );
         $totalnum = wp_count_posts()->publish;
     }
+
     $datas = 'data-id="'.$mcRand.'" data-catname="'.$category_name.'" data-tagname="'.$tag_name.'" data-numof="'.$numof.'" data-totalnum="'.$totalnum.'" data-excerpt="'.$hasexcerpt.'" data-exclude="'.$excludecategory.'"';
 
     if($loadmoreonclick){

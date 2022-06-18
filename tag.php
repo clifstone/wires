@@ -18,7 +18,7 @@
                 } ?>
             </header>
             <section class="archive-content">
-                <?php echo do_shortcode('[instalist tag_name="'.$mctag_slug.'" numofmobile="24" numofdesktop="32" gridclass="sm-1 md-3 lg2-4" loadmoreonscroll="true" noheader=true noviewall=true]'); ?>
+                <?php echo do_shortcode('[instalist tag_name="'.$mctag_slug.'" numofmobile="24" numofdesktop="24" gridclass="sm-1 md-3 lg2-4" loadmoreonscroll="true" noheader=true noviewall=true]'); ?>
             </section>
             <?php if(is_active_sidebar('abovefooter')){ dynamic_sidebar('abovefooter'); } ?>
         </main>

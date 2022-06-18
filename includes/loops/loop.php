@@ -41,9 +41,9 @@ function useloop($args){
 
           $x = 0;
           $search = new WP_Query($search_query);
-          if($search->have_posts()){
-              while($search->have_posts()){
-                  $search->the_post();
+          if(have_posts()){
+              while(have_posts()){
+                  the_post(); 
 
                   $args = array(
                     'listitem' => 'articlecard',
@@ -80,13 +80,13 @@ function useloop($args){
           }
           wp_reset_query();
 
-          if($featuredvid){ $fvid = getListItem($args = array( 'listitem' => 'herovid', 'featuredvid' => $featuredvid, 'playerid' => $playerid )); }
+          if($featuredvid){ $fvid = getListItem($args = array( 'listitem' => $herovideo, 'featuredvid' => $featuredvid, 'playerid' => $playerid )); }
           if($adslot1){ $ad1 = do_shortcode('[mcadunit whichad='.$adslot1.' type=mr position=1]'); }
           if($adslot2){ $ad2 = do_shortcode('[mcadunit whichad='.$adslot2.' type=mr position=2]'); }
 
           return $fvid.$ad1.$listitem.$ad2;
 
-          return get_posts($args);
+          //return get_posts($args);
 
         break;
 

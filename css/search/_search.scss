@@ -29,9 +29,6 @@
         background: $lightblack;
         z-index: 1;
         transition: transform 0.15s ease-out;
-        @media #{$des} {
-            transition: none;
-        }
     }
     &.goingdown {
         .searchpageform {
@@ -53,10 +50,27 @@
         }
     }
     @media #{$des} {
+        .site-main {
+            padding: $catnavheight 0 2rem;
+        }
         .site-sidebar {
             position: sticky;
             top: $catnavheight + 1rem;
             padding: 4rem 0;
+        }
+        .searchpageform {
+            padding: 1rem;
+            transition: none;
+        }
+        &.goingdown {
+            .searchpageform {
+                transform: translateY(0);
+            }
+        }
+        &.goingup {
+            .searchpageform {
+                top: 0;
+            }
         }
     }
 }

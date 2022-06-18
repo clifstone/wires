@@ -23,7 +23,8 @@ function instalist_loadmore_function() {
                 'posts_per_page' => $numof,
                 'paged' => $paged,
                 'orderby' => 'post_date',
-                'order' => 'DESC'
+                'order' => 'DESC',
+                'hasexcerpt' => $hasexcerpt
             );
         }else{
             $args = array(
@@ -33,13 +34,15 @@ function instalist_loadmore_function() {
                 'posts_per_page' => $numof,
                 'paged' => $paged,
                 'orderby' => 'post_date',
-                'order' => 'DESC'
+                'order' => 'DESC',
+                'hasexcerpt' => $hasexcerpt
             );
         }
         
         echo useloop($args);
  
     wp_die();
+    exit;
 }
 
 add_action('wp_ajax_load_posts_by_ajax', 'instalist_loadmore_function');

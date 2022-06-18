@@ -5,7 +5,8 @@ ob_start();
 // ini_set('display_startup_errors', FALSE);
 
 function stop_heartbeat() {
-wp_deregister_script('heartbeat');
+    wp_deregister_script('heartbeat');
+    wp_register_script('heartbeat', false);
 }
 add_action( 'init', 'stop_heartbeat', 1 );
 
@@ -268,23 +269,30 @@ function numberedPagination() {
        ) );
 }
 
+function exclude_pages_from_search_results( $query ) {
+    if ( $query->is_main_query() && $query->is_search() && ! is_admin() ) {
+        $query->set( 'post_type', array( 'post' ) );
+    }    
+}
+add_action( 'pre_get_posts', 'exclude_pages_from_search_results' );
+
 include "includes/includes.php";
 
-function formatvideoposts(){
-    $args = array(
-        'numberposts' => -1
-      );
-    $mcposts = get_posts( $args );
+// function formatvideoposts(){
+//     $args = array(
+//         'numberposts' => -1
+//       );
+//     $mcposts = get_posts( $args );
     
-    foreach( $mcposts as $post ){
+//     foreach( $mcposts as $post ){
         
-        $yt = get_post_meta($post->ID,'yt_metabox', true);
-        $jwp = get_post_meta($post->ID,'vid_embed_metabox', true);
+//         $yt = get_post_meta($post->ID,'yt_metabox', true);
+//         $jwp = get_post_meta($post->ID,'vid_embed_metabox', true);
     
-        if($yt || $jwp){
-            set_post_format($post->ID, 'video' );
-        }
-    }
+//         if($yt || $jwp){
+//             set_post_format($post->ID, 'video' );
+//         }
+//     }
     
-}
-add_action('init','formatvideoposts');
+// }
+// add_action('init','formatvideoposts');

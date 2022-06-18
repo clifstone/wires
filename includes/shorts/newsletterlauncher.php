@@ -26,7 +26,7 @@
         $output = '
         <div id="nwsltr'.$mcRand.'" class="newsletter-launcher mod">
             <div class="wrapper">
-                <figure class="thumb-holder"><div class="wrapper"><img class="lozad" data-src="'.$imageURL.'" width="100%" height="auto" alt="Man shooting at target range - Join Our Newsletter Mailing List" /></div></figure>
+                <figure class="thumb-holder"><div class="wrapper"><img loading="lazy" src="'.$imageURL.'" width="100%" height="auto" alt="Man shooting at target range - Join Our Newsletter Mailing List" /></div></figure>
                 '.$mcHeadline.'
                 '.$clickHere.'
             </div>

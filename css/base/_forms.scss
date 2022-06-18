@@ -17,3 +17,8 @@ textarea {
     border-radius: 0.5rem 0.5rem 0 0.5rem;
     min-height: 12ch;
 }
+
+button,
+input[type="submit"] {
+    cursor: pointer;
+}

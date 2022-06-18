@@ -13,7 +13,8 @@ $total_results = $wp_query->found_posts;
 
 $args = array(
     'loopname' => 'search',
-    'search_query' => $search_query
+    'search_query' => $search_query,
+    'post_type' => array('post')
 );
 $articleItem = useloop($args);
 

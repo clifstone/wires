@@ -39,7 +39,6 @@ function theThumb($args){
             '.$mcThumb_extra_small[0].' 240w,
             '.$mcThumb_small[0].' 375w,
             '.$mcThumb_medium[0].' 768w,
-            '.$mcThumb_large[0].' 1366w" 
             loading="lazy"
             alt="'.$thumbalt.'"
             width="300" 

@@ -92,7 +92,6 @@ $sharebuttonsize: 2rem;
     transition: box-shadow 0.25s ease-in-out;
     &:hover {
         box-shadow: 0 0 2px rgba(black, 0.1), 1px 1px 2px rgba(black, 0.2);
-        background-color: rgba(black, 0.05);
     }
     >a {
         width: 100%;

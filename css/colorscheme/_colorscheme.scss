@@ -3,11 +3,13 @@
 input,
 textarea {
     &:focus-visible {
-        outline: 2px solid $accent;
+        outline: transparent;
+        box-shadow: inset 2px 2px 0 $accent, inset -2px -2px $accent;
     }
     &.is-invalid {
         &:focus-visible {
-            outline: 2px solid $errorcolor;
+            outline: transparent;
+            box-shadow: inset 2px 2px 0 $errorcolor, inset -2px -2px $errorcolor;
         }
     }
 }

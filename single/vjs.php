@@ -9,11 +9,11 @@
 <?php add_action('wp_footer', function() use($vjs){ ?>
 
 <script type="module">
-    window.addEventListener('load', () =>{
+    window.addEventListener('DOMContentLoaded', () =>{
         let vidheaderdiv = document.querySelector('.vid-header > .wrapper'),
             blip = '<script async src="<?php echo getScrSrc($vjs); ?>"><\/script>';
 
-        setTimeout(()=>{ postscribe(vidheaderdiv, blip); },0);
+            postscribe(vidheaderdiv, blip);
     });
 </script>
 

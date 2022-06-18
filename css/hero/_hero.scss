@@ -2,8 +2,9 @@
 //
 .hero {
     margin: 0 0 3rem 0;
-    >.wrapper {
+    >.grid {
         display: grid;
+        grid-template-columns: minmax(0, 1fr);
         grid-gap: 3rem;
     }
     .mainvideo {
@@ -55,8 +56,8 @@
         }
     }
     @media #{$tab} {
-        >.wrapper {
-            grid-template-columns: repeat(2, 1fr);
+        >.grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             justify-content: center;
             grid-gap: 1rem;
         }
@@ -70,7 +71,7 @@
         }
     }
     @media #{$des2} {
-        >.wrapper {
+        >.grid {
             grid-template-columns: repeat(3, minmax(0, 1fr));
             grid-template-rows: repeat(4, auto);
         }
@@ -80,7 +81,7 @@
         }
     }
     @media #{$des3} {
-        >.wrapper {
+        >.grid {
             grid-template-columns: repeat(4, minmax(0, 1fr));
         }
         .grid-item {
@@ -102,17 +103,16 @@
     }
 }
 
-.featured-vid-link {
-    font-size: 1rem;
-    text-align: left;
-    //color: white;
-    //background: $accent;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    border: 2px solid $medgray;
-}
-
-.featured-vid-link:hover {
-    color: $accent;
-    border: 2px solid $accent;
-}
+// .featured-vid-link {
+//     font-size: 1rem;
+//     text-align: left;
+//     //color: white;
+//     //background: $accent;
+//     padding: 0.5rem 1rem;
+//     border-radius: 0.25rem;
+//     border: 2px solid $medgray;
+// }
+// .featured-vid-link:hover {
+//     color: $accent;
+//     border: 2px solid $accent;
+// }

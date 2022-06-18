@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
-    observer.observe();
+    // const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    // observer.observe();
     let thresh = 90;
     const upordown = () => {
         scrtop = $docbody.scrollTop;
