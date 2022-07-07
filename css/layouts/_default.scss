@@ -32,10 +32,7 @@ body {
 .site-wrapper {
     display: grid;
     grid-template-areas: 'aside alert' 'aside header' 'aside plaid' 'aside nav' 'aside main' 'footer footer';
-    grid-template-columns: 0fr;
-    @media #{$des} {
-        grid-template-columns: var(--asidewidth) 1fr;
-    }
+    grid-template-columns: 0 1fr;
 }
 
 .mob-header {
@@ -59,24 +56,31 @@ body {
 }
 
 .main-wrap {
+    width: 100%;
     min-height: 100vh;
     grid-area: main;
 }
 
 .site-main {
-    padding: 2rem 0;
-    @media #{$tab} {
-        padding: 2rem 1rem;
-    }
-    @media #{$des2} {
-        padding: 2rem 3rem;
-    }
-    @media #{$des3} {
-        padding: 4rem;
-    }
+    // max-width: 1366px;
+    // margin: auto;
 }
 
 .site-footer {
     min-height: 3.125rem;
     grid-area: footer;
+}
+
+@media #{$des} {
+    .gridcols {
+        max-width: 1680px;
+        grid-template-columns: 1fr 320px;
+        grid-gap: 2rem;
+        padding: 1rem;
+        margin: auto;
+    }
+    .site-sidebar {
+        position: sticky;
+        top: calc($siteheaderheight * 2);
+    }
 }

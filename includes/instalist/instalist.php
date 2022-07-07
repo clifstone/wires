@@ -84,7 +84,7 @@ function instalist_func( $atts = array(), $content="null" ) {
             'tag' => $tag_name,
             'hasexcerpt' => $hasexcerpt,
             'exclude' => $exclude,
-            'post__not_in' => $exclude_categories
+            'post__not_in' => array($exclude_categories, $exclude_single)
 
         );
         ($category_name) ? ($totalnum = get_term_by('slug', $category_name, 'category')->count) : ($totalnum = get_term_by('slug', $tag_name, 'post_tag')->count);
@@ -96,7 +96,7 @@ function instalist_func( $atts = array(), $content="null" ) {
             'post_status' => 'publish',
             'hasexcerpt' => $hasexcerpt,
             'exclude' => $exclude,
-            'post__not_in' => $exclude_categories
+            'post__not_in' => array($exclude_categories, $exclude_single)
         );
         $totalnum = wp_count_posts()->publish;
     }

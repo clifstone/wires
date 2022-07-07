@@ -55,8 +55,8 @@
     .show-menu & {
         transform: translateX(0) !important;
     }
-    @media #{$des} {
-        position: relative;
-        transform: translateX(0);
-    }
+    // @media #{$des} {
+    //     position: relative;
+    //     transform: translateX(0);
+    // }
 }

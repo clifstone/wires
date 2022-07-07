@@ -9,7 +9,7 @@
             </a>
         </div>
         <div class="shbtn tw">
-            <a href="https://twitter.com/intent/tweet?status=<?php echo the_title(); ?>+<?php echo home_url( $wp->request ); ?>" target="_blank" name="share this article on twitter" rel="noopener">
+            <a href="https://twitter.com/intent/tweet?text=<?php echo the_title(); ?>+<?php echo home_url( $wp->request ); ?>" target="_blank" name="share this article on twitter" rel="noopener">
                 <i class="i-twitter"></i>
             </a>
         </div>

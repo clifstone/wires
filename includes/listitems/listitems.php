@@ -12,9 +12,9 @@ function getListItem($args){
             ($format === 'video') ? ($itemfooter = '<footer><span>Watch Video</span></footer>') : ($itemfooter = '<footer><span>Read Article</span></footer>');
             
             $listelem = '
-            <article class="grid-item '.$format.'" style="--order: '.$counter.'">
-                <a href="'.$link.'">
-                    <div class="wrapper">
+            <article class="grid-item '.$format.'">
+                <div class="wrapper">
+                    <a href="'.$link.'">
                         <div class="thumb-wrapper" data-num="'.$counter.'">
                             <figure class="thumb">
                                 <div class="wrapper">
@@ -23,15 +23,19 @@ function getListItem($args){
                             </figure>
                             '.$timestamp.'
                         </div>
-                        <div class="item-body">
-                            <header>
-                                <h3><span aria-label="'.$title.'" title="'.$title.'">'.$title.'</span></h3>
-                            </header>
-                            '.$excerpt.'
-                            '.$itemfooter.'
-                        </div>
+                    </a>
+                    <div class="item-body">
+                        <header>
+                            <h3>
+                                <a href="'.$link.'">
+                                    <span aria-label="'.$title.'" title="'.$title.'">'.$title.'</span>
+                                </a>
+                            </h3>
+                        </header>
+                        '.$excerpt.'
+                        '.$itemfooter.'
                     </div>
-                </a>
+                </div>
             </article>
             ';
 
@@ -113,6 +117,44 @@ function getListItem($args){
                     <script async custom-element="amp-jwplayer" src="https://cdn.ampproject.org/v0/amp-jwplayer-0.1.js"></script>
                 ';
             }, 1001);
+        break;
+
+        case 'carouselitem':
+            $title = get_the_title($pID);
+            $link = get_the_permalink($pID);
+            $thumb = theThumb($args = array( 'pID' => $pID, 'size' => 'small' ));
+            $timestamp = dynamicTime($pID);
+            $format = get_post_format($pID) ? 'video' : 'standard';
+            ($hasexcerpt === true || $hasexcerpt === '1') ? ($excerpt = '<p>'.get_the_excerpt($pID).'</p>') : ($excerpt = '');
+            ($format === 'video') ? ($itemfooter = '<footer><span>Watch Video</span></footer>') : ($itemfooter = '<footer><span>Read Article</span></footer>');
+            
+            $listelem = '
+            <article class="grid-item splide__slide '.$format.'">
+                <div class="wrapper">
+                    <a href="'.$link.'">
+                        <div class="thumb-wrapper" data-num="'.$counter.'">
+                            <figure class="thumb">
+                                <div class="wrapper">
+                                    '.$thumb.'
+                                </div>
+                            </figure>
+                            '.$timestamp.'
+                        </div>
+                    </a>
+                    <div class="item-body">
+                        <header>
+                            <h3>
+                                <a href="'.$link.'">
+                                    <span aria-label="'.$title.'" title="'.$title.'">'.$title.'</span>
+                                </a>
+                            </h3>
+                        </header>
+                        '.$excerpt.'
+                        '.$itemfooter.'
+                    </div>
+                </div>
+            </article>
+            ';
         break;
       }
 

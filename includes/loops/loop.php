@@ -86,8 +86,25 @@ function useloop($args){
 
           return $fvid.$ad1.$listitem.$ad2;
 
-          //return get_posts($args);
+        break;
 
+        case 'carousel':
+          $x = 0;
+          $carouselquery = new WP_Query($args);
+          if($carouselquery->have_posts()){
+            while($carouselquery->have_posts()){
+              $carouselquery->the_post();
+              $args = array(
+                'listitem' => $listtype,
+                'pID' => get_the_ID(),
+                'counter' => $x,
+              );
+              $listitem .= getListItem( $args = array( 'listitem' => $listtype, 'pID' => get_the_ID(), 'counter' => $x ) );
+              $x++;
+            }
+          }
+          wp_reset_query();
+          return $listitem;
         break;
 
       }

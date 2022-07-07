@@ -14,6 +14,7 @@
         </a>
     </div>
     <?php get_template_part( 'parts/searchform' ); ?>
+    <?php get_template_part( 'parts/social'); ?>
     <div class="headerbtns">
         <div id="mob-searchbtn" class="searchbtn" aria-label="Search site">
             <i class="i-search"></i>

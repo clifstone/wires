@@ -20,38 +20,11 @@ register_sidebar( array(
     'after_widget' => '</div></div>',
 ) );
 
+//HOMEPAGE RAIL
 register_sidebar( array(
-    'name' => __( 'AD SLOT 1', 'base' ),
-    'id' => 'adslot_1',
-    'before_widget' => '<div class="plaid pos_1"><div class="wrapper">',
-    'after_widget' => '</div></div>',
-) );
-
-register_sidebar( array(
-    'name' => __( 'AD SLOT 2', 'base' ),
-    'id' => 'adslot_2',
-    'before_widget' => '<div class="plaid pos_2"><div class="wrapper">',
-    'after_widget' => '</div></div>',
-) );
-
-register_sidebar( array(
-    'name' => __( 'AD SLOT 3', 'base' ),
-    'id' => 'adslot_3',
-    'before_widget' => '<div class="plaid pos_3"><div class="wrapper">',
-    'after_widget' => '</div></div>',
-) );
-
-register_sidebar( array(
-    'name' => __( 'AD SLOT 4', 'base' ),
-    'id' => 'adslot_4',
-    'before_widget' => '<div class="plaid pos_4"><div class="wrapper">',
-    'after_widget' => '</div></div>',
-) );
-
-register_sidebar( array(
-    'name' => __( 'STICKY AD', 'base' ),
-    'id' => 'sticky',
-    'before_widget' => '<div id="mcSticky" class="sticky"><div class="wrapper">',
+    'name' => __( 'HOMEPAGE RAIL', 'base' ),
+    'id' => 'homepage_rail',
+    'before_widget' => '<div class="homepage-rail rail"><div class="wrapper">',
     'after_widget' => '</div></div>',
 ) );
 
@@ -91,31 +64,6 @@ register_sidebar( array(
     'id' => 'infooterbottom',
     'before_widget' => '<div class="infooterbottom"><div class="wrapper">',
     'after_widget' => '</div></div>',
-) );
-
-//PARTNER OFFERS
-register_sidebar( array(
-    'name' => __( 'PARTNER OFFERS', 'base' ),
-    'id' => 'partneroffers',
-    'before_widget' => '<div class="poffer prime">',
-    'after_widget' => '</div>',
-    'before_title' => '',
-    'after_title' => '',
-) );
-
-//ALERTS
-register_sidebar( array(
-    'name' => __( 'SITE HEADER - ALERTS: ABOVE', 'base' ),
-    'id' => 'headeralertsabove',
-    'before_widget' => '<div class="header-alert alerts above">',
-    'after_widget' => '</div>',
-) );
-
-register_sidebar( array(
-    'name' => __( 'SITE HEADER - ALERTS: BELOW', 'base' ),
-    'id' => 'headeralertsbelow',
-    'before_widget' => '<div class="header-alert alerts below">',
-    'after_widget' => '</div>',
 ) );
 
 //AMP

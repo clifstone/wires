@@ -34,16 +34,16 @@ function theThumb($args){
             $theThumb = '
             <img
             src="'.$mcThumb_tiny[0].'"
+            loading="lazy"
             alt="'.$thumbalt.'"
             srcset="
             '.$mcThumb_extra_small[0].' 240w,
             '.$mcThumb_small[0].' 375w,
-            '.$mcThumb_medium[0].' 768w,
-            loading="lazy"
+            '.$mcThumb_medium[0].' 768w"
             alt="'.$thumbalt.'"
             width="300" 
-            height="169" 
-             />
+            height="169"
+            />
             ';
         break;
 

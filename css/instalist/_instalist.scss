@@ -1,7 +1,7 @@
 @use '../abstracts/' as *;
 //
 :root {
-    --cols-gap: 1rem;
+    --cols-gap: 0.5rem;
     --stickytop: 64px;
     .search-results {
         --cols-gap: 24px;
@@ -14,6 +14,20 @@
     display: grid;
 }
 
+// .mclist .grid {
+//     $maxcols: 1;
+//     grid-auto-flow: column;
+//     @media #{$tab} {
+//         .md-2 {
+//             $maxcols: 2;
+//         }
+//     }
+//     @for $i from 1 through $maxcols {
+//         .grid-item:nth-child(#{$maxcols}n + #{$i}) {
+//             grid-column: $i;
+//         }
+//     }
+// }
 .grid {
     --cols-gap: 2rem;
     &.sm-1 {
@@ -29,7 +43,7 @@
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
     @media #{$tab} {
-        --cols-gap: 1rem;
+        --cols-gap: 0;
         &.md-1 {
             grid-template-columns: minmax(0, 1fr);
         }

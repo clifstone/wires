@@ -1,7 +1,7 @@
 <?php
 
 function vid_playlist_metabox(){
-    add_meta_box('vid_playlist_urls', 'VIDEO PLAYLIST URLS:', 'makePlaylist', 'post', 'normal', 'high' );
+    add_meta_box('vid_playlist_urls', 'VIDEO PLAYLIST URLS:', 'makePlaylist', ['post'], 'normal', 'high' );
 }
 
 function makePlaylist(){

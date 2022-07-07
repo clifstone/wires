@@ -5,4 +5,5 @@ include 'scripts.php';
 include 'styles.php';
 include 'videoembed.php';
 include 'videoplaylistembed.php';
+include 'pageopts.php';
 //include 'videositemap.php';

@@ -15,6 +15,9 @@
     .searchinput {
         width: 18rem;
     }
+    .social {
+        display: none;
+    }
     @media #{$tab} {
         .searchform {
             >form {
@@ -25,9 +28,12 @@
         }
     }
     @media #{$des} {
-        display: none;
+        //display: none;
         .searchinput {
             width: 25rem;
+        }
+        .social {
+            display: block;
         }
         .single &,
         .page-template-nosidebar_blank--hidden_nav &,
