@@ -6,4 +6,6 @@ include 'styles.php';
 include 'videoembed.php';
 include 'videoplaylistembed.php';
 include 'pageopts.php';
-//include 'videositemap.php';
+include 'videositemap.php';
+include 'posttypes.php';
+include 'influencermetaboxes.php';

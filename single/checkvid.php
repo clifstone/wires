@@ -6,7 +6,7 @@
 
 <?php
     if($vidCode){
-        get_template_part( 'single/vjs', 'single' );
+        get_template_part( 'single/vjs_fast', 'single' );
     }else if($ytCode){
         get_template_part( 'single/yt', 'single' );
     }else{
