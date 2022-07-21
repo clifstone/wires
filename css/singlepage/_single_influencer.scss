@@ -1,0 +1,97 @@
+@use '../abstracts/' as *;
+//
+.theinfluencer {
+    display: grid;
+    grid-template-columns: 115px minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: 'infthumb infheader infheader' 'infsoc infsoc infsoc' 'infbio infbio infbio' 'infbutton infbutton infbutton';
+    grid-gap: 0.5rem;
+    padding: 0.5rem;
+    .page-template-influencer_page & {
+        padding: 0.5rem 0.5rem 2rem;
+        border-bottom: 4px solid rgba($black, 0.2);
+        margin: 0 0 2rem;
+        &:last-child {
+            border: 0 none;
+        }
+    }
+}
+
+.influencerpageheader {
+    grid-area: infheader;
+    .influencer-label {
+        font-size: 0.6rem;
+        color: $accent;
+    }
+    h1,
+    h2 {
+        font-size: 1.7rem;
+        margin: 0 0 0.5rem 0;
+    }
+}
+
+.influencer-social {
+    grid-area: infsoc;
+    .socialbtns {
+        display: flex;
+        gap: 0.5rem;
+        >.socialbtn {
+            line-height: 0;
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+        }
+    }
+}
+
+.influencer-thumb {
+    grid-area: infthumb;
+}
+
+.influencerbutton {
+    grid-area: infbutton;
+    .influencerlink {
+        font-size: 0.8rem;
+        color: $white;
+        text-transform: uppercase;
+        display: inline-block;
+        background-color: $accent;
+        padding: 0.5rem 1rem;
+    }
+}
+
+.influencerbio {
+    grid-area: infbio;
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+    // border-top: 1px solid rgba($black, 0.1);
+    // border-bottom: 1px solid rgba($black, 0.1);
+    margin: 0 0 1rem;
+    >.the-content {
+        line-height: 1.7;
+        h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin: 0.5rem 0;
+        }
+        padding: 0.5rem 0;
+    }
+}
+
+.page-template-influencer_page {
+    .main-wrap {
+        max-width: 1280px;
+        margin: auto;
+        padding: 1rem 0 4rem;
+    }
+    @media #{$des} {
+        .site-main {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            grid-gap: 3rem;
+        }
+    }
+}

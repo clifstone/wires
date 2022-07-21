@@ -2,10 +2,10 @@
 //
 .carousel {
     width: 100vw;
-    padding: 1rem 0 2rem;
+    padding: 0 0 2rem;
     margin: 0 0 1rem;
     .splide__pagination__page {
-        background: $white;
+        background: $black;
         opacity: 0.35;
         bottom: -1rem;
         &.is-active {
@@ -21,11 +21,11 @@
         padding: 1rem 0 2rem;
         margin: 0 0 1rem;
         .splide {
-            max-width: 50vw;
+            //max-width: 50vw;
             margin: auto;
         }
         .splide__track {
-            overflow: visible;
+            //overflow: visible;
         }
         .splide__pagination {
             bottom: -0.5rem;

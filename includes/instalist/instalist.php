@@ -9,6 +9,8 @@ function instalist_func( $atts = array(), $content="null" ) {
         'thumbshapelg' => '',
         'category_name' => '',
         'tag_name' => '',
+        'post_type' => '',
+        'author' => '',
         'rowclass' => '',
         'gridclass' => '',
         'hasexcerpt' => true,
@@ -88,6 +90,22 @@ function instalist_func( $atts = array(), $content="null" ) {
 
         );
         ($category_name) ? ($totalnum = get_term_by('slug', $category_name, 'category')->count) : ($totalnum = get_term_by('slug', $tag_name, 'post_tag')->count);
+    }else if($post_type){
+        $args = array(
+            'loopname' => 'instalist',
+            'post_type' => $post_type,
+            'posts_per_page' => $numof,
+            'post_status' => 'publish',
+            'hasexcerpt' => $hasexcerpt,
+        );
+    }else if($author){
+        $args = array(
+            'loopname' => 'instalist',
+            'author' => $author,
+            'posts_per_page' => $numof,
+            'post_status' => 'publish',
+            'hasexcerpt' => $hasexcerpt,
+        );
     }else{
         $args = array(
             'loopname' => 'instalist',

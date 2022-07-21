@@ -27,15 +27,26 @@ function carousel_func( $atts = array(), $content="null" ) {
 
     $mcRand = rand( 0 , 999999 );
     $x = 0;
-    $args = array(
-        'loopname' => 'carousel',
-        'listtype' => 'carouselitem',
-        'category_name' => $category_name,
-        'post_type' => 'post',
-        'posts_per_page' => $numofdesktop,
-        'post_status' => 'publish',
-        'exclude' => $exclude
-    );
+    
+    if($category_name){
+        $args = array(
+            'loopname' => 'carousel',
+            'listtype' => 'carouselitem',
+            'category_name' => $category_name,
+            'post_type' => 'post',
+            'posts_per_page' => $numofdesktop,
+            'post_status' => 'publish',
+            'exclude' => $exclude
+        );
+    }else if($author){
+        $args = array(
+            'loopname' => 'carousel',
+            'author' => $author,
+            'posts_per_page' => $numof,
+            'post_status' => 'publish',
+            'hasexcerpt' => $hasexcerpt,
+        );
+    }
 
     global $post;
     $label = get_post_meta($post->ID, 'pagecarousel_label', true);
@@ -44,19 +55,27 @@ function carousel_func( $atts = array(), $content="null" ) {
         $carousel_label = $label;
     }
 
-    if($usehtwo){
+    if($usehtwo && !is_singular('influencersections')){
         $header = '<h2>'.$carousel_label.'</h2>';
+    }else if(is_singular('influencersections')){
+        $noheader = true;
     }else{
         $header = '<h3>'.$carousel_label.'</h3>';
     }
 
-    $carouselstructure = '
-    <section class="carousel '.$helperclass.'" '.$datacatname.'>
+    if(!$noheader){
+        $rowheader = '
         <div class="row-header">
             <div class="wrapper">
                 '.$header.'
             </div>
         </div>
+        ';
+    }
+
+    $carouselstructure = '
+    <section class="carousel '.$helperclass.'" '.$datacatname.'>
+        '.$rowheader.'
         <div class="carousel__wrapper">
             <div class="splide" aria-label="Featured Videos">
                 <div class="splide__track">

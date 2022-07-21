@@ -21,6 +21,14 @@
         display: block;
         padding-bottom: var(--thAs);
     }
+    &.squarethumb {
+        &:before {
+            content: '';
+            width: 100%;
+            display: block;
+            padding-bottom: 100%;
+        }
+    }
     .grid-item.video & {
         &:after {
             content: url(images/playbtnoverlay.svg);
