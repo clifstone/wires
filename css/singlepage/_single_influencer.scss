@@ -1,36 +1,45 @@
 @use '../abstracts/' as *;
 //
 .theinfluencer {
-    display: grid;
-    grid-template-columns: 115px minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-areas: 'infthumb infheader infheader' 'infsoc infsoc infsoc' 'infbio infbio infbio' 'infbutton infbutton infbutton';
-    grid-gap: 0.5rem;
-    padding: 0.5rem;
-    .page-template-influencer_page & {
-        padding: 0.5rem 0.5rem 2rem;
-        border-bottom: 4px solid rgba($black, 0.2);
-        margin: 0 0 2rem;
-        &:last-child {
-            border: 0 none;
-        }
+    border-bottom: 4px solid rgba($black, 0.5);
+    padding: 0 0 2rem;
+    margin: 0 0 4rem;
+    &:last-child {
+        border-bottom: 0 none;
     }
 }
 
 .influencerpageheader {
-    grid-area: infheader;
-    .influencer-label {
-        font-size: 0.6rem;
-        color: $accent;
-    }
-    h1,
-    h2 {
-        font-size: 1.7rem;
-        margin: 0 0 0.5rem 0;
+    margin: 0 0 1rem;
+    padding: 0.5rem;
+    >.wrapper {
+        display: grid;
+        grid-template-columns: 115px auto;
+        grid-template-rows: auto auto;
+        grid-gap: 0 1rem;
     }
 }
 
+.influencer-thumb {
+    grid-row: span 2;
+    background-color: $white;
+    box-shadow: 0 0 4px rgba($black, 0.5);
+    >.wrapper {
+        padding: 0.25rem;
+    }
+}
+
+.influencer-label {
+    font-size: 0.6rem;
+    color: $accent;
+}
+
+.influencer-name {
+    font-size: 1.7rem;
+    margin: 0 0 0.5rem 0;
+}
+
 .influencer-social {
-    grid-area: infsoc;
     .socialbtns {
         display: flex;
         gap: 0.5rem;
@@ -43,44 +52,107 @@
             align-items: center;
             justify-content: center;
             border-radius: 999px;
+            transform: scale(1);
+            transition: transform 0.25s ease-out;
+            @media (hover: hover) {
+                &:hover {
+                    transform: scale(0.95);
+                }
+            }
         }
     }
-}
-
-.influencer-thumb {
-    grid-area: infthumb;
 }
 
 .influencerbutton {
-    grid-area: infbutton;
-    .influencerlink {
-        font-size: 0.8rem;
-        color: $white;
+    text-align: center;
+    color: $white;
+    background-color: $accent;
+    a {
+        font-size: 1rem;
+        line-height: 1;
         text-transform: uppercase;
-        display: inline-block;
-        background-color: $accent;
-        padding: 0.5rem 1rem;
+        display: block;
+        padding: 1rem;
     }
 }
 
-.influencerbio {
-    grid-area: infbio;
-    font-size: 0.9rem;
-    line-height: 1.4rem;
-    // border-top: 1px solid rgba($black, 0.1);
-    // border-bottom: 1px solid rgba($black, 0.1);
-    margin: 0 0 1rem;
-    >.the-content {
-        line-height: 1.7;
-        h3 {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            margin: 0.5rem 0;
-        }
-        padding: 0.5rem 0;
+.influencerbio-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+}
+
+.influencerbio-content.the-content {
+    font-size: 1rem;
+}
+
+.influencerbio-content {
+    >.wrapper {
+        max-height: 90px;
+        overflow: hidden;
     }
 }
 
+// <div class="influencerbio"><h3 class="influencerbio-title"><span>About </span><span><?php echo get_the_title();
+// ?></span></h3><div class="influencerbio-content the-content"><div class="wrapper"><?php the_content();
+// ?></div><div class="influencer-readmorebtn"><span>Read More</span></div></div></div> // .theinfluencer {
+//     display: grid;
+//     grid-template-columns: 115px minmax(0, 1fr) minmax(0, 1fr);
+//     grid-template-areas: 'infthumb infheader infheader' 'infsoc infsoc infsoc' 'infbio infbio infbio' 'infbutton infbutton infbutton';
+//     grid-gap: 0.5rem;
+//     padding: 0.5rem;
+//     .page-template-influencer_page & {
+//         padding: 0.5rem 0.5rem 2rem;
+//         border-bottom: 4px solid rgba($black, 0.2);
+//         margin: 0 0 2rem;
+//         &:last-child {
+//             border: 0 none;
+//         }
+//     }
+// }
+// .influencerpageheader {
+//     grid-area: infheader;
+//     .influencer-label {
+//         font-size: 0.6rem;
+//         color: $accent;
+//     }
+//     h1,
+//     h2 {
+//         font-size: 1.7rem;
+//         margin: 0 0 0.5rem 0;
+//     }
+// }
+// .influencer-thumb {
+//     grid-area: infthumb;
+// }
+// .influencerbutton {
+//     grid-area: infbutton;
+//     .influencerlink {
+//         font-size: 0.8rem;
+//         color: $white;
+//         text-transform: uppercase;
+//         display: inline-block;
+//         background-color: $accent;
+//         padding: 0.5rem 1rem;
+//     }
+// }
+// .influencerbio {
+//     grid-area: infbio;
+//     font-size: 0.9rem;
+//     line-height: 1.4rem;
+//     // border-top: 1px solid rgba($black, 0.1);
+//     // border-bottom: 1px solid rgba($black, 0.1);
+//     margin: 0 0 1rem;
+//     >.the-content {
+//         line-height: 1.7;
+//         h3 {
+//             font-size: 0.8rem;
+//             text-transform: uppercase;
+//             margin: 0.5rem 0;
+//         }
+//         padding: 0.5rem 0;
+//     }
+// }
 .page-template-influencer_page {
     .main-wrap {
         max-width: 1280px;

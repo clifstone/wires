@@ -291,6 +291,10 @@ body.show-menu {
   grid-area: main;
 }
 
+.pagetitle {
+  margin: 0 0 2rem;
+}
+
 .site-footer {
   min-height: 3.125rem;
   grid-area: footer;
@@ -479,37 +483,44 @@ body.show-menu {
 }
 
 .theinfluencer {
-  display: grid;
-  grid-template-columns: 115px minmax(0, 1fr) minmax(0, 1fr);
-  grid-template-areas: "infthumb infheader infheader" "infsoc infsoc infsoc" "infbio infbio infbio" "infbutton infbutton infbutton";
-  grid-gap: 0.5rem;
-  padding: 0.5rem;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.5);
+  padding: 0 0 2rem;
+  margin: 0 0 4rem;
 }
-.page-template-influencer_page .theinfluencer {
-  padding: 0.5rem 0.5rem 2rem;
-  border-bottom: 4px solid rgba(0, 0, 0, 0.2);
-  margin: 0 0 2rem;
-}
-.page-template-influencer_page .theinfluencer:last-child {
-  border: 0 none;
+.theinfluencer:last-child {
+  border-bottom: 0 none;
 }
 
 .influencerpageheader {
-  grid-area: infheader;
+  margin: 0 0 1rem;
+  padding: 0.5rem;
 }
-.influencerpageheader .influencer-label {
+.influencerpageheader > .wrapper {
+  display: grid;
+  grid-template-columns: 115px auto;
+  grid-template-rows: auto auto;
+  grid-gap: 0 1rem;
+}
+
+.influencer-thumb {
+  grid-row: span 2;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+.influencer-thumb > .wrapper {
+  padding: 0.25rem;
+}
+
+.influencer-label {
   font-size: 0.6rem;
   color: #ef3e25;
 }
-.influencerpageheader h1,
-.influencerpageheader h2 {
+
+.influencer-name {
   font-size: 1.7rem;
   margin: 0 0 0.5rem 0;
 }
 
-.influencer-social {
-  grid-area: infsoc;
-}
 .influencer-social .socialbtns {
   display: flex;
   gap: 0.5rem;
@@ -523,38 +534,41 @@ body.show-menu {
   align-items: center;
   justify-content: center;
   border-radius: 999px;
+  transform: scale(1);
+  transition: transform 0.25s ease-out;
 }
-
-.influencer-thumb {
-  grid-area: infthumb;
+@media (hover: hover) {
+  .influencer-social .socialbtns > .socialbtn:hover {
+    transform: scale(0.95);
+  }
 }
 
 .influencerbutton {
-  grid-area: infbutton;
-}
-.influencerbutton .influencerlink {
-  font-size: 0.8rem;
+  text-align: center;
   color: #FFFFFF;
-  text-transform: uppercase;
-  display: inline-block;
   background-color: #ef3e25;
-  padding: 0.5rem 1rem;
+}
+.influencerbutton a {
+  font-size: 1rem;
+  line-height: 1;
+  text-transform: uppercase;
+  display: block;
+  padding: 1rem;
 }
 
-.influencerbio {
-  grid-area: infbio;
-  font-size: 0.9rem;
-  line-height: 1.4rem;
-  margin: 0 0 1rem;
-}
-.influencerbio > .the-content {
-  line-height: 1.7;
-  padding: 0.5rem 0;
-}
-.influencerbio > .the-content h3 {
+.influencerbio-title {
   font-size: 0.8rem;
   text-transform: uppercase;
   margin: 0.5rem 0;
+}
+
+.influencerbio-content.the-content {
+  font-size: 1rem;
+}
+
+.influencerbio-content > .wrapper {
+  max-height: 90px;
+  overflow: hidden;
 }
 
 .page-template-influencer_page .main-wrap {
